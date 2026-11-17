@@ -322,19 +322,6 @@ $(function() {
     }
 
 
-    // 법인 소식 카테고리
-    $('.home_news_tabs button').on('click', function() {
-        let index = $(this).index();
-
-        $('.home_news_tabs button').removeClass('active');
-        $(this).addClass('active');
-        
-        const $lists = $('.home_news_list');
-        $lists.prop('hidden', true);
-        $lists.eq(index).prop('hidden', false);
-    });
-
-
     // gsap
     gsap.to('.hero_image', {
         scrollTrigger: {

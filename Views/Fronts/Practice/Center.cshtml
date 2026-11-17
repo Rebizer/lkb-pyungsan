@@ -156,6 +156,7 @@
 }
 
 @section css {
+    <link rel="stylesheet" href="~/css/pages/home/news.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/pages/cases/index.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/pages/home/common.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/pages/practice/center_header.css" asp-append-version="true">
@@ -163,6 +164,7 @@
 }
 
 @section scripts {
+    <script src="~/js/pages/home/news.js" asp-append-version="true"></script>
     <script src="~/js/pages/practice/center.js" asp-append-version="true"></script>
 }
 
@@ -345,6 +347,12 @@
                     <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
                 </i>
             </a>
+        </div>
+    </section>
+    <section id="center_news" class="center_news section">
+        <div class="container-lg">
+            <h2 class="english_heading section_scroll">NEWS</h2>
+            @await Html.PartialAsync("~/Views/Shared/Common/_CorporateNews.cshtml", true)
         </div>
     </section>
     <section class="contact_sec container-lg section">

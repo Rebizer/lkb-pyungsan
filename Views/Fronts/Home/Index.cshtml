@@ -143,11 +143,13 @@
 }
 
 @section css {
+    <link rel="stylesheet" href="~/css/pages/home/news.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/pages/home/common.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/pages/home/index.css" asp-append-version="true">
 }
 
 @section scripts {
+    <script src="~/js/pages/home/news.js" asp-append-version="true"></script>
     <script src="~/js/pages/home/index.js" asp-append-version="true"></script>
 }
 
@@ -275,69 +277,7 @@
                     <img src="/images/icon/arrow_home_icon.svg" alt="" aria-hidden="true">
                 </i>
             </a>
-            <div class="section_heading corporate_heading section_scroll">
-                <h3>법인소식</h3>
-                <a class="button pc_button" href="/news">
-                    소식 더보기
-                    <i class="svg_icon arrow_hover_icon arrow_home_icon">
-                        <img src="/images/icon/arrow_home_icon.svg" alt="" aria-hidden="true">
-                    </i>
-                </a>
-            </div>
-            <div class="home_news_tabs section_scroll" role="tablist" aria-label="법인소식 분류">
-                <button type="button" role="tab" class="active">공지사항</button>
-                <button type="button" role="tab">세미나</button>
-                <button type="button" role="tab">위촉</button>
-            </div>
-            @{
-                
-                var news1 = new[]{
-                    "LKB평산 국제센터 윤웅걸, 이예지, 이진서, 강두리 변호사 제24차 2026 세계한상대회 참여",
-                    "[방송출연] 김희준 대표이사 kbc 광주방송 휴먼토크 <호남호남인> 출연",
-                    "[공지] LKB평산, 창동민자역사 임대분양 피해자 대상 8월 18일 집단소송 설명회 개최",
-                    "「보이스 피싱 범죄의 유형 분석과 피해구제 실무」─ 이형구, 박병규 변호사 공저 출간"
-                };
-                var news2 = new[]{
-                    "[로집사] 건설산업의 경기대응 세미나_이데일리_Q&A"
-                };
-                var news3 = new[]{
-                    "[송시현변호사] 2026대한변호사협회 ESG특별위원회위원 위촉",
-                    "[김훈영변호사] 대한치과의사협회 법률고문단 위원 위촉",
-                    "[강두리변호사] 2026서울지방노동위원회 공익위원 위촉",
-                    "[강두리 변호사] 2026금융위원회 법률자문위원 위촉"
-                };
-
-                var newsGroups = new[] {
-                    new { Category = "공지사항", Items = news1 },
-                    new { Category = "세미나", Items = news2 },
-                    new { Category = "위촉", Items = news3 }
-                };
-            }
-            @for (var j = 0; j < newsGroups.Length; j++)
-            {
-                var group = newsGroups[j];
-
-                <ul class="home_news_list section_scroll" hidden="@(j != 0)">
-                    @foreach (var title in group.Items)
-                    {
-                        <li data-news-type="@group.Category">
-                            <a href="/news/detail">
-                                <p class="post_title">@title</p>
-                                <div class="post_meta">
-                                    <span class="post_category">@group.Category</span>
-                                    <time class="post_date">26-00-00</time>
-                                </div>
-                            </a>
-                        </li>
-                    }
-                </ul>
-            }
-            <a class="button m_button" href="/news">
-                소식 더보기
-                <i class="svg_icon arrow_hover_icon arrow_home_icon">
-                    <img src="/images/icon/arrow_home_icon.svg" alt="" aria-hidden="true">
-                </i>
-            </a>
+            @await Html.PartialAsync("~/Views/Shared/Common/_CorporateNews.cshtml", false)
         </div>
     </section>
     <section class="home_about section">
