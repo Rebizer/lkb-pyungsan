@@ -1,0 +1,123 @@
+/* 센터 전용 차이만 정의합니다. 기본 헤더 · 데스크톱 메뉴는 default.css를 사용합니다. */
+
+/*---------------- center_brand · center_phone ----------------*/
+.center_brand_logo {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+.center_phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    color: var(--white);
+    background: var(--primary);
+    font-size: var(--ft14);
+    font-weight: var(--medium);
+    white-space: nowrap;
+}
+
+.center_header .language_wrap ul {
+    right: 0;
+}
+
+/*---------------- center_mobile_nav ----------------*/
+.center_mobile_nav {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .desktop_nav {
+        display: block;
+    }
+}
+
+@media (max-width: 900px) {
+    .site_header {
+        border: none !important;
+    }
+    .desktop_nav {
+        display: none;
+    }
+
+    .center_mobile_nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: block;
+        padding: 0 20px;
+        background: inherit;
+    }
+
+    .center_mobile_nav > ul {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        max-width: 640px;
+        margin: 0 auto;
+    }
+
+    .center_mobile_nav > ul > li > a,
+    .center_mobile_nav summary {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        font-size: var(--ft14);
+        font-weight: var(--semi-bold);
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .center_mobile_nav summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .center_mobile_nav details {
+        position: relative;
+    }
+
+    .center_mobile_nav details > ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        min-width: 80px;
+        padding: 8px 0;
+        background: var(--white);
+        color: var(--gray-400);
+        box-shadow: var(--shadow);
+    }
+
+    .center_mobile_nav details a {
+        display: block;
+        padding: 8px 4px;
+        text-align: center;
+        font-size: var(--ft14);
+    }
+
+    .center_mobile_nav a:hover,
+    .center_mobile_nav a:focus-visible,
+    .center_mobile_nav details[open] summary {
+        color: var(--primary);
+    }
+
+    .center_page > section[id] {
+        scroll-margin-top: 140px;
+    }
+}
+
+@media (max-width: 767px) {
+    .center_phone {
+        padding: 8px;
+    }
+
+    .center_phone span:last-child {
+        display: none;
+    }
+
+    .center_page > section[id] {
+        scroll-margin-top: 115px;
+    }
+}

@@ -1,0 +1,288 @@
+/*---------------- global_search ----------------*/
+.search_page .global_search {
+    padding: 30px;
+    background: var(--primary-100);
+    margin-top: 40px;
+}
+
+.global_search .list_search {
+    margin: 0 auto;
+}
+
+.global_search .search_box input {
+    font-size: var(--ft18);
+}
+
+.global_result_count {
+    color: var(--gray-500);
+    margin: 60px 0 36px;
+    font-size: var(--ft20);
+    font-weight: var(--medium);
+    line-height: 1.4;
+}
+
+.global_result_count strong {
+    color: var(--primary);
+    font-weight: var(--semi-bold);
+}
+
+/*---------------- search_sections ----------------*/
+.search_sections {
+    margin-bottom: 80px;
+}
+
+.search_sections > button {
+    min-height: 50px;
+    padding: 12px 10px;
+    font-size: var(--ft16);
+    font-weight: var(--semi-bold);
+    line-height: 1.4;
+}
+
+/*---------------- search_group ----------------*/
+.search_group {
+    margin-top: 120px;
+}
+
+.search_sections + .search_group {
+    margin-top: 0;
+}
+
+.search_group .section_heading {
+    align-items: flex-end;
+    gap: 20px;
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.search_group .section_heading h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--ft24);
+    font-weight: var(--semi-bold);
+    line-height: 1.4;
+}
+
+.search_group_count {
+    color: var(--primary);
+    font-size: var(--ft20);
+    font-weight: var(--normal);
+}
+
+.search_group .section_heading .button {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    gap: 8px;
+    color: var(--gray-300);
+    font-size: var(--ft14);
+    font-weight: var(--semi-bold);
+    line-height: 1.3;
+    white-space: nowrap;
+    transition: color .2s ease;
+}
+
+.search_group .section_heading .button .svg_icon {
+    width: 16px;
+    height: 16px;
+}
+
+.search_group .section_heading .button:hover,
+.search_group .section_heading .button:focus-visible {
+    color: var(--primary);
+}
+
+/*-- 결과 카드: 기존 목록 컴포넌트의 검색 화면 변형 --*/
+.search_results > [hidden],
+.search_more[hidden] {
+    display: none !important;
+}
+
+.search_group .member_info {
+    height: 170px;
+}
+
+.search_group .member_info .member_name {
+    margin-bottom: 6px;
+    color: var(--gray-500);
+    font-size: var(--ft26);
+    font-weight: var(--semi-bold);
+    line-height: 1.4;
+}
+
+.search_group .member_info dl {
+    margin-top: 18px;
+}
+
+.search_group .member_info dl div:first-child {
+    margin-top: 0;
+}
+
+.search_group .case_card .post_title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.search_group .news_list {
+    border-top: 0;
+}
+
+.search_group .news_row:first-child > a {
+    padding-top: 0;
+}
+
+/*---------------- search_more ----------------*/
+.search_more_wrap {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.search_more {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-width: 200px;
+    min-height: 50px;
+    padding: 14px 24px;
+    font-size: var(--ft16);
+    font-weight: var(--semi-bold);
+    color: var(--gray-400);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    transition: border-color .2s ease, color .2s ease;
+}
+
+.search_more .svg_icon {
+    width: 16px;
+    height: 16px;
+    background-color: currentColor;
+    -webkit-mask: url('/lkb-pyungsan/images/icon/add_icon.svg') center / contain no-repeat;
+    mask: url('/lkb-pyungsan/images/icon/add_icon.svg') center / contain no-repeat;
+}
+
+.search_more .svg_icon img {
+    opacity: 0;
+}
+
+.search_more:hover,
+.search_more:focus-visible {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/*-- 더보기 로딩: 내용 자리를 유지하여 버튼 크기가 변하지 않습니다. --*/
+.search_more.loading {
+    cursor: wait;
+    color: var(--primary);
+}
+
+.search_more.loading .search_more_label,
+.search_more.loading .svg_icon {
+    visibility: hidden;
+}
+
+.search_more.loading::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    border: 2px solid var(--primary-300);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: search_more_spin .7s linear infinite;
+}
+
+@keyframes search_more_spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*---------------- responsive ----------------*/
+@media (max-width: 1200px) {
+    .search_sections {
+        flex-wrap: wrap;
+    }
+
+    .search_sections > button {
+        flex: 0 0 33.333333%;
+    }
+}
+
+@media (max-width: 767px) {
+    .search_page .global_search {
+        margin-top: 32px;
+        padding: 20px 0;
+    }
+
+    .global_search .search_box input {
+        font-size: var(--ft16);
+    }
+
+    .global_result_count {
+        margin: 32px 0 24px;
+        font-size: var(--ft16);
+    }
+
+    .search_sections {
+        margin-bottom: 50px;
+    }
+
+    .search_sections > button {
+        padding: 12px 4px;
+        font-size: var(--ft14);
+    }
+
+    .search_group {
+        margin-top: 70px;
+    }
+
+    .search_group .section_heading {
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 20px;
+        margin-bottom: 24px;
+    }
+
+    .search_group .section_heading h2 {
+        font-size: var(--ft20);
+    }
+
+    .search_group_count {
+        font-size: var(--ft16);
+    }
+
+    .search_group .member_info {
+        height: 140px;
+    }
+
+    .search_group .member_info .member_name {
+        font-size: var(--ft20);
+    }
+
+    .search_group .member_info dl {
+        margin-top: 10px;
+    }
+
+    .search_more_wrap {
+        margin-top: 28px;
+    }
+
+    .search_more {
+        min-width: 180px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .search_more.loading::after {
+        animation: none;
+    }
+}

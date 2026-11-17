@@ -1,0 +1,125 @@
+/* Cases/Detail 전용 스타일 */
+
+/* 사례 카테고리, 결과 */
+.case_heading_meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.case_heading_meta .post_category {
+    font-size: var(--ft18);
+    font-weight: var(--medium);
+    padding: 6px 14px;
+    background: var(--primary);
+    color: var(--white);
+}
+.case_heading_meta .case_result {
+    font-size: var(--ft20);
+    font-weight: var(--semi-bold);
+}
+
+/* ---------------- details ---------------- */
+.article_body .case_summary {
+    padding: 40px;
+    background: var(--primary-100);
+}
+.article_body .case_summary h2 {
+    font-size: var(--ft22);
+    font-weight: var(--semi-bold);
+}
+
+
+
+/* ---------------- 이전글 · 다음글 ---------------- */
+.case_navigation {
+    border-top: 1px solid var(--gray-300);
+}
+
+.case_navigation_link {
+    display: grid;
+    grid-template-columns: 50px minmax(0, 1fr);
+    align-items: start;
+    gap: 30px;
+    padding: 28px 0;
+}
+
+.case_navigation_link + .case_navigation_link {
+    border-top: 1px solid var(--gray-200);
+}
+
+.case_navigation_label {
+    color: var(--gray-300);
+    font-size: var(--ft16);
+    font-weight: var(--medium);
+    line-height: 1.4;
+}
+
+.case_navigation_content {
+    min-width: 0;
+}
+
+.case_navigation .case_navigation_meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    margin: 0 0 10px;
+    color: var(--gray-400);
+    font-size: var(--ft18);
+    font-weight: var(--medium);
+    line-height: 1.4;
+}
+
+.case_navigation_result {
+    color: var(--primary);
+}
+
+.case_navigation .case_navigation_title {
+    margin: 0;
+    color: var(--gray-500);
+    font-size: var(--ft18);
+    font-weight: var(--medium);
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.case_navigation_link:hover .case_navigation_title,
+.case_navigation_link:focus-visible .case_navigation_title {
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .article_body .case_summary h2 {
+        font-size: var(--ft20);
+        margin-bottom: 10px;
+    }
+    .article_body .case_summary {
+        padding: 20px;
+    }
+
+    .article_body section h2 {
+        font-size: var(--ft20);
+        margin-bottom: 10px;
+    }
+
+
+    .case_navigation_link {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+        padding: 20px 0;
+    }
+    .case_navigation_label {
+        font-size: var(--ft14);
+    }
+    .case_navigation .case_navigation_meta,
+    .case_navigation .case_navigation_title {
+        font-size: var(--ft16);
+    }
+
+    .related_member_photo {
+        width: 60px;
+        height: 60px;
+    }
+
+}

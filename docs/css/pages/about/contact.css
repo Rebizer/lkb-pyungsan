@@ -1,0 +1,301 @@
+/* About/Contact 전용 스타일 */
+
+
+/* ---------------- contact_page ---------------- */
+
+/*-- office_tabs --*/
+.office_tabs {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 40px 0 60px;
+    font-size: var(--ft22);
+    font-weight: var(--semi-bold);
+}
+.office_tabs button {
+    color: var(--gray-200);
+}
+.office_tabs .active {
+    color: var(--gray-500);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+/*-- map_banner --*/
+.map_banner {
+    height: 450px;
+    position: relative;
+    margin: 0 10px 60px;
+}
+.map {
+    width: 100%;
+    height: 100%;
+}
+.map > div {
+    width: 100% !important; 
+    height: 100% !important;
+}
+.wrap_controllers,
+.root_daum_roughmap .cont {
+    display: none;
+}
+.roughmap_maker_label .roughmap_lebel_text {
+    text-wrap: nowrap;
+}
+
+.office_title {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+.office_title h2 {
+    font-size: var(--ft28);
+    font-weight: var(--semi-bold);
+}
+
+/*-- office_map --*/
+.office_map {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    font-size: var(--ft16);
+    font-weight: var(--medium);
+}
+.office_map li {
+    padding-right: 40px;
+    position: relative;
+}
+.office_map li::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 20px;
+    background-color: var(--gray-200);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.office_map li:last-child {
+    padding-right: 0;
+}
+.office_map li:last-child::after {
+    display: none;
+}
+
+.office_map a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.office_map img {
+    width: 28px;
+    height: 28px;
+}
+.office_map p {
+    font-weight: var(--medium);
+    color: var(--gray-400);
+}
+
+/*-- office_details --*/
+.office_details {
+    display: flex;
+    gap: 50px;
+    margin: 50px 0;
+    padding-bottom: 50px;
+    border-bottom: 1px solid var(--gray-200);
+    font-size: var(--ft18);
+}
+.office_details li {
+    display: flex;
+    gap: 18px;
+}
+.office_details a,
+.office_details p {
+    display: inline;
+    color: var(--gray-400);
+}
+.office_details .contact_label {
+    font-weight: var(--medium);
+}
+
+
+/* ---------------- transport ---------------- */
+.transport > div {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    margin-top: 60px;
+}
+.transport dt {
+    font-size: var(--ft20);
+    font-weight: var(--semi-bold);
+}
+.transport dd {
+    white-space: pre-line;
+    font-size: var(--ft18);
+    font-weight: var(--normal);
+    color: var(--gray-400);
+    line-height: 2;
+}
+
+/*-- parking --*/
+.parking {
+    background: var(--primary-100);
+    width: fit-content;
+    padding: 4px 10px;
+    margin-top: 20px;
+    font-size: var(--ft18);
+    font-weight: var(--normal);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.parking_l {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--ft18);
+    font-weight: var(--semi-bold);
+    color: var(--primary);
+    flex-shrink: 0;
+}
+.parking img {
+    width: 24px;
+    height: 24px;
+}
+
+/*-- subway --*/
+.subway {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    font-size: var(--ft20);
+    font-weight: var(--semi-bold);
+}
+.subway li {
+    border: 1px solid var(--color);
+    border-radius: 30px;
+    color: var(--color);
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.subway span {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--color);
+    font-size: var(--ft13);
+    font-weight: var(--semi-bold);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subway p {
+    font-size: var(--ft20);
+    font-weight: var(--semi-bold);
+    color: var(--color);
+}
+
+.subway span + span {
+    border-color: #43b748;
+    color: #43b748;
+}
+
+@media (max-width: 1100px) {
+    /* 공통 기초 및 컴포넌트 */
+    .office_title {
+        flex-direction: column;
+    }
+
+    .office_details {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* 공통 기초 및 컴포넌트 */
+    .office_tabs {
+        margin: 28px 0 32px;
+        font-size: var(--ft18);
+    }
+
+    .map_banner {
+        height: 400px;
+        margin: 0 0 32px;
+    }
+
+    .office_title h2 {
+        font-size: var(--ft22);
+    }
+    .office_title > div {
+        font-size: var(--ft13);
+        gap: 20px;
+    }
+    .office_map {
+        gap: 20px;
+    }
+    .office_map li {
+        padding-right: 20px;
+    }
+    .office_map img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .office_details {
+        flex-direction: column;
+        gap: 14px;
+        margin: 32px 0;
+        padding-bottom: 24px;
+        font-size: var(--ft16)
+    }
+    .office_details .contact_label {
+        width: 60px;
+        flex-shrink: 0;
+    }
+
+    .transport > div {
+        display: block;
+        margin-top: 32px;
+    }
+
+    .transport dt {
+        font-size: var(--ft18);
+        font-weight: var(--semi-bold);
+        margin-bottom: 10px;
+    }
+
+    .transport dd {
+        font-size: var(--ft16);
+        line-height: 1.8;
+    }
+
+    .parking {
+        width: 100%;
+        padding: 6px 12px;
+        font-size: var(--ft16);
+        flex-direction: column;
+        align-items: start;
+        gap: 4px;
+    }
+    .parking_l {
+        font-size: var(--ft18);
+    }
+    .parking img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .subway {
+        margin-top: 10px;
+    }
+    .subway span {
+        width: 16px;
+        height: 16px;
+    }
+}
