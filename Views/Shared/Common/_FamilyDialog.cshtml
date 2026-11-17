@@ -1,0 +1,194 @@
+@{
+    // family_list 반복 콘텐츠
+    var familySites = new[]
+    {
+        new
+        {
+            DataCenter = "중대재해센터",
+            Label = "중대재해센터"
+        },
+        new
+        {
+            DataCenter = "국제센터",
+            Label = "국제센터"
+        },
+        new
+        {
+            DataCenter = "해사국제상사센터",
+            Label = "해사국제상사센터"
+        },
+        new
+        {
+            DataCenter = "선거법센터",
+            Label = "선거법센터"
+        },
+        new
+        {
+            DataCenter = "집단소송센터",
+            Label = "집단소송센터"
+        },
+        new
+        {
+            DataCenter = "공정거래센터",
+            Label = "공정거래센터"
+        },
+        new
+        {
+            DataCenter = "금융법센터",
+            Label = "금융법센터"
+        },
+        new
+        {
+            DataCenter = "자본시장센터",
+            Label = "자본시장센터"
+        },
+        new
+        {
+            DataCenter = "헬스바이오센터",
+            Label = "헬스바이오센터"
+        },
+        new
+        {
+            DataCenter = "K-컬쳐센터",
+            Label = "K-컬쳐센터"
+        },
+        new
+        {
+            DataCenter = "AI컨텐츠센터",
+            Label = "AI컨텐츠센터"
+        },
+        new
+        {
+            DataCenter = "가사센터(상속이혼센터)",
+            Label = "가사센터(상속이혼센터)"
+        },
+        new
+        {
+            DataCenter = "형사법연구센터",
+            Label = "형사법연구센터"
+        },
+        new
+        {
+            DataCenter = "수사대응센터",
+            Label = "수사대응센터"
+        },
+        new
+        {
+            DataCenter = "성범죄센터",
+            Label = "성범죄센터"
+        },
+        new
+        {
+            DataCenter = "마약센터",
+            Label = "마약센터"
+        },
+        new
+        {
+            DataCenter = "디지털자산센터",
+            Label = "디지털자산센터"
+        },
+        new
+        {
+            DataCenter = "프로보노센터",
+            Label = "프로보노센터"
+        },
+        new
+        {
+            DataCenter = "노동센터",
+            Label = "노동센터"
+        },
+        new
+        {
+            DataCenter = "건설부동산센터",
+            Label = "건설부동산센터"
+        },
+        new
+        {
+            DataCenter = "부동산개발법센터",
+            Label = "부동산개발법센터"
+        },
+        new
+        {
+            DataCenter = "학교폭력센터",
+            Label = "학교폭력센터"
+        },
+        new
+        {
+            DataCenter = "재판소원센터",
+            Label = "재판소원센터"
+        },
+        new
+        {
+            DataCenter = "관세통상센터",
+            Label = "관세통상센터"
+        },
+        new
+        {
+            DataCenter = "도산기업회생센터",
+            Label = "도산기업회생센터"
+        },
+        new
+        {
+            DataCenter = "경영·가업승계센터",
+            Label = "경영·가업승계센터"
+        },
+        new
+        {
+            DataCenter = "내부통제ESG센터",
+            Label = "내부통제ESG센터"
+        },
+        new
+        {
+            DataCenter = "M&A센터",
+            Label = "M&A센터"
+        },
+        new
+        {
+            DataCenter = "영업비밀/IP센터",
+            Label = "영업비밀/IP센터"
+        },
+        new
+        {
+            DataCenter = "조세법센터",
+            Label = "조세법센터"
+        }
+    };
+
+}
+<dialog id="family_dialog" class="family_dialog" aria-labelledby="family_title" data-lenis-prevent="">
+    <div class="family_header">
+        <button class="dialog_close" type="button" aria-label="닫기">
+            <i class="svg_icon family_close_icon">
+                <img src="/images/icon/family_close_icon.svg" alt="" aria-hidden="true">
+            </i>
+        </button>
+        <h2 id="family_title">패밀리사이트</h2>
+        <label class="search_box">
+            <span class="sr_only">패밀리사이트 검색</span>
+            <input class="family_search" placeholder="검색어를 입력해 주세요." type="search">
+            <i class="svg_icon search_icon">
+                <img src="/images/icon/search_icon.svg" alt="" aria-hidden="true">
+            </i>
+        </label>
+    </div>
+    <div class="family_body">
+        <p class="family_count" role="status"></p>
+        <ul class="family_list">
+            @for (var i = 0; i < familySites.Length; i++)
+            {
+                var item = familySites[i];
+
+                <li>
+                    <a href="/center" data-center="@item.DataCenter">
+                        @item.Label
+                        <span class="family_link_icon">
+                            <i class="svg_icon arrow_hover_icon external_link_icon">
+                                <img src="/images/icon/external_link_icon.svg" alt="" aria-hidden="true">
+                            </i>
+                        </span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</dialog>

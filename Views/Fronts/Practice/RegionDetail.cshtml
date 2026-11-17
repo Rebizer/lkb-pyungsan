@@ -1,0 +1,81 @@
+@{
+    ViewData["Title"] = "영미권 업무분야";
+    ViewData["Description"] = "영미권 법률 이슈에 대한 이해를 바탕으로 국경을 넘는 법률 지원";
+    ViewData["SchemaType"] = "WebPage";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+}
+
+@section meta {
+    <title>영미권 업무분야 | 법무법인 LKB평산</title>
+    <meta name="Title" content="영미권 업무분야 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="영미권 법률 이슈에 대한 이해를 바탕으로 국경을 넘는 법률 지원">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="영미권 업무분야">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="영미권 법률 이슈에 대한 이해를 바탕으로 국경을 넘는 법률 지원">
+    <meta property="og:url" content="@currentUrl">
+    
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="영미권 업무분야">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="영미권 법률 이슈에 대한 이해를 바탕으로 국경을 넘는 법률 지원">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="/css/editor.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/practice/detail.css" asp-append-version="true">
+}
+
+<main id="main" class="sub_page section">
+    <div class="page_heading container-md align_left">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>업무분야</li>
+                <li aria-current="page">영미권</li>
+            </ol>
+        </nav>
+        <h1 class="section_scroll">영미권</h1>
+        <p class="section_scroll">영미권 법률 이슈에 대한 이해를 바탕으로 국경을 넘는 법률 지원</p>
+    </div>
+    <div class="detail_banner section_scroll">
+        <img src="/images/practice/anglo_american_region_banner.png" alt="영미권 도심 전경">
+    </div>
+    <section class="container-md practice_detail section_scroll">
+        <h2 class="sr_only">영미권 법률서비스</h2>
+        <div class="ck-content">
+            <p>영미권과 관련된 법률 문제는 국가별 법체계와 거래 관행의 차이를 고려한 대응이 필요합니다.
+                LKB평산은 국내외 법률 쟁점을 검토하고, 의뢰인의 사업 환경과 목적에 맞는 법률서비스를 제공합니다.
+                국제계약의 체결과 이행, 해외 진출 및 투자, 기업 인수·합병, 국제거래 분쟁 등 다양한 사안에서 법적 위험을 분석하고 대응 방향을 제시합니다.
+                필요한 경우 현지 법률전문가와 협력하여 해당 국가의 규제와 절차를 확인하고, 국내외 업무가 유기적으로 이어질 수 있도록 지원합니다.
+                언어와 제도의 차이로 발생할 수 있는 불확실성을 줄이고, 주요 쟁점과 진행 상황을 명확하게 안내하여 의뢰인이 합리적인 의사결정을 내릴 수 있도록 돕습니다.</p>
+        </div>
+        <div class="back_list"><a class="button" href="/regions">목록으로</a></div>
+    </section>
+</main>

@@ -1,0 +1,516 @@
+@{
+    ViewData["Title"] = "법무법인 LKB평산";
+    ViewData["Description"] = "깊이 있는 전문성과 폭넓은 법률 역량으로 의뢰인과 함께합니다. LKB평산의 구성원, 업무분야, 주요 업무사례를 만나보세요.";
+    ViewData["SchemaType"] = "WebPage";
+    ViewData["BodyClass"] = "home_page";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // swiper-wrapper 반복 콘텐츠
+    var swiperWrapperItems1 = new[]
+    {
+        new
+        {
+            Text = "[이투데이] \"인권 '실행 수준' 기업별 격차 커...정부·기업·시민사회 유기적 협력 필요\" [인권경영 현주소]",
+            Image = "/images/news/press_human_rights_management.png",
+            ImageDescription = "[이투데이] \"인권 '실행 수준' 기업별 격차 커...정부·기업·시민사회 유기적 협력 필요\" [인권경영 현주소]"
+        },
+        new
+        {
+            Text = "[법조신문] 서울변회, 로펌 ‘프로보노 챌린지’ 선언… “지원사업 추진 계획”",
+            Image = "/images/news/press_pro_bono_challenge.png",
+            ImageDescription = "[법조신문] 서울변회, 로펌 ‘프로보노 챌린지’ 선언… “지원사업 추진 계획”"
+        },
+        new
+        {
+            Text = "[머니투데이] 의료인 '형사기소 제한법'에…법조계 \"필수의료 소송부담? 의사들 근거없는 주장\" 반발",
+            Image = "/images/news/press_medical_criminal_liability.png",
+            ImageDescription = "[머니투데이] 의료인 '형사기소 제한법'에…법조계 \"필수의료 소송부담? 의사들 근거없는 주장\" 반발"
+        },
+        new
+        {
+            Text = "[더팩트] \"위헌\" vs \"필수의료 살려야\"…의료인 형사기소 제한 '공방'",
+            Image = "/images/news/press_medical_liability_debate.png",
+            ImageDescription = "[더팩트] \"위헌\" vs \"필수의료 살려야\"…의료인 형사기소 제한 '공방'"
+        },
+        new
+        {
+            Text = "[뉴시스] 본격 가동된 중수청 마약국…'윗선' 부실수사 걱정 나오는 이유는",
+            Image = "/images/news/press_drug_investigation_bureau.png",
+            ImageDescription = "[뉴시스] 본격 가동된 중수청 마약국…'윗선' 부실수사 걱정 나오는 이유는"
+        }
+    };
+
+
+    // home_stats 반복 콘텐츠
+    var homeStatsItems3 = new[]
+    {
+        new
+        {
+            Label = "구성원 변호사",
+            Url = "/members",
+            Contact = "200+"
+        },
+        new
+        {
+            Label = "전문센터",
+            Url = "/centers",
+            Contact = "30+"
+        },
+        new
+        {
+            Label = "업무분야",
+            Url = "/practice",
+            Contact = "31+"
+        }
+    };
+
+    // ul 반복 콘텐츠
+    var ulItems4 = new[]
+    {
+        new
+        {
+            Text = "법무법인 ○○ 소속변호사"
+        },
+        new
+        {
+            Text = "대한법률구조공단 법률상담"
+        },
+        new
+        {
+            Text = "○○대학교 법학전문대학원 졸업"
+        }
+    };
+
+    // 하단 사무소 안내
+    var officeLocations = new[]
+    {
+        new
+        {
+            Name = "웅진관",
+            Url = "/contact",
+            Address = "서울 서초구 반포대로30길 81 웅진타워 4층, 13층, 14층, 16층",
+            Phone = "02-582-8500"
+        },
+        new
+        {
+            Name = "정곡관",
+            Url = "/contact?office=jeonggok",
+            Address = "서울 서초구 법원로 15 정곡빌딩 서관 지하 1층, 1~5층",
+            Phone = "02-596-7007"
+        }
+    };
+}
+
+@section meta {
+    <title>법무법인 LKB평산</title>
+    <meta name="Title" content="법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="깊이 있는 전문성과 폭넓은 법률 역량으로 의뢰인과 함께합니다. LKB평산의 구성원, 업무분야, 주요 업무사례를 만나보세요.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="법무법인 LKB평산">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="깊이 있는 전문성과 폭넓은 법률 역량으로 의뢰인과 함께합니다. LKB평산의 구성원, 업무분야, 주요 업무사례를 만나보세요.">
+    <meta property="og:url" content="@currentUrl">
+    
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="법무법인 LKB평산">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="깊이 있는 전문성과 폭넓은 법률 역량으로 의뢰인과 함께합니다. LKB평산의 구성원, 업무분야, 주요 업무사례를 만나보세요.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/pages/home/common.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/home/index.css" asp-append-version="true">
+}
+
+@section scripts {
+    <script src="~/js/pages/home/index.js" asp-append-version="true"></script>
+}
+
+<main id="main">
+    <h1 class="sr_only">법무법인 LKB평산</h1>
+    <section class="home_hero">
+        @* 배경 이미지 Swiper *@
+        <div class="hero_image">
+            <div class="hero_image_slider swiper" aria-hidden="true">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide hero_image_slide">
+                        <img class="hero_background" src="/images/home/home_hero_bg.png" alt="서울 도심 전경" fetchpriority="high">
+                    </div>
+                    <div class="swiper-slide hero_image_slide">
+                        <img class="hero_background" src="/images/home/home_hero_bg_2.png" alt="서울 도심 전경" fetchpriority="auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero_inner container-md">
+            @* 배너 텍스트 Swiper *@
+            <div class="hero_text_slider swiper" aria-label="메인 배너">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide hero_text_slide">
+                        <div class="hero_content">
+                            <p class="hero_title">Always
+                                The Best Choice</p>
+                            <p class="hero_text">사건의 크기보다, 책임의 무게를 먼저 생각합니다.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide hero_text_slide">
+                        <div class="hero_content">
+                            <p class="hero_title">배너 제목을 
+                            입력해 주세요.</p>
+                            <p class="hero_text">배너 내용을 입력해 주세요.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero_controls swiper_controls">
+                <button type="button" class="hero_prev swiper_btn" aria-label="이전 배너">
+                    <i class="svg_icon icon_left arrow_hero_icon">
+                        <img src="/images/icon/arrow_hero_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </button>
+                <div class="hero_index swiper_index"></div>
+                <button type="button" class="hero_next swiper_btn" aria-label="다음 배너">
+                    <i class="svg_icon arrow_hero_icon">
+                        <img src="/images/icon/arrow_hero_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </button>
+                <button type="button" class="autoplay_toggle hero_play" aria-label="배너 자동 재생 정지" aria-pressed="false">
+                    <i class="play_state" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+        <a href="#home_news" class="scroll_hint">scroll down<span></span></a>
+        <div class="hero_notice">
+            <div class="container-lg">
+                <div class="hero_news_slider swiper" aria-label="주요 법인소식">
+                    <div class="swiper-wrapper">
+                        @for (var i = 0; i < 4; i++)
+                        {
+                            <a class="swiper-slide hero_news_item" href="/news/detail">
+                                <strong>법인소식</strong>
+                                <span>[방송출연] 김희준 대표이사 kbc 광주방송 휴먼토크 &lt;호남호남인&gt; 출연</span>
+                            </a>
+                        }
+                    </div>
+                </div>
+                <button type="button" class="autoplay_toggle hero_news_play" aria-label="소식 자동 재생 정지" aria-pressed="false">
+                    <i class="play_state" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section id="home_news" class="home_news section">
+        <div class="container-lg">
+            <h2 class="english_heading section_scroll">NEWS</h2>
+            <div class="section_heading section_scroll">
+                <h3>언론보도</h3>
+                <div class="slider_buttons swiper_controls">
+                    <button type="button" class="press_prev swiper_btn" aria-label="이전 언론보도">
+                        <i class="svg_icon arrow_hover_icon icon_left arrow_press_icon">
+                            <img src="/images/icon/arrow_press_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </button>
+                    <div class="press_index swiper_index"></div>
+                    <button type="button" class="press_next swiper_btn" aria-label="다음 언론보도">
+                        <i class="svg_icon arrow_hover_icon arrow_press_icon">
+                            <img src="/images/icon/arrow_press_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </button>
+                </div>
+                <a class="button pc_button" href="/media">
+                    언론보도 더보기
+                    <i class="svg_icon arrow_hover_icon arrow_home_icon">
+                        <img src="/images/icon/arrow_home_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <div class="press_slider swiper section_scroll">
+                <ul class="swiper-wrapper">
+                    @for (var i = 0; i < swiperWrapperItems1.Length; i++)
+                    {
+                        var item = swiperWrapperItems1[i];
+
+                        <li class="swiper-slide">
+                            <a href="/news/detail">
+                                <div>
+                                    <time class="post_date">26-00-00</time>
+                                    <p class="post_title ellipsis line2">@item.Text</p>
+                                </div>
+                                <figure class="press_img">
+                                    <img src="@item.Image" alt="@item.ImageDescription" loading="lazy">
+                                </figure>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <a class="button m_button" href="/media">
+                언론보도 더보기
+                <i class="svg_icon arrow_hover_icon arrow_home_icon">
+                    <img src="/images/icon/arrow_home_icon.svg" alt="" aria-hidden="true">
+                </i>
+            </a>
+            <div class="section_heading corporate_heading section_scroll">
+                <h3>법인소식</h3>
+                <a class="button pc_button" href="/news">
+                    소식 더보기
+                    <i class="svg_icon arrow_hover_icon arrow_home_icon">
+                        <img src="/images/icon/arrow_home_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <div class="home_news_tabs section_scroll" role="tablist" aria-label="법인소식 분류">
+                <button type="button" role="tab" class="active">공지사항</button>
+                <button type="button" role="tab">세미나</button>
+                <button type="button" role="tab">위촉</button>
+            </div>
+            @{
+                
+                var news1 = new[]{
+                    "LKB평산 국제센터 윤웅걸, 이예지, 이진서, 강두리 변호사 제24차 2026 세계한상대회 참여",
+                    "[방송출연] 김희준 대표이사 kbc 광주방송 휴먼토크 <호남호남인> 출연",
+                    "[공지] LKB평산, 창동민자역사 임대분양 피해자 대상 8월 18일 집단소송 설명회 개최",
+                    "「보이스 피싱 범죄의 유형 분석과 피해구제 실무」─ 이형구, 박병규 변호사 공저 출간"
+                };
+                var news2 = new[]{
+                    "[로집사] 건설산업의 경기대응 세미나_이데일리_Q&A"
+                };
+                var news3 = new[]{
+                    "[송시현변호사] 2026대한변호사협회 ESG특별위원회위원 위촉",
+                    "[김훈영변호사] 대한치과의사협회 법률고문단 위원 위촉",
+                    "[강두리변호사] 2026서울지방노동위원회 공익위원 위촉",
+                    "[강두리 변호사] 2026금융위원회 법률자문위원 위촉"
+                };
+
+                var newsGroups = new[] {
+                    new { Category = "공지사항", Items = news1 },
+                    new { Category = "세미나", Items = news2 },
+                    new { Category = "위촉", Items = news3 }
+                };
+            }
+            @for (var j = 0; j < newsGroups.Length; j++)
+            {
+                var group = newsGroups[j];
+
+                <ul class="home_news_list section_scroll" hidden="@(j != 0)">
+                    @foreach (var title in group.Items)
+                    {
+                        <li data-news-type="@group.Category">
+                            <a href="/news/detail">
+                                <p class="post_title">@title</p>
+                                <div class="post_meta">
+                                    <span class="post_category">@group.Category</span>
+                                    <time class="post_date">26-00-00</time>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+            <a class="button m_button" href="/news">
+                소식 더보기
+                <i class="svg_icon arrow_hover_icon arrow_home_icon">
+                    <img src="/images/icon/arrow_home_icon.svg" alt="" aria-hidden="true">
+                </i>
+            </a>
+        </div>
+    </section>
+    <section class="home_about section">
+        <video class="home_about_video" autoplay muted loop playsinline preload="metadata" poster="/images/home/home_about_bg.png" aria-hidden="true">
+            <source src="/images/home/home_about_bg.mp4" type="video/mp4">
+        </video>
+        <div class="about_inner">
+            <div class="about_copy">
+                <h2 class=section_scroll>깊이 있는 전문성,
+                    폭넓은 법률 역량</h2>
+                <p class="section_scroll">법무법인 LKB평산은 검증된 실무 경험을 바탕으로
+                    모든 분야에 걸친 종합 법률서비스를 제공합니다.</p>
+                <a class="button section_scroll" href="/about">
+                    LKB평산 소개
+                    <i class="svg_icon arrow_hover_icon arrow_right_icon">
+                        <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <dl class="home_stats">
+                @for (var i = 0; i < homeStatsItems3.Length; i++)
+                {
+                    var item = homeStatsItems3[i];
+
+                    <div class="section_scroll">
+                        <dt>
+                            <a class="stat_link" href="@item.Url">@item.Label</a>
+                        </dt>
+                        <dd><span class="stat_number" data-count="@item.Contact.TrimEnd('+')">@item.Contact.TrimEnd('+')</span><span>+</span></dd>
+                    </div>
+                }
+            </dl>
+        </div>
+    </section>
+    <section class="home_hires section">
+        <div class="container-lg">
+            <h2 class="english_heading section_scroll">NEW HIRES</h2>
+            <p class="section_scroll">LKB평산에 새롭게 합류한 전문가를 소개합니다.</p>
+            <div class="hire_slider swiper section_scroll" aria-label="새로운 구성원">
+                <div class="swiper-wrapper">
+                    @for (var i = 0; i < 6; i++)
+                    {
+                        <div class="hire_profile swiper-slide">
+                            <div class="hire_image">
+                                <img src="/images/members/member_14.png" alt="신규 구성원 프로필 시안" loading="lazy">
+                            </div>
+                            <div class="hire_profile_info">
+                                <p>구성원변호사</p>
+                                <h3>홍길동</h3>
+                                <div class="hire_contact">
+                                    <div>
+                                        <p>Mail.</p> 
+                                        <a href="mailto:hjkim@lkbps.com">hjkim@lkbps.com</a>
+                                    </div>
+                                    <div>
+                                        <p>Tel.</p>
+                                        <a href="tel:02-596-2107">02-596-2107</a>
+                                    </div>
+                                </div>
+                                <ul>
+                                    @for (var j = 0; j < ulItems4.Length; j++)
+                                    {
+                                        var item = ulItems4[j];
+
+                                        <li>@item.Text</li>
+                                    }
+                                </ul>
+                                <a class="button" href="/members/detail">
+                                    프로필 더보기
+                                    <i class="svg_icon arrow_hover_icon arrow_home_icon">
+                                        <img src="/images/icon/arrow_home_icon.svg" alt="" aria-hidden="true">
+                                    </i>
+                                </a>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="hire_controls swiper_controls">
+                <button type="button" class="hire_prev swiper_btn" aria-label="이전 신규 구성원">
+                    <i class="svg_icon arrow_hover_icon icon_left arrow_press_icon">
+                        <img src="/images/icon/arrow_press_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </button>
+                <div class="hire_index swiper_index"></div>
+                <button type="button" class="hire_next swiper_btn" aria-label="다음 신규 구성원">
+                    <i class="svg_icon arrow_hover_icon arrow_press_icon">
+                        <img src="/images/icon/arrow_press_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="contact_sec section container-lg">
+        <h2 class="english_heading section_scroll">CONTACT</h2>
+        <p class="section_scroll">신뢰할 수 있는 법률 파트너, LKB평산이 함께하겠습니다.</p>
+        <div class="contact_cards">
+            <a href="/consultation" class="section_scroll">
+                <h3>온라인 문의</h3>
+                <p>법률 상담이 필요하시면 문의를 남겨주세요.</p>
+                <span class="image_label">
+                    문의하기
+                    <i class="svg_icon arrow_hover_icon arrow_right_icon">
+                        <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </span>
+            </a>
+            <a href="http://pf.kakao.com/_xgkxfHn/chat" target="_blank" class="section_scroll">
+                <h3>카카오톡 문의</h3>
+                <p>궁금한 법률 문제를 카카오톡으로 문의하세요.</p>
+                <span class="image_label">
+                    문의하기
+                    <i class="svg_icon arrow_hover_icon arrow_right_icon">
+                        <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </span>
+            </a>
+            <a href="/contact" class="section_scroll">
+                <h3>오시는길</h3>
+                <p>LKB평산의 위치와 방문 방법을 안내합니다.</p>
+                <span class="image_label">
+                    자세히 보기
+                    <i class="svg_icon arrow_hover_icon arrow_right_icon">
+                        <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </span>
+            </a>
+        </div>
+    </section>
+    <section class="office_banner">
+        <div class="container-lg">
+            @for (var i = 0; i < officeLocations.Length; i++)
+            {
+                var office = officeLocations[i];
+
+                <a href="@office.Url">
+                    <h3 class="image_label">
+                        @office.Name
+                        <i class="svg_icon office_banner_link_icon">
+                            <img src="/images/icon/office_banner_link_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </h3>
+                    <p>@office.Address</p>
+                    <p>@office.Phone</p>
+                </a>
+            }
+        </div>
+    </section>
+</main>
+
+@* 메인 공지 팝업: 제공된 배너를 4개 슬라이드로 반복합니다. *@
+<aside class="home_popup" aria-label="법률상담센터 안내" hidden>
+    <div class="home_popup_slider swiper" aria-label="메인 공지 배너">
+        <div class="swiper-wrapper">
+            @for (var i = 0; i < 4; i++)
+            {
+                <div class="swiper-slide">
+                    <a class="home_popup_banner" href="/consultation">
+                        <img src="/images/home/home_popup_consultation.png" alt="법무법인 LKB평산 법률상담센터. 각종 민·형사상 법률분쟁 및 기업업무까지 LKB평산이 해결해 드립니다. 상담문의 02-596-2107, 카카오톡 상담하기.">
+                    </a>
+                </div>
+            }
+        </div>
+        <div class="home_popup_index" aria-hidden="true"></div>
+    </div>
+    <div class="home_popup_footer">
+        <button type="button" class="home_popup_today">
+            <i class="home_popup_check" aria-hidden="true">
+                <img src="/images/icon/popup_check_icon.svg" alt="">
+            </i>
+            오늘 하루 그만보기
+        </button>
+        <button type="button" class="home_popup_close">닫기</button>
+    </div>
+</aside>

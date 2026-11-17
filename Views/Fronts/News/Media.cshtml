@@ -1,0 +1,179 @@
+@{
+    ViewData["Title"] = "미디어";
+    ViewData["Description"] = "언론보도, 유튜브, 블로그로 LKB평산의 소식과 법률 이야기를 만나보세요.";
+    ViewData["SchemaType"] = "CollectionPage";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // 미디어 목록 데이터
+    var mediaItems = new[]
+    {
+        new
+        {
+            Title = "[형사블로그] 성범죄 보안처분 피하는 방법 – 전자발찌·신상공개·취업제한, 3가지 동시에 청구될 수 있습니다.",
+            Category = "블로그",
+            Date = "26-00-00",
+            Image = "/images/news/media_security_measures.png",
+            ImageAlt = "[형사블로그] 성범죄 보안처분 피하는 방법 – 전자발찌·신상공개·취업제한, 3가지 동시에 청구될 수 있습니다."
+        },
+        new
+        {
+            Title = "마약 수사 연락을 받았다면? 첫 조사 전 알아야 할 대응 방법｜마약사건은 팀김희준",
+            Category = "유튜브",
+            Date = "26-00-00",
+            Image = "/images/news/media_drug_investigation.png",
+            ImageAlt = "마약 수사 연락을 받았다면? 첫 조사 전 알아야 할 대응 방법｜마약사건은 팀김희준"
+        },
+        new
+        {
+            Title = "[머니투데이] DB증권, '로컬창업페스타 in JEJU'에서 STO 활용 방안 논의",
+            Category = "언론보도",
+            Date = "26-00-00",
+            Image = "/images/news/media_jeju_sto.png",
+            ImageAlt = "[머니투데이] DB증권, '로컬창업페스타 in JEJU'에서 STO 활용 방안 논의"
+        },
+        new
+        {
+            Title = "[중앙일보] 반성문 쓴 ‘허위 종결’ 전직 제주 경찰...“악의 없었다, 혐의 인정”",
+            Category = "언론보도",
+            Date = "26-00-00",
+            Image = "/images/news/media_police_case.png",
+            ImageAlt = "[중앙일보] 반성문 쓴 ‘허위 종결’ 전직 제주 경찰...“악의 없었다, 혐의 인정”"
+        },
+        new
+        {
+            Title = "[중앙일보] 외동딸 1년도 안돼 관뒀다…‘세라젬’ 양자 입양, 윈윈인 까닭",
+            Category = "언론보도",
+            Date = "26-00-00",
+            Image = "/images/news/media_adoption_report.png",
+            ImageAlt = "[중앙일보] 외동딸 1년도 안돼 관뒀다…‘세라젬’ 양자 입양, 윈윈인 까닭"
+        },
+        new
+        {
+            Title = "미디어 게시물 제목을 입력해 주세요",
+            Category = "언론보도",
+            Date = "26-00-00",
+            Image = (string)null,
+            ImageAlt = "LKB평산"
+        },
+        new
+        {
+            Title = "미디어 게시물 제목을 입력해 주세요",
+            Category = "언론보도",
+            Date = "26-00-00",
+            Image = (string)null,
+            ImageAlt = "LKB평산"
+        },
+        new
+        {
+            Title = "미디어 게시물 제목을 입력해 주세요",
+            Category = "언론보도",
+            Date = "26-00-00",
+            Image = (string)null,
+            ImageAlt = "LKB평산"
+        }
+    };
+
+}
+
+@section meta {
+    <title>미디어 | 법무법인 LKB평산</title>
+    <meta name="Title" content="미디어 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="언론보도, 유튜브, 블로그로 LKB평산의 소식과 법률 이야기를 만나보세요.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="미디어">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="언론보도, 유튜브, 블로그로 LKB평산의 소식과 법률 이야기를 만나보세요.">
+    <meta property="og:url" content="@currentUrl">
+
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="미디어">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="언론보도, 유튜브, 블로그로 LKB평산의 소식과 법률 이야기를 만나보세요.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/pages/news/index.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/news/media.css" asp-append-version="true">
+}
+
+<main id="main" class="sub_page static_list_page section">
+    <div class="page_heading container-md">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>소식/자료</li>
+                <li aria-current="page">미디어</li>
+            </ol>
+        </nav>
+        <h1 class="section_scroll">미디어</h1>
+        <p class="section_scroll">다양한 미디어로 LKB평산의 소식과 법률 이야기를 만나보세요.</p>
+    </div>
+    <div class="list_search" role="search">
+        <label class="search_box">
+            <span class="sr_only">게시물을 검색해 주세요.</span>
+            <input type="search" name="q" placeholder="게시물을 검색해 주세요.">
+            <button type="button" aria-label="검색">
+                <i class="svg_icon search_icon">
+                    <img src="/images/icon/search_icon.svg" alt="">
+                </i>
+            </button>
+        </label>
+    </div>
+    <section class="container-md listing_section">
+        <nav class="category_tabs" aria-label="분류">
+            <button type="button" class="active" aria-pressed="true">전체</button>
+            <button type="button" class="" aria-pressed="false">언론보도</button>
+            <button type="button" class="" aria-pressed="false">유튜브</button>
+            <button type="button" class="" aria-pressed="false">블로그</button>
+        </nav>
+        <p class="result_count" role="status">Total. <strong>8건</strong></p>
+        <ul class="media_list">
+            @for (var i = 0; i < mediaItems.Length; i++)
+            {
+                var item = mediaItems[i];
+
+                <li class="media_row">
+                    <a href="/news/detail">
+                        <figure class="media_thumbnail">
+                            <img src="@(string.IsNullOrWhiteSpace(item.Image) ? "/images/common/media_null.png" : item.Image)" alt="@item.ImageAlt" loading="lazy">
+                        </figure>
+                        <div class="post_content">
+                            <p class="post_title">@item.Title</p>
+                            <div class="post_meta">
+                                <span class="post_category">@item.Category</span>
+                                <time class="post_date">@item.Date</time>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+        <partial name="Common/_Pagination" />
+    </section>
+</main>

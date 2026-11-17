@@ -1,0 +1,218 @@
+@{
+    ViewData["Title"] = "[뉴시스] 본격 가동된 중수청 마약국…'윗선' 부실수사 걱정 나오는 이유는";
+    ViewData["Description"] = "중수청 마약국 수사체계에 대한 김희준 LKB평산 대표변호사의 언론 인터뷰를 소개합니다.";
+    ViewData["SchemaType"] = "Article";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // 관련 태그: 통합검색 검색어로 전달합니다.
+    var articleTags = new[] { "마약수사", "중수청", "수사체계" };
+
+    // dl 반복 콘텐츠
+    var dlItems1 = new[]
+    {
+        new
+        {
+            Label = "분야별",
+            Url = "/practice/detail",
+            Label2 = "마약",
+            Url2 = "/practice/detail",
+            Label3 = "형사"
+        },
+        new
+        {
+            Label = "센터별",
+            Url = "/center",
+            Label2 = "마약센터",
+            Url2 = "/center",
+            Label3 = "수사대응센터"
+        }
+    };
+}
+
+@section meta {
+    <title>[뉴시스] 본격 가동된 중수청 마약국…'윗선' 부실수사 걱정 나오는 이유는 | 법무법인 LKB평산</title>
+    <meta name="Title" content="[뉴시스] 본격 가동된 중수청 마약국…'윗선' 부실수사 걱정 나오는 이유는 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="중수청 마약국 수사체계에 대한 김희준 LKB평산 대표변호사의 언론 인터뷰를 소개합니다.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="[뉴시스] 본격 가동된 중수청 마약국…'윗선' 부실수사 걱정 나오는 이유는">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="중수청 마약국 수사체계에 대한 김희준 LKB평산 대표변호사의 언론 인터뷰를 소개합니다.">
+    <meta property="og:url" content="@currentUrl">
+
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="[뉴시스] 본격 가동된 중수청 마약국…'윗선' 부실수사 걱정 나오는 이유는">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="중수청 마약국 수사체계에 대한 김희준 LKB평산 대표변호사의 언론 인터뷰를 소개합니다.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="/css/editor.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/news/detail_common.css" asp-append-version="true">
+}
+
+<main id="main" class="sub_page article_page section">
+    <div class="container-md">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/media">소식/자료</a></li>
+                <li aria-current="page"><a href="/media">미디어</a></li>
+            </ol>
+        </nav>
+        <header class="article_heading">
+            <a class="article_category section_scroll" href="/news">언론보도</a>
+            <h1 class="article_title section_scroll">[뉴시스] 본격 가동된 중수청 마약국…'윗선' 부실수사 걱정 나오는 이유는</h1>
+            <div class="article_meta">
+                <time class="post_date">26-00-00</time>
+                <span class="post_views">조회수 170</span>
+                <button type="button" class="share_button">
+                    공유하기
+                    <i class="svg_icon share_icon">
+                        <img src="/images/icon/share_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </button>
+            </div>
+        </header>
+        <div class="article_columns">
+            <article class="article_body">
+                <button class="attachment" type="button" data-preview="첨부 PDF 원본이 제공되지 않아 다운로드는 연동 전입니다.">
+                    <span class="file_name">[의료정책포럼 기고] 대한민국의 의료상황과 의사노조의 필요성.pdf</span>
+                    <span class="image_label">
+                        파일 다운로드
+                        <i class="svg_icon download_blue_icon">
+                            <img src="/images/icon/download_blue_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </span>
+                </button>
+                <section>
+                    <div class="ck-content">
+                        <img style="margin-bottom: 60px;" src="/images/news/drug_investigation_article.png" alt="중대범죄수사청 관련 언론보도 사진">
+                        <p>검찰 출신 <strong>김희준 LKB평산 대표변호사</strong>는 "보통 10일 만기를 채워서 송치하는 경우는 없고 8~9일째에 송치하는데 그 짧은 기간에 수사 성과를 내는 게 쉽지 않다"며 "위로 치고 올라가기가 어려워진 구조"라고 설명했다.</p>
+                        <p>그러면서 "체포 초기에는 자체 사무실에서 밀도 높은 조사가 가능하지만, 공소청 송치 후 신병이 넘어가면 구치소 수사 접견 방식으로 바뀌어 수사 연속성이 떨어진다"며 "검사가 직접 보완수사를 할 수 없는 구조에서는 수사가 중간책 선에서 끝날 가능성이 높다"고 우려했다.</p>
+                    </div>
+                    <a class="source_link" href="https://n.news.naver.com/article/003/0014279431" target="_blank">
+                        <i class="svg_icon source_link_icon">
+                            <img src="/images/icon/source_link_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                        [뉴시스] 본격 가동된 중수청 마약국…'윗선' 부실수사 걱정 나오는 이유는
+                    </a>
+                </section>
+                <div class="article_tag_group">
+                    <p class="article_tag_label">관련태그</p>
+                    <ul class="article_tags" aria-label="관련 태그">
+                        @for (var i = 0; i < articleTags.Length; i++)
+                        {
+                            <li>
+                                <a href="/search?q=@(System.Uri.EscapeDataString(articleTags[i]))">#@articleTags[i]</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="article_navigation">
+                    <a href="/news/detail">
+                        <span>이전글</span>
+                        <p>[KBS] 창원NC파크 사고 유족 “가해자 엄중 처벌해야”</p>
+                    </a>
+                    <a href="/news/detail">
+                        <span>다음글</span>
+                        <p>[머니투데이] DB증권, 다음 달 부산 탄소감축 사업 STO 비즈니스 설명회 개최</p>
+                    </a>
+                </div>
+                <div class="back_list">
+                    <a class="button" href="/media">목록으로</a>
+                </div>
+            </article>
+            <aside class="article_aside">
+                <div class="related_members">
+                    <h2 class="aside_heading">관련 구성원
+                        <a href="/members">
+                            더보기
+                            <i class="svg_icon arrow_hover_icon related_more_icon">
+                                <img src="/images/icon/related_more_icon.svg" alt="" aria-hidden="true">
+                            </i>
+                        </a>
+                    </h2>
+                    <a class="related_member" href="/members/detail">
+                        <span class="related_member_photo">
+                            <img src="/images/members/member_19.png" alt="김희준" loading="lazy">
+                            <i class="svg_icon member_more_icon" aria-hidden="true">
+                                <img src="/images/icon/member_more_icon.svg" alt="">
+                            </i>
+                        </span>
+                        <div>
+                            <p class="related_member_name"><strong>김희준</strong><span>대표이사</span></p>
+                            <dl class="related_member_contact">
+                                <div>
+                                    <dt>M.</dt>
+                                    <dd>hjkim@lkbps.com</dd>
+                                </div>
+                                <div>
+                                    <dt>T.</dt>
+                                    <dd>070-7725-1731</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </a>
+                </div>
+                <div class="related_practice">
+                    <h2 class="aside_heading">관련 업무분야
+                        <a href="/practice">
+                            더보기
+                            <i class="svg_icon arrow_hover_icon related_more_icon">
+                                <img src="/images/icon/related_more_icon.svg" alt="" aria-hidden="true">
+                            </i>
+                        </a>
+                    </h2>
+                    <dl>
+                        @for (var i = 0; i < dlItems1.Length; i++)
+                        {
+                        var item = dlItems1[i];
+                        <div>
+                            <dt>@item.Label
+                                <i class="svg_icon arrow_hover_icon practice_chevron_icon">
+                                    <img src="/images/icon/practice_chevron_icon.svg" alt="" aria-hidden="true">
+                                </i>
+                            </dt>
+                            <dd><a href="@item.Url">@item.Label2</a><a href="@item.Url2">@item.Label3</a></dd>
+                        </div>
+                        }
+                    </dl>
+                    <a class="button" href="/consultation">
+                        상담 신청하기
+                        <i class="svg_icon arrow_right_icon">
+                            <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+

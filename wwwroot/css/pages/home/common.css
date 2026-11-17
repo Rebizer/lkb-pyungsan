@@ -1,0 +1,285 @@
+/* 메인 · 센터 공통: 섹션 제목 · 상담 안내 · 사무소 배너 */
+
+/* ---------------- 영문 섹션 제목 ---------------- */
+.english_heading {
+    width: fit-content;
+    font-size: var(--ft80);
+    font-weight: var(--medium);
+    line-height: 1.4;
+    position: relative;
+}
+
+.english_heading::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: var(--primary);
+    position: absolute;
+    right: -30px;
+    bottom: 24px;
+}
+
+/* ---------------- 스크롤 안내 ---------------- */
+.scroll_hint {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    bottom: 60px;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: var(--ft14);
+    font-weight: var(--medium);
+    line-height: 1.3;
+}
+
+.scroll_hint span {
+    display: block;
+    width: 2px;
+    height: 58px;
+    background: var(--white-300);
+    margin: 17px auto 0;
+    position: relative;
+    overflow: hidden;
+}
+.scroll_hint span::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    animation: scroll 2s infinite;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+}
+@keyframes scroll {
+    to {
+        bottom: -100%;
+    }
+}
+
+/* ---------------- 상담 안내 ---------------- */
+.contact_sec {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.contact_sec > p {
+    margin: 28px 0 60px;
+    color: var(--gray-400);
+    font-size: var(--ft20);
+    font-weight: var(--normal);
+    line-height: 1.4;
+}
+
+.contact_cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 40px;
+}
+
+.contact_cards > * {
+    padding: 40px;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-100);
+    text-align: left;
+    position: relative;
+    isolation: isolate;
+    transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
+}
+
+/* 컨택 박스: 사진이나 텍스트와 분리한 중앙 로고 레이어 */
+.contact_cards > *::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 135px;
+    height: 135px;
+    transform: translate(-50%, -50%);
+    background: url("/images/brand/lkb_symbol_watermark.svg") center / contain no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s ease;
+}
+
+.contact_cards > *:hover,
+.contact_cards > *:focus-visible {
+    border-color: var(--primary-300);
+    background: var(--white);
+    box-shadow: 0 4px 10px var(--black-50);
+}
+
+.contact_cards > *:hover::before,
+.contact_cards > *:focus-visible::before {
+    opacity: 1;
+}
+
+.contact_cards h3 {
+    font-size: var(--ft24);
+
+    font-weight: var(--semi-bold);
+}
+
+.contact_cards p {
+    color: var(--gray-400);
+    margin: 16px 0 40px;
+    font-size: var(--ft18);
+}
+
+.contact_cards span {
+    color: var(--gray-300);
+    font-size: var(--ft16);
+    font-weight: var(--semi-bold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color .4s ease;
+}
+
+.contact_cards > *:hover span,
+.contact_cards > *:focus-visible span {
+    color: var(--primary);
+}
+
+/* ---------------- 사무소 배너 ---------------- */
+.office_banner {
+    padding: 80px 0;
+    color: var(--white);
+    background: url("/images/common/office_banner_bg.png") center / cover no-repeat;
+}
+
+.office_banner .container-lg {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+}
+
+/* 두 사무소 사이의 구분선 */
+.office_banner .container-lg::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    bottom: -20px;
+    left: 50%;
+    width: 1px;
+    background: var(--white-200);
+}
+
+.office_banner h3 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: var(--ft28);
+    margin-bottom: 28px;
+    font-weight: var(--semi-bold);
+}
+
+.office_banner_link_icon {
+    width: 20px;
+    height: 20px;
+}
+
+.office_banner p {
+    font-size: var(--ft20);
+    margin-top: 18px;
+    font-weight: var(--medium);
+}
+
+@media (max-width: 1400px) {
+    .english_heading {
+        font-size: var(--ft60);
+    }
+}
+
+@media (max-width: 1100px) {
+    .contact_cards {
+        gap: 20px;
+    }
+    .contact_cards > * {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    /*-- english_heading --*/
+    .english_heading {
+        font-size: var(--ft40);
+    }
+    .english_heading::after {
+        width: 8px;
+        height: 8px;
+        right: -16px;
+        bottom: 12px;
+    }
+
+    /*-- scroll_hint --*/
+    .scroll_hint {
+        bottom: 60px;
+        font-size: var(--ft12);
+    }
+
+    /*-- contact_sec --*/
+    .contact_sec {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    .contact_sec > p {
+        font-size: var(--ft18);
+        margin: 16px 0 32px;
+    }
+    
+    .contact_cards {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .contact_cards > * {
+        padding: 20px;
+    }
+    .contact_cards h3 {
+        font-size: var(--ft20);
+    }
+    .contact_cards p {
+        font-size: var(--ft15);
+        margin: 12px 0 24px;
+    }
+
+    /*-- office_banner --*/
+    .office_banner {
+        padding: 40px 0;
+    }
+    .office_banner .container-lg {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .office_banner .container-lg::before {
+        display: none;
+    }
+    .office_banner .container-lg > a + a {
+        padding-top: 32px;
+        border-top: 1px solid var(--white-200);
+    }
+    .office_banner h3 {
+        font-size: var(--ft22);
+        margin-bottom: 16px;
+    }
+    .office_banner p {
+        font-size: var(--ft15);
+        margin-top: 12px;
+    }
+    .contact_cards > *::before {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact_cards > *,
+    .contact_cards > *::before,
+    .contact_cards span {
+        transition: none;
+    }
+}

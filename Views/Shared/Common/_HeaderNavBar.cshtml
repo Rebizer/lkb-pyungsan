@@ -1,0 +1,401 @@
+@{
+    // PC 내비게이션과 전체 메뉴가 함께 사용하는 메뉴 정보
+    var navigationGroups = new[]
+    {
+        new
+        {
+            Name = "법인소개",
+            Url = "/about",
+            Children = new[]
+            {
+                new { Name = "LKB평산", Url = "/about" },
+                new { Name = "오시는길", Url = "/contact" }
+            }
+        },
+        new
+        {
+            Name = "업무분야",
+            Url = "/practice",
+            Children = new[]
+            {
+                new { Name = "분야별", Url = "/practice" },
+                new { Name = "센터별", Url = "/centers" },
+                new { Name = "지역별", Url = "/regions" }
+            }
+        },
+        new
+        {
+            Name = "구성원",
+            Url = "/members",
+            Children = new[]
+            {
+                new { Name = "구성원", Url = "/members" }
+            }
+        },
+        new
+        {
+            Name = "소식/자료",
+            Url = "/news",
+            Children = new[]
+            {
+                new { Name = "법인소식", Url = "/news" },
+                new { Name = "자료실", Url = "/resources" },
+                new { Name = "미디어", Url = "/media" }
+            }
+        },
+        new
+        {
+            Name = "업무사례",
+            Url = "/cases",
+            Children = new[]
+            {
+                new { Name = "업무사례", Url = "/cases" }
+            }
+        },
+        new
+        {
+            Name = "상담신청",
+            Url = "/consultation",
+            Children = new[]
+            {
+                new { Name = "상담신청", Url = "/consultation" }
+            }
+        }
+    };
+
+
+
+
+    // 전체 메뉴의 사무소 및 SNS 채널
+    var menuOffices = new[]
+    {
+        new { Name = "웅진관", Phone = "02-582-8500", Tel = "025828500", Address = "서울 서초구 반포대로30길 81 웅진타워 4층, 13층, 14층, 16층" },
+        new { Name = "정곡관", Phone = "02-596-7007", Tel = "025967007", Address = "서울 서초구 법원로 15 정곡빌딩 서관 지하1층, 1~5층" }
+    };
+    var menuChannels = new[]
+    {
+        new { Name = "유튜브", Icon = "menu_youtube_icon.svg", Url = "https://www.youtube.com/channel/UCMibDRInzqMz52iNnwaQrXw" },
+        new { Name = "블로그", Icon = "menu_blog_icon.svg", Url = "https://blog.naver.com/lkblawfirm" },
+        new { Name = "인스타그램", Icon = "menu_instagram_icon.svg", Url = "https://www.instagram.com/lkbpyeongsan/reels/" },
+        new { Name = "페이스북", Icon = "menu_facebook_icon.svg", Url = "https://www.facebook.com/lkbnpartners.lawfirm" }
+    };
+
+    // 언어 선택 목록
+    var languages = new[]
+    {
+        new
+        {
+            DataPreview = "한국어 번역 페이지는 연동 전입니다.",
+            Text = "한국어"
+        },
+        new
+        {
+            DataPreview = "English 번역 페이지는 연동 전입니다.",
+            Text = "English"
+        },
+        new
+        {
+            DataPreview = "中文 번역 페이지는 연동 전입니다.",
+            Text = "中文"
+        },
+        new
+        {
+            DataPreview = "日本語 번역 페이지는 연동 전입니다.",
+            Text = "日本語"
+        },
+        new
+        {
+            DataPreview = "Tiếng Việt 번역 페이지는 연동 전입니다.",
+            Text = "Tiếng Việt"
+        }
+    };
+
+    // filter_options 반복 콘텐츠
+    var practiceFilters = new[]
+    {
+        "형사",
+        "성범죄",
+        "마약",
+        "학교폭력",
+        "민사",
+        "부동산",
+        "재개발",
+        "상속",
+        "이혼",
+        "한정승인",
+        "경영권방어",
+        "가업승계",
+        "내부통제ESG",
+        "M&A",
+        "영업비밀/IP",
+        "방산",
+        "공정거래",
+        "노사/중대재해",
+        "회생파산",
+        "정책자문",
+        "주식부정거래",
+        "상장상폐",
+        "투자자문",
+        "부동산금융/개발",
+        "건설분쟁/정비사업/신탁",
+        "디지털자산",
+        "공직선거",
+        "해사국제상사",
+        "헬스바이오",
+        "K-컬쳐",
+        "AI대응"
+    };
+}
+
+<header class="site_header">
+    <a class="brand" href="/" aria-label="법무법인 LKB평산 홈">
+        <img class="logo_dark" src="/images/brand/lkb_logo_dark.svg" alt="법무법인 LKB평산">
+    </a>
+    <nav class="desktop_nav" aria-label="주 메뉴">
+        <ul>
+        @for (var i = 0; i < navigationGroups.Length; i++)
+        {
+            var group = navigationGroups[i];
+
+            <li>
+                <a href="@group.Url">@group.Name</a>
+                <ul>
+                    @for (var j = 0; j < group.Children.Length; j++)
+                    {
+                        var link = group.Children[j];
+
+                        <li><a href="@link.Url">@link.Name</a></li>
+                    }
+                </ul>
+            </li>
+        }
+        </ul>
+    </nav>
+    <div class="header_tools">
+        <button type="button" class="family_button outlined" data-dialog="family_dialog">
+            패밀리사이트
+            <span class="image_label">
+                <i class="svg_icon add_header_icon">
+                    <img src="/images/icon/add_header_icon.svg" alt="" aria-hidden="true">
+                </i>
+            </span>
+        </button>
+        <div class="language_wrap">
+            <button type="button" class="outlined language_toggle" aria-expanded="false" aria-controls="language_list">
+                <i class="svg_icon language_icon">
+                    <img src="/images/icon/language_icon.svg" alt="">
+                </i>
+                KO
+            </button>
+            <ul id="language_list" hidden="">
+                @for (var i = 0; i < languages.Length; i++)
+                {
+                    var item = languages[i];
+
+                    <li>
+                        <button type="button" data-preview="@item.DataPreview">@item.Text</button>
+                    </li>
+                }
+            </ul>
+        </div>
+        <a class="icon_button" href="/search" aria-label="통합검색">
+            <i class="svg_icon search_header_icon">
+                <img src="/images/icon/search_header_icon.svg" alt="">
+            </i>
+        </a>
+        <button type="button" class="menu_toggle icon_button" aria-controls="menu_dialog" aria-expanded="false" aria-label="전체 메뉴 열기">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+<aside class="quick_menu" aria-label="빠른 메뉴">
+    <ul class="quick_list">
+        <li class="quick_btn">
+            <a href="/consultation">
+                <i class="quick_menu_icon">
+                    <i class="svg_icon consultation_icon">
+                        <img src="/images/icon/consultation_icon.svg" alt="상담신청">
+                    </i>
+                </i>
+                <p class="quick_menu_text">상담신청</p>
+            </a>
+        </li>
+        <li class="quick_btn">
+            <button type="button" data-dialog="phone_dialog">
+                <i class="quick_menu_icon">
+                    <i class="svg_icon phone_icon">
+                        <img src="/images/icon/phone_icon.svg" alt="전화문의">
+                    </i>
+                </i>
+                <p class="quick_menu_text">전화문의</p>
+            </button>
+        </li>
+        <li class="quick_btn">
+            <a href="http://pf.kakao.com/_xgkxfHn/chat" target="_blank">
+                <i class="quick_menu_icon">
+                    <i class="svg_icon kakaotalk_icon">
+                        <img src="/images/icon/kakaotalk_icon.svg" alt="카톡문의">
+                    </i>
+                </i>
+                <p class="quick_menu_text">카톡문의</p>
+            </a>
+        </li>
+        <li class="quick_btn">
+            <a href="/contact">
+                <i class="quick_menu_icon">
+                    <i class="svg_icon location_icon">
+                        <img src="/images/icon/location_icon.svg" alt="오시는길">
+                    </i>
+                </i>
+                <p class="quick_menu_text">오시는길</p>
+            </a>
+        </li>
+    </ul>
+    <button type="button" class="back_top" aria-label="맨 위로">
+        <i class="svg_icon caret_down_icon">
+            <img src="/images/icon/caret_down_icon.svg" alt="">
+        </i>
+    </button>
+</aside>
+<dialog id="phone_dialog" class="phone_dialog">
+    <div class="dialog_inner">
+        <button class="dialog_close" type="button" aria-label="닫기">
+            <i class="svg_icon close_icon">
+                <img src="/images/icon/close_icon.svg" alt="" aria-hidden="true">
+            </i>
+        </button>
+        <h2>전화문의</h2>
+        <p>아래 연락처로 전화 주시면 상담을 도와드리겠습니다.</p>
+        <div class="phone_grid">
+            <a href="tel:025828500">웅진관<strong>02-582-8500</strong></a>
+            <a href="tel:025967007">정곡관<strong>02-596-7007</strong></a>
+        </div>
+        <p class="small consult_hours"><strong>상담시간</strong> | 평일 09:00 ~ 18:00 (점심시간 12:00~13:00)</p>
+    </div>
+</dialog>
+@await Html.PartialAsync("~/Views/Shared/Common/_FamilyDialog.cshtml")
+<section id="menu_dialog" class="menu_dialog" aria-label="전체 메뉴" hidden data-lenis-prevent="">
+    <div class="menu_content">
+        <nav aria-label="전체 메뉴">
+            <ul class="sitemap_grid">
+        @for (var i = 0; i < navigationGroups.Length; i++)
+        {
+            var group = navigationGroups[i];
+
+            <li>
+                <a href="@group.Url">@group.Name</a>
+                <ul>
+                    @for (var j = 0; j < group.Children.Length; j++)
+                    {
+                        var link = group.Children[j];
+
+                        <li><a href="@link.Url">@link.Name</a></li>
+                    }
+                </ul>
+            </li>
+        }
+            </ul>
+        </nav>
+        <div class="menu_contacts">
+            @for (var i = 0; i < menuOffices.Length; i++)
+            {
+                var office = menuOffices[i];
+
+                <div class="menu_office">
+                    <a class="menu_office_link" href="/contact">
+                        <h3>@office.Name</h3>
+                        <i class="svg_icon arrow_hover_icon office_external_link_icon">
+                            <img src="/images/icon/office_external_link_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </a>
+                    <a class="menu_office_phone" href="tel:@office.Tel">@office.Phone</a>
+                    <p>@office.Address</p>
+                </div>
+            }
+            <div class="menu_channels">
+                <ul class="menu_sns">
+                    @for (var i = 0; i < menuChannels.Length; i++)
+                    {
+                        var channel = menuChannels[i];
+
+                        <li>
+                            <a href="@channel.Url" target="_blank" rel="noopener noreferrer" aria-label="@(channel.Name) (새 창)">
+                                <i class="svg_icon menu_social_icon">
+                                    <img src="/images/icon/@channel.Icon" alt="" aria-hidden="true">
+                                </i>
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <a class="menu_kakao" href="http://pf.kakao.com/_xgkxfHn/chat" target="_blank">
+                    <i class="svg_icon menu_kakaotalk_icon">
+                        <img src="/images/icon/menu_kakaotalk_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                    카톡문의
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="menu_consult">
+        <div class="menu_consult_inner">
+            <div class="menu_consult_intro">
+                <h2>빠른 상담신청</h2>
+                <p>복잡한 법률 문제에 대해 LKB평산의 전문변호사가
+                    명확한 해결 방향을 제시합니다.</p>
+            </div>
+            <form class="menu_consult_form" novalidate>
+                <div class="menu_consult_fields">
+                    <label class="sr_only" for="menu_name">성함</label>
+                    <input id="menu_name" name="name" placeholder="성함" autocomplete="name" required>
+                    <label class="sr_only" for="menu_phone">연락처</label>
+                    <input id="menu_phone" name="phone" placeholder="연락처" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required>
+                    <button type="submit">상담 신청</button>
+                </div>
+                <div class="menu_consent">
+                    <label class="checkbox_label">
+                        <input class="checkbox_input" type="checkbox" name="consent" required>
+                        <span><strong>개인정보 수집 및 이용</strong>에 동의합니다.</span>
+                    </label>
+                    <a href="/policy/privacy" target="_blank" rel="noopener noreferrer">전문보기</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<dialog id="filter_dialog" class="filter_dialog" aria-labelledby="filter_title" aria-describedby="filter_description" data-lenis-prevent="">
+    <div class="filter_header">
+        <h2 id="filter_title">업무분야 선택</h2>
+        <p id="filter_description">업무분야를 선택해 해당 분야의 구성원을 찾아보세요. 여러 분야를 선택할 수 있습니다.</p>
+        <button type="button" class="dialog_close" aria-label="업무분야 선택 닫기">
+            <i class="svg_icon filter_close_icon">
+                <img src="/images/icon/family_close_icon.svg" alt="">
+            </i>
+        </button>
+    </div>
+    <div class="filter_body">
+        <div class="filter_toolbar">
+            <p class="filter_count" role="status">선택 분야 <span>0개</span></p>
+            <button type="button" class="filter_clear">
+                초기화
+                <i class="svg_icon reset_icon">
+                    <img src="/images/icon/reset_icon.svg" alt="">
+                </i>
+            </button>
+        </div>
+        <div class="filter_options" role="group" aria-label="선택 가능한 업무분야">
+            @for (var i = 0; i < practiceFilters.Length; i++)
+            {
+                <label class="filter_option">
+                    <input type="checkbox" value="@practiceFilters[i]">
+                    <span>@practiceFilters[i]</span>
+                </label>
+            }
+        </div>
+    </div>
+    <div class="filter_actions">
+        <button type="button" class="filter_apply">0개 분야 적용하기</button>
+    </div>
+</dialog>
+

@@ -1,0 +1,263 @@
+@{
+    ViewData["Title"] = "업무사례";
+    ViewData["Description"] = "복잡한 법률 문제의 해결 과정과 LKB평산의 전문성을 확인하세요.";
+    ViewData["SchemaType"] = "CollectionPage";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // 선택 분야 표시 예시: 목록 필터링 없이 하드코딩으로 출력합니다.
+    var selectedFilters = new[] { "성범죄", "학교폭력" };
+
+    // case_grid 반복 콘텐츠
+    var caseGridItems1 = new[]
+    {
+        new
+        {
+            Category = "성범죄",
+            Text = "성범죄",
+            Text2 = "무죄 및 집행유예",
+            Title = "성폭력처벌법 위반 등 다수 혐의 사건에서 무죄 및 집행유예 선고 사례",
+            Description = "성폭력처벌법 위반 및 위계공무집행방해 등 여러 혐의로 기소된 형사사건에서 피고인을 변호하여, 성적목적다중이용장소침입, 카메라등이용촬영·반포…",
+            Members = new[]
+            {
+                new { Name = "이성복", Image = "/images/members/member_22.png", Url = "/members/detail" },
+                new { Name = "송원준", Image = "/images/members/member_23.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Category = "민사",
+            Text = "민사",
+            Text2 = "승소",
+            Title = "한국미술협회 임원선거 피선거권 존재 확인 및 항소기각 성공",
+            Description = "제25대 임원선거를 앞두고 피고 한국미술협회가 원고들의 입후보를 제한한 사안에서, 원고들의 피선거권이 존재함을 확인받았습니다. 피고가 이에 불복하여 항소하였으나,…",
+            Members = new[]
+            {
+                new { Name = "김희준", Image = "/images/members/member_19.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Category = "영업비밀/IP",
+            Text = "영업비밀/IP",
+            Text2 = "구속영장 기각",
+            Title = "부정경쟁방지법위반(영업비밀누설등)·업무상배임·업무상횡령 영장 기각 사례",
+            Description = "의뢰인들은 국내 한 반도체 관련 소모품 제조업체의 직원들이었습니다. 해외 경쟁사로 이직한 전 직원의 요청에 따라 회사 자료를 전달한 일 등으로 영업비밀 누설,…",
+            Members = new[]
+            {
+                new { Name = "김강대", Image = "/images/members/member_20.png", Url = "/members/detail" },
+                new { Name = "나민경", Image = "/images/members/member_21.png", Url = "/members/detail" },
+                new { Name = "김희준", Image = "/images/members/member_19.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Category = "건설분쟁/정비사업/신탁",
+            Text = "건설분쟁/정비사업/신탁",
+            Text2 = "승소",
+            Title = "재건축조합원 지위 확인 및 소유권이전등기 말소 청구를 모두 기각시킨 성공사례",
+            Description = "재건축사업 구역 내 부동산의 공유자들이 재건축조합을 상대로 조합원 지위 확인 및 소유권이전등기 말소를 청구한 사건에서, 원고들의 청구를 모두 기각하는 판결을 이끌어냈습니다.…",
+            Members = new[]
+            {
+                new { Name = "김강대", Image = "/images/members/member_20.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Category = "부동산",
+            Text = "부동산",
+            Text2 = "재기수사명령",
+            Title = "건축물의 분양에 관한 법률 위반 고소 사건의 재기수사명령 처분",
+            Description = "오피스텔 분양사업의 시행사 겸 시공사인 건설사와 그 대표이사가, 관할 관청의 분양신고 수리 사실을 통보받기 이전임에도 공식 홈페이지와 유튜브 채널을 개설하고…",
+            Members = new[]
+            {
+                new { Name = "나민경", Image = "/images/members/member_21.png", Url = "/members/detail" },
+                new { Name = "김희준", Image = "/images/members/member_19.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Category = "형사",
+            Text = "형사",
+            Text2 = "집행유예, 무죄",
+            Title = "주식방송 관련 조직적 사기 혐의로 기소된 사건에 대한 집행유예 선고 및 성폭력범죄(특수강제추행)에 대한 무죄 선고",
+            Description = "의뢰인들은 인터넷 방송으로 주식 투자판단 등에 대한 조언을 업으로 하는 유사투자자문업체를 운영하며 약 330명의 피해자로부터 약 19억 원의 주식방송 유료회원 가입비를 편취하였다는…",
+            Members = new[]
+            {
+                new { Name = "김희준", Image = "/images/members/member_19.png", Url = "/members/detail" },
+                new { Name = "김강대", Image = "/images/members/member_20.png", Url = "/members/detail" },
+                new { Name = "나민경", Image = "/images/members/member_21.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Category = "이혼",
+            Text = "이혼",
+            Text2 = "승소",
+            Title = "선행 이혼판결문상 부정행위 상대로 적시되었으나, 허위 주장임을 입증하여 상간 위자료 청구 전부기각",
+            Description = "원고는 전 배우자와의 이혼소송에서 피고와의 부정행위가 인정되어 이혼 판결이 확정되자, 피고를 상대로 상당한 금액의 손해배상(위자료) 청구 소송을 제기하였습니다.…",
+            Members = new[]
+            {
+                new { Name = "나민경", Image = "/images/members/member_21.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Category = "부동산",
+            Text = "부동산",
+            Text2 = "원고 청구 기각",
+            Title = "지분을 낮춘 과점주주에 대한 약 26억 원 개발부담금 취소소송 부과처분 방어 성공",
+            Description = "광주시 고문변호사로서 사업시행 법인(A사)의 개발부담금 체납에 대해 최대주주(원고)를 제2차 납부의무자로 지정하고 약 25억 9,400만 원을 부과한 광주시의 처분을 대리하여 원고 청구 전부 기각(승소)을 이끌어낸 사건입니다.…",
+            Members = new[]
+            {
+                new { Name = "김강대", Image = "/images/members/member_20.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Category = "민사",
+            Text = "민사",
+            Text2 = "피고 전부 승소",
+            Title = "관계사 간 상가 임차·전대에 관한 업무상 배임 주장 손해배상청구 경영판단 인정, 전부 기각으로 승소를 이끌어낸 사건",
+            Description = "대규모 도시개발사업의 관계사인 원고 회사가, 모회사의 전직 대표·부사장·직원이었던 의뢰인 4인을 상대로, 원고 명의로 상가를 임차한 뒤 모회사에 불리한 조건으로 전대하도록 하여 손해를 입혔다며 업무상 배임의 불법행…",
+            Members = new[]
+            {
+                new { Name = "김희준", Image = "/images/members/member_19.png", Url = "/members/detail" }
+            }
+        }
+    };
+}
+
+@section meta {
+    <title>업무사례 | 법무법인 LKB평산</title>
+    <meta name="Title" content="업무사례 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="복잡한 법률 문제의 해결 과정과 LKB평산의 전문성을 확인하세요.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="업무사례">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="복잡한 법률 문제의 해결 과정과 LKB평산의 전문성을 확인하세요.">
+    <meta property="og:url" content="@currentUrl">
+
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="업무사례">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="복잡한 법률 문제의 해결 과정과 LKB평산의 전문성을 확인하세요.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/pages/cases/index.css" asp-append-version="true">
+}
+
+
+<main id="main" class="sub_page static_list_page section">
+    <div class="page_heading container-md">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li aria-current="page">업무사례</li>
+            </ol>
+        </nav>
+        <h1 class="section_scroll">업무사례</h1>
+        <p class="section_scroll">복잡한 법률 문제의 해결 과정과 LKB평산의 전문성을 확인하세요.</p>
+    </div>
+    <div class="list_search" role="search">
+        <label class="search_box">
+            <span class="sr_only">업무사례를 검색해 주세요.</span>
+            <input type="search" name="q" placeholder="업무사례를 검색해 주세요.">
+            <button type="button" aria-label="검색">
+                <i class="svg_icon search_icon">
+                    <img src="/images/icon/search_icon.svg" alt="">
+                </i>
+            </button>
+        </label>
+        <button class="button primary" type="button" data-dialog="filter_dialog">
+            분야별 찾기
+            <i class="svg_icon add_icon">
+                <img src="/images/icon/add_icon.svg" alt="" aria-hidden="true">
+            </i>
+        </button>
+    </div>
+    <div class="selected_filters" aria-live="polite">
+        <span>선택 분야 <b>@(selectedFilters.Length)개</b></span>
+        <div class="filter_chips">
+            @for (var i = 0; i < selectedFilters.Length; i++)
+            {
+                <button type="button" aria-label="@(selectedFilters[i]) 선택 해제">
+                    @selectedFilters[i]
+                    <i class="svg_icon chip_close_icon">
+                        <img src="/images/icon/chip_close_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </button>
+            }
+        </div>
+        <button type="button" class="filter_reset">
+            전체 해제
+            <i class="svg_icon reset_icon">
+                <img src="/images/icon/reset_icon.svg" alt="" aria-hidden="true">
+            </i>
+        </button>
+    </div>
+    <section class="container-md listing_section">
+        <p class="result_count" role="status">Total. <strong>9건</strong></p>
+        <ul class="case_grid">
+            @for (var i = 0; i < caseGridItems1.Length; i++)
+            {
+                var item = caseGridItems1[i];
+
+                <li class="case_card">
+                    <a class="case_summary_link" href="/cases/detail">
+                        <span class="post_category">@item.Text</span>
+                        <strong>@item.Text2</strong>
+                        <p class="post_title">@item.Title</p>
+                        <p class="post_excerpt ellipsis line2">@item.Description</p>
+                        <time class="post_date">26-00-00</time>
+                    </a>
+                    <ul class="case_people" aria-label="관련 구성원">
+                        @for (var j = 0; j < item.Members.Length; j++)
+                        {
+                            var member = item.Members[j];
+
+                            <li>
+                                <a class="case_member" href="@member.Url" aria-label="@(member.Name) 구성원 상세보기">
+                                    <span class="case_member_photo">
+                                        <img src="@member.Image" alt="" width="60" height="60" loading="lazy">
+                                        <i class="svg_icon member_more_icon" aria-hidden="true">
+                                            <img src="/images/icon/member_more_icon.svg" alt="">
+                                        </i>
+                                    </span>
+                                    <span class="case_member_name">@member.Name</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+        <partial name="Common/_Pagination" />
+    </section>
+</main>

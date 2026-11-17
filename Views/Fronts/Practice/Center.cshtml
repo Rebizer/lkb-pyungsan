@@ -1,0 +1,405 @@
+@{
+    ViewData["Title"] = "중대재해센터";
+    ViewData["Description"] = "중대재해 예방 체계 점검부터 수사·재판 대응까지 LKB평산 중대재해센터의 법률서비스를 소개합니다.";
+    ViewData["SchemaType"] = "WebPage";
+    ViewData["BodyClass"] = "center_landing";
+    ViewData["CenterHeader"] = true;
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // 구성원 약력 시안
+    var memberCareers = new[]
+    {
+        new
+        {
+            Text = "법무법인 ○○ 소속변호사"
+        },
+        new
+        {
+            Text = "대한법률구조공단 법률상담"
+        },
+        new
+        {
+            Text = "○○대학교 법학전문대학원 졸업"
+        }
+    };
+
+    // 센터 구성원 슬라이드와 썸네일
+    var centerMembers = new[]
+    {
+        new
+        {
+            Image = "/images/members/member_14.png",
+            Text = "홍길동"
+        },
+        new
+        {
+            Image = "/images/members/member_16.png",
+            Text = "김도윤"
+        },
+        new
+        {
+            Image = "/images/members/member_17.png",
+            Text = "이서현"
+        },
+        new
+        {
+            Image = "/images/members/member_18.png",
+            Text = "박준호"
+        },
+        new
+        {
+            Image = "/images/members/member_15.png",
+            Text = "정민서"
+        },
+        new
+        {
+            Image = "/images/members/member_13.png",
+            Text = "최현우"
+        }
+    };
+
+    // 업무사례 슬라이드 시안
+    var centerCases = new[]
+    {
+        new
+        {
+            Text = "불기소",
+            Title = "제조공장 끼임 사고 관련 경영책임자 불기소 사례",
+            Description = "제조공장 사고와 관련하여 안전보건 관리체계와 개선 조치 이행 자료를 분석하고, 경영책임자의 의무 이행을 소명해 불기소 처분을 이끌어냈습니다.",
+            Members = new[]
+            {
+                new { Name = "김희준", Image = "/images/members/member_19.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Text = "무죄",
+            Title = "건설현장 추락 사고 관련 중대재해처벌법 위반 무죄 사례",
+            Description = "건설현장 추락 사고에서 도급 관계와 안전관리 업무 분담을 검토하고, 의무 위반 및 사고와의 인과관계를 다투어 무죄 판결을 받았습니다.",
+            Members = new[]
+            {
+                new { Name = "김강대", Image = "/images/members/member_20.png", Url = "/members/detail" },
+                new { Name = "나민경", Image = "/images/members/member_21.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Text = "집행유예",
+            Title = "물류시설 사망 사고 관련 현장책임자 집행유예 사례",
+            Description = "물류시설 사고에 대한 현장책임자의 형사재판에서 사고 후 재발 방지 조치와 피해 회복 노력 등을 소명하여 집행유예 판결을 받았습니다.",
+            Members = new[]
+            {
+                new { Name = "나민경", Image = "/images/members/member_21.png", Url = "/members/detail" }
+            }
+        }
+    };
+
+    // 하단 사무소 안내
+    var officeLocations = new[]
+    {
+        new
+        {
+            Name = "웅진관",
+            Url = "/contact",
+            Address = "서울 서초구 반포대로30길 81 웅진타워 4층, 13층, 14층, 16층",
+            Phone = "02-582-8500"
+        },
+        new
+        {
+            Name = "정곡관",
+            Url = "/contact?office=jeonggok",
+            Address = "서울 서초구 법원로 15 정곡빌딩 서관 지하 1층, 1~5층",
+            Phone = "02-596-7007"
+        }
+    };
+}
+
+@section meta {
+    <title>중대재해센터 | 법무법인 LKB평산</title>
+    <meta name="Title" content="중대재해센터 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="중대재해 예방 체계 점검부터 수사·재판 대응까지 LKB평산 중대재해센터의 법률서비스를 소개합니다.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="중대재해센터">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="중대재해 예방 체계 점검부터 수사·재판 대응까지 LKB평산 중대재해센터의 법률서비스를 소개합니다.">
+    <meta property="og:url" content="@currentUrl">
+    
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="중대재해센터">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="중대재해 예방 체계 점검부터 수사·재판 대응까지 LKB평산 중대재해센터의 법률서비스를 소개합니다.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/pages/cases/index.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/home/common.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/practice/center_header.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/practice/center.css" asp-append-version="true">
+}
+
+@section scripts {
+    <script src="~/js/pages/practice/center.js" asp-append-version="true"></script>
+}
+
+
+<main id="main" class="center_page">
+    <section class="center_hero section">
+        <img src="/images/practice/industrial_safety_hero.png" alt="산업현장 안전을 점검하는 전문가" fetchpriority="high">
+        <div class="center_hero_content">
+            <h1 class="section_scroll">중대재해 예방과 대응
+                현장의 안전을 위한 법률 파트너</h1>
+            <p class="section_scroll">예방 체계 점검부터 수사·재판 대응까지 전문적인 법률서비스를 제공합니다.</p>
+        </div>
+        <a class="scroll_hint" href="#center_intro">scroll down<span></span></a>
+    </section>
+    <section id="center_intro" class="center_intro section">
+        <div class="container-lg center_content">
+            <div class="section_scroll">
+                <p class="primary_text">중대재해센터 소개</p>
+                <h2>현장을 이해하고,
+                    대응 방향을 제시합니다.</h2>
+                <p>중대재해는 현장의 안전관리와 기업의 법적 책임을 함께 살펴야 하는 사안입니다.
+                    LKB평산 중대재해센터는 안전보건 관리체계 점검부터
+                    사고 발생 후 초기 대응, 수사와 재판까지 단계별 법률 지원을 제공합니다.</p>
+                <p>사실관계와 현장 자료를 면밀히 검토하고, 기업의 업종과 사업장 특성에 맞는 대응 전략을 수립합니다.
+                    예방과 대응 전 과정에서 주요 쟁점을 명확히 안내하고 실질적인 개선 방향을 함께 모색합니다.</p>
+            </div>
+            <img class="section_scroll" src="/images/practice/industrial_safety_meeting.png" alt="현장 안전과 법률 대응을 검토하는 회의" loading="lazy">
+        </div>
+    </section>
+    <section id="center_professionals" class="center_professionals section">
+        <div class="container-lg center_content">
+            <h2 class="english_heading section_scroll">PROFESSIONALS</h2>
+            <div class="section_heading section_scroll">
+                <div>
+                    <h3>센터 구성원</h3>
+                    <p>현장과 법률에 대한 깊은 이해를 바탕으로
+                        중대재해 예방과 대응을 함께하는 전문가들입니다.</p>
+                </div>
+                <a class="button pc_button" href="/members">
+                    구성원 더보기
+                    <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                        <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+        </div>
+        <div class="center_profile section_scroll">
+            <div class="center_member_slider swiper" aria-label="센터 구성원">
+                <div class="swiper-wrapper">
+                    @for (var i = 0; i < centerMembers.Length; i++)
+                    {
+                        var member = centerMembers[i];
+
+                        <div class="swiper-slide">
+                            <div class="container-lg center_content center_profile_inner">
+                                <div class="center_profile_text">
+                                    <p class="center_member_role">구성원변호사</p>
+                                    <h3>
+                                        <a href="/members/detail">@member.Text</a>
+                                    </h3>
+                                    <ul>
+                                        @for (var j = 0; j < memberCareers.Length; j++)
+                                        {
+                                            <li>@memberCareers[j].Text</li>
+                                        }
+                                    </ul>
+                                </div>
+                                <a class="center_portrait_frame" href="/members/detail" aria-label="@(member.Text) 구성원 상세보기">
+                                    <img src="@member.Image" alt="@member.Text" width="600" height="600" loading="lazy">
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="container-lg center_content center_member_navigation">
+                <div class="center_member_controls">
+                    <button type="button" class="center_member_prev center_arrow" aria-label="이전 구성원">
+                        <i class="svg_icon arrow_hover_icon arrow_more_icon icon_left">
+                            <img src="/images/icon/arrow_more_icon.svg" alt="">
+                        </i>
+                    </button>
+                    <div class="center_member_thumbs swiper" aria-label="구성원 선택">
+                        <div class="swiper-wrapper">
+                            @for (var i = 0; i < centerMembers.Length; i++)
+                            {
+                                var member = centerMembers[i];
+
+                                <div class="swiper-slide">
+                                    <button type="button" data-member-index="@i" aria-label="@(member.Text) 프로필 보기" aria-pressed="@(i == 0 ? "true" : "false")">
+                                        <img src="@member.Image" alt="" width="100" height="100" loading="lazy">
+                                        <span>@member.Text</span>
+                                    </button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <button type="button" class="center_member_next center_arrow" aria-label="다음 구성원">
+                        <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                            <img src="/images/icon/arrow_more_icon.svg" alt="">
+                        </i>
+                    </button>
+                </div>
+
+                <a class="button m_button" href="/members">
+                    구성원 더보기
+                    <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                        <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+        </div>
+        
+    </section>
+    <section id="center_cases" class="center_cases section">
+        <div class="container-lg center_content">
+            <h2 class="english_heading section_scroll">CASES</h2>
+            <div class="section_heading section_scroll">
+                <p>중대재해 사건의 주요 쟁점과 대응 사례를 확인하세요.</p>
+                <a class="button pc_button" href="/cases">
+                    업무사례 더보기
+                    <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                        <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <div class="center_case_slider swiper section_scroll" aria-label="센터 업무사례">
+                <ul class="swiper-wrapper">
+                    @for (var i = 0; i < centerCases.Length * 4; i++)
+                    {
+                        var item = centerCases[i % centerCases.Length];
+
+                        <li class="case_card swiper-slide">
+                            <a class="case_summary_link" href="/cases/detail">
+                                <p class="post_category">노사/중대재해</p>
+                                <strong>@item.Text</strong>
+                                <p class="post_title">@item.Title</p>
+                                <p class="post_excerpt ellipsis line2">@item.Description</p>
+                                <time class="post_date">26-00-00</time>
+                            </a>
+                            <ul class="case_people" aria-label="관련 구성원">
+                                @for (var j = 0; j < item.Members.Length; j++)
+                                {
+                                    var member = item.Members[j];
+
+                                    <li>
+                                        <a class="case_member" href="@member.Url" aria-label="@(member.Name) 구성원 상세보기">
+                                            <span class="case_member_photo">
+                                                <img src="@member.Image" alt="" width="60" height="60" loading="lazy">
+                                                <i class="svg_icon member_more_icon" aria-hidden="true">
+                                                    <img src="/images/icon/member_more_icon.svg" alt="">
+                                                </i>
+                                            </span>
+                                            <span class="case_member_name">@member.Name</span>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="center_case_controls">
+                <div class="center_case_scrollbar swiper-scrollbar"></div>
+                <button type="button" class="center_case_prev center_arrow" aria-label="이전 업무사례">
+                    <i class="svg_icon arrow_hover_icon arrow_more_icon icon_left">
+                        <img src="/images/icon/arrow_more_icon.svg" alt="">
+                    </i>
+                </button>
+                <button type="button" class="center_case_next center_arrow" aria-label="다음 업무사례">
+                    <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                        <img src="/images/icon/arrow_more_icon.svg" alt="">
+                    </i>
+                </button>
+            </div>
+
+            <a class="button m_button" href="/cases">
+                업무사례 더보기
+                <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                    <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                </i>
+            </a>
+        </div>
+    </section>
+    <section class="contact_sec container-lg section">
+        <h2 class="english_heading section_scroll">CONTACT</h2>
+        <p class="section_scroll">신뢰할 수 있는 법률 파트너, LKB평산이 함께하겠습니다.</p>
+        <div class="contact_cards">
+            <a href="/consultation" class="section_scroll">
+                <h3>온라인 문의</h3>
+                <p>법률 상담이 필요하시면 문의를 남겨주세요.</p>
+                <span class="image_label">
+                    문의하기
+                    <i class="svg_icon arrow_hover_icon arrow_right_icon">
+                        <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </span>
+            </a>
+            <a href="https://pf.kakao.com/_xgkxfHn/chat" target="_blank" rel="noopener noreferrer" class="section_scroll">
+                <h3>카카오톡 문의</h3>
+                <p>궁금한 법률 문제를 카카오톡으로 문의하세요.</p>
+                <span class="image_label">
+                    문의하기
+                    <i class="svg_icon arrow_hover_icon arrow_right_icon">
+                        <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </span>
+            </a>
+            <a href="/contact" class="section_scroll">
+                <h3>오시는길</h3>
+                <p>LKB평산의 위치와 방문 방법을 안내합니다.</p>
+                <span class="image_label">
+                    자세히 보기
+                    <i class="svg_icon arrow_hover_icon arrow_right_icon">
+                        <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </span>
+            </a>
+        </div>
+    </section>
+    <section class="office_banner">
+        <div class="container-lg">
+            @for (var i = 0; i < officeLocations.Length; i++)
+            {
+                var office = officeLocations[i];
+
+                <a href="@office.Url">
+                    <h3 class="image_label">
+                        @office.Name
+                        <i class="svg_icon office_banner_link_icon">
+                            <img src="/images/icon/office_banner_link_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </h3>
+                    <p>@office.Address</p>
+                    <p>@office.Phone</p>
+                </a>
+            }
+        </div>
+    </section>
+</main>

@@ -1,0 +1,14 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    // 퍼블리싱 미리보기: 서버에서 회사 정보를 전달하지 않은 경우에만 빈 태그를 사용합니다.
+    if (ViewBag.companymodel == null)
+    {
+        dynamic company = new System.Dynamic.ExpandoObject();
+        company.HeadTag = string.Empty;
+        company.HeadNextTag = string.Empty;
+        company.ScriptTag = string.Empty;
+        ViewBag.companymodel = company;
+    }
+
+}

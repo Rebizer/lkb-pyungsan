@@ -1,0 +1,262 @@
+@{
+    ViewData["Title"] = "총포법 위반 방조 사건 1심 실형(징역 1년) → 항소심 집행유예 변경";
+    ViewData["Description"] = "총포법 위반 방조 사건에서 항소심 양형 변론을 통해 집행유예 변경을 이끌어낸 사례를 소개합니다.";
+    ViewData["SchemaType"] = "Article";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // 이전글 · 다음글: 백엔드 연동 전 시안 콘텐츠
+    var caseNavigationItems = new[]
+    {
+        new
+        {
+            Label = "이전글",
+            Category = "성범죄",
+            Result = "무죄 및 집행유예",
+            Title = "성폭력처벌법 위반 등 다수 혐의 사건에서 무죄 및 집행유예 선고 사례",
+            Url = "/cases/detail"
+        },
+        new
+        {
+            Label = "다음글",
+            Category = "민사",
+            Result = "승소",
+            Title = "한국미술협회 임원선거 피선거권 존재 확인 및 항소기각 성공",
+            Url = "/cases/detail"
+        }
+    };
+
+    // 관련 태그: 통합검색 검색어로 전달합니다.
+    var articleTags = new[] { "총포법위반", "총포법방조", "형사사건", "집행유예", "항소심" };
+}
+
+@section meta {
+    <title>총포법 위반 방조 사건 1심 실형(징역 1년) → 항소심 집행유예 변경 | 법무법인 LKB평산</title>
+    <meta name="Title" content="총포법 위반 방조 사건 1심 실형(징역 1년) → 항소심 집행유예 변경 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="총포법 위반 방조 사건에서 항소심 양형 변론을 통해 집행유예 변경을 이끌어낸 사례를 소개합니다.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="총포법 위반 방조 사건 1심 실형(징역 1년) → 항소심 집행유예 변경">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="총포법 위반 방조 사건에서 항소심 양형 변론을 통해 집행유예 변경을 이끌어낸 사례를 소개합니다.">
+    <meta property="og:url" content="@currentUrl">
+    
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="총포법 위반 방조 사건 1심 실형(징역 1년) → 항소심 집행유예 변경">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="총포법 위반 방조 사건에서 항소심 양형 변론을 통해 집행유예 변경을 이끌어낸 사례를 소개합니다.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="/css/editor.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/news/detail_common.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/cases/detail.css" asp-append-version="true">
+}
+
+
+<main id="main" class="sub_page article_page section">
+    <div class="container-md">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li aria-current="page"><a href="/cases">업무사례</a></li>
+            </ol>
+        </nav>
+        <header class="article_heading">
+            <p class="case_heading_meta section_scroll">
+                <a href="/cases" class="post_category">형사</a>
+                <strong class="case_result primary_text">집행유예</strong>
+            </p>
+            <h1 class="article_title section_scroll">총포법 위반 방조 사건 1심 실형(징역 1년) → 항소심 집행유예 변경</h1>
+            <div class="article_meta">
+                <time class="post_date">26-00-00</time>
+                <span class="post_views">조회수 170</span>
+                <button type="button" class="share_button">
+                    공유하기
+                    <i class="svg_icon share_icon">
+                        <img src="/images/icon/share_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </button>
+            </div>
+        </header>
+        <div class="article_columns">
+            <article class="article_body">
+                <div class="ck-content">
+                    <section class="case_summary">
+                        <h2>사건 요약</h2>
+                        <p>의뢰인은 실탄 발사가 가능한 총기 부품(총열)의 취득 및 전달 과정에 관여하였다는 이유로 총포·도검·화약류 등의 안전관리에 관한 법률 위반 방조 혐의로 기소되어 1심에서 징역 1년의 실형을 선고받았습니다.
+                            이에 우리 법인은 방조범으로서의 제한된 관여 정도, 범행의 일회성, 전과의 시간적 간격 및 재범 위험성 등을 중심으로 양형을 다투었고, 그 결과 항소심에서 집행유예 판결을 이끌어냈습니다.</p>
+                    </section>
+                    <section>
+                        <h2>기초사실</h2>
+                        <p>의뢰인은 2025년 4월경 지인을 통하여 실탄 발사가 가능한 총기 부품인 총열 3개를 구해 달라는 부탁을 받고, 금속가공업체에서 제조된 해당 총열을 전달받은 후 이를 다시 제3자에게 교부하는 과정에 관여하였습니다. 이 과정에서 해당 총열이 적법한 허가 없이 취득·소지된 것임을 인식하면서도 이를 전달함으로써 무허가 총포 소지 행위를 용이하게 하여 방조한 것으로 인정되었습니다.</p>
+                        <p>이 사건에서 의뢰인은 총포·도검·화약류 등의 안전관리에 관한 법률 위반 방조 혐의로 기소되었고, 1심에서는 징역 1년의 실형이 선고되었습니다. 주요 쟁점은 방조범임에도 실형이 선고된 것이 적정한지 여부, 총포 부품 유통에 대한 관여 정도, 동종 전과의 평가 및 최근성, 재범 위험성 및 생활관계 등에 있었습니다.</p>
+                    </section>
+                    <section>
+                        <h2>사건의 특징</h2>
+                        <p>이 사건은 방조범임에도 불구하고 실형이 선고된 이례적인 사례로, 실탄 발사가 가능한 총열의 유통이 문제된 사안이라는 점에서 범행의 위험성이 크게 평가되었습니다. 또한 의뢰인에게 동종 전과가 존재하여 양형상 불리한 구조였으며, 해당 전과 역시 과거 총포사 운영 과정에서 발생한 것으로 본건과 구체적인 내용 및 경위에 차이가 있음에도 불구하고 재판부에서 중요하게 고려될 여지가 있었습니다.</p>
+                        <p>결국 이 사건은 전과의 최근성과 범행 유형의 차이를 어떻게 평가할 것인지, 그리고 방조범의 책임을 실형으로까지 평가할 수 있는지 여부가 핵심 쟁점이 된 항소심 양형 집중 사건이었습니다.</p>
+                    </section>
+                    <section>
+                        <h2>우리 법인의 조력 내용</h2>
+                        <p>우리 법인은 먼저 방조범의 책임은 정범과 구별되어야 한다는 점을 전제로, 의뢰인이 총포 부품을 직접 소지하거나 유통의 주체로서 관여한 것이 아니라는 점을 강조하고, 형벌의 비례원칙에 비추어 실형 선고가 과도하다는 점을 집중적으로 주장하였습니다.</p>
+                        <p>또한 이 사건이 일회적이고 비상습적인 관여에 그친 사안이라는 점, 이후 동일하거나 유사한 범행이 전혀 없다는 점을 들어 재범 위험성이 낮다는 사정을 체계적으로 정리하여 제출하였습니다.</p>
+                        <p>아울러 동종 전과에 관하여는 존재 자체를 부정하기보다는, 해당 전과가 과거 총포사 운영 과정에서 발생한 것으로 본건과 구체적인 내용 및 경위가 상이하고, 장기간이 경과하여 현재의 재범 위험성을 평가하는 자료로서의 의미가 현저히 약화되었다는 점을 강조함으로써 전과의 실질적 불이익을 최소화하는 방향으로 주장하였습니다.</p>
+                        <p>나아가 항소심 단계에서 최종변론을 직접 구성하여 제출하고, 재판부가 문제 삼을 수 있는 전과의 집중성 등 쟁점에 대하여 사전에 대응 논리를 정리하였으며, 의뢰인과의 긴밀한 소통을 통해 확보한 양형자료를 바탕으로 재판부를 설득하였습니다.</p>
+                    </section>
+                    <section>
+                        <h2>선고의 결과</h2>
+                        <p>항소심 재판부는 방조범으로서의 제한된 관여 정도, 범행의 일회성 및 재범 위험성의 낮음, 전과의 시간적 간격 및 구체적 내용의 차이 등을 종합적으로 고려하여 판단하였습니다. 그 결과 1심에서 선고된 징역 1년의 실형을 그대로 유지하는 것은 타당하지 않다고 보아, 이를 집행유예로 변경하는 판결을 선고하였습니다.</p>
+                    </section>
+                    <section>
+                        <h2>성공의 의의</h2>
+                        <p>이 사건의 핵심 성과는 1심에서 이미 실형이 선고된 사건을 항소심에서 집행유예로 전환하였다는 점에 있습니다. 특히 방조범의 책임 범위를 명확히 하고 이를 양형에 실질적으로 반영받았다는 점, 동종 전과가 존재함에도 불구하고 재범 위험성이 낮다는 점을 인정받았다는 점에서 의미가 큽니다.</p>
+                        <p>아울러 본 사건은 항소심에서 양형 요소를 중심으로 전략적으로 대응할 경우 결과를 충분히 변경할 수 있음을 보여주는 사례로서, 형사사건에서 양형 판단이 가지는 중요성을 잘 드러낸 사례라 할 것입니다.</p>
+                    </section>
+                </div>
+                <div class="article_tag_group">
+                    <p class="article_tag_label">관련태그</p>
+                    <ul class="article_tags" aria-label="관련 태그">
+                        @for (var i = 0; i < articleTags.Length; i++)
+                        {
+                            <li>
+                                <a href="/search?q=@(System.Uri.EscapeDataString(articleTags[i]))">#@articleTags[i]</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <nav class="case_navigation" aria-label="이전글 다음글">
+                    @for (var i = 0; i < caseNavigationItems.Length; i++)
+                    {
+                        var item = caseNavigationItems[i];
+
+                        <a class="case_navigation_link" href="@item.Url">
+                            <span class="case_navigation_label">@item.Label</span>
+                            <div class="case_navigation_content">
+                                <p class="case_navigation_meta"><span>@item.Category</span><span class="case_navigation_result">@item.Result</span></p>
+                                <p class="case_navigation_title">@item.Title</p>
+                            </div>
+                        </a>
+                    }
+                </nav>
+                <div class="back_list">
+                    <a class="button" href="/cases">목록으로</a>
+                </div>
+            </article>
+            <aside class="article_aside">
+                <div class="related_members">
+                    <h2 class="aside_heading">
+                        관련 구성원
+                        <a href="/members">
+                            더보기
+                            <i class="svg_icon arrow_hover_icon related_more_icon">
+                                <img src="/images/icon/related_more_icon.svg" alt="" aria-hidden="true">
+                            </i>
+                        </a>
+                    </h2>
+                    <a class="related_member" href="/members/detail">
+                        <span class="related_member_photo">
+                            <img src="/images/members/member_20.png" alt="김강대" loading="lazy">
+                            <i class="svg_icon member_more_icon" aria-hidden="true">
+                                <img src="/images/icon/member_more_icon.svg" alt="">
+                            </i>
+                        </span>
+                        <div>
+                            <p class="related_member_name"><strong>김강대</strong><span>대표이사</span></p>
+                            <dl class="related_member_contact">
+                                <div>
+                                    <dt>M.</dt>
+                                    <dd>kdkim@lkbps.com</dd>
+                                </div>
+                                <div>
+                                    <dt>T.</dt>
+                                    <dd>02-596-7150</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </a>
+                    <a class="related_member" href="/members/detail">
+                        <span class="related_member_photo">
+                            <img src="/images/members/member_21.png" alt="나민경" loading="lazy">
+                            <i class="svg_icon member_more_icon" aria-hidden="true">
+                                <img src="/images/icon/member_more_icon.svg" alt="">
+                            </i>
+                        </span>
+                        <div>
+                            <p class="related_member_name"><strong>나민경</strong><span>소속변호사</span></p>
+                            <dl class="related_member_contact">
+                                <div>
+                                    <dt>M.</dt>
+                                    <dd>mkna@lkbps.com</dd>
+                                </div>
+                                <div>
+                                    <dt>T.</dt>
+                                    <dd>02-537-2606</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </a>
+                </div>
+                <div class="related_practice">
+                    <h2 class="aside_heading">
+                        관련 업무분야
+                        <a href="/practice">
+                            더보기
+                            <i class="svg_icon arrow_hover_icon related_more_icon">
+                                <img src="/images/icon/related_more_icon.svg" alt="" aria-hidden="true">
+                            </i>
+                        </a>
+                    </h2>
+                    <dl>
+                        <div>
+                            <dt>분야별
+                                <i class="svg_icon arrow_hover_icon practice_chevron_icon">
+                                    <img src="/images/icon/practice_chevron_icon.svg" alt="" aria-hidden="true">
+                                </i>
+                            </dt>
+                            <dd><a href="/practice/detail">형사</a></dd>
+                        </div>
+                        <div>
+                            <dt>센터별
+                                <i class="svg_icon arrow_hover_icon practice_chevron_icon">
+                                    <img src="/images/icon/practice_chevron_icon.svg" alt="" aria-hidden="true">
+                                </i>
+                            </dt>
+                            <dd><a href="/center">형사법연구센터</a><a href="/center">수사대응센터</a></dd>
+                        </div>
+                    </dl>
+                    <a class="button" href="/consultation">
+                        유사 사건 상담 신청하기
+                        <i class="svg_icon arrow_hover_icon arrow_right_icon">
+                            <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>

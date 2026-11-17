@@ -1,0 +1,225 @@
+@{
+    ViewData["Title"] = "업무분야 - 센터별";
+    ViewData["Description"] = "다양한 법률 문제에 대응하는 LKB평산의 센터별 전문 분야를 확인하세요.";
+    ViewData["SchemaType"] = "CollectionPage";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // practice_grid 반복 콘텐츠
+    var practiceGridItems1 = new[]
+    {
+        new
+        {
+            Label = "중대재해센터"
+        },
+        new
+        {
+            Label = "국제센터"
+        },
+        new
+        {
+            Label = "해사국제상사센터"
+        },
+        new
+        {
+            Label = "선거법센터"
+        },
+        new
+        {
+            Label = "집단소송센터"
+        },
+        new
+        {
+            Label = "공정거래센터"
+        },
+        new
+        {
+            Label = "금융법센터"
+        },
+        new
+        {
+            Label = "자본시장센터"
+        },
+        new
+        {
+            Label = "헬스바이오센터"
+        },
+        new
+        {
+            Label = "K-컬쳐센터"
+        },
+        new
+        {
+            Label = "AI컨텐츠센터"
+        },
+        new
+        {
+            Label = "가사센터(상속이혼센터)"
+        },
+        new
+        {
+            Label = "형사법연구센터"
+        },
+        new
+        {
+            Label = "수사대응센터"
+        },
+        new
+        {
+            Label = "성범죄센터"
+        },
+        new
+        {
+            Label = "마약센터"
+        },
+        new
+        {
+            Label = "디지털자산센터"
+        },
+        new
+        {
+            Label = "프로보노센터"
+        },
+        new
+        {
+            Label = "노동센터"
+        },
+        new
+        {
+            Label = "건설부동산센터"
+        },
+        new
+        {
+            Label = "부동산개발법센터"
+        },
+        new
+        {
+            Label = "학교폭력센터"
+        },
+        new
+        {
+            Label = "재판소원센터"
+        },
+        new
+        {
+            Label = "관세통상센터"
+        },
+        new
+        {
+            Label = "도산기업회생센터"
+        },
+        new
+        {
+            Label = "경영·가업승계센터"
+        },
+        new
+        {
+            Label = "내부통제ESG센터"
+        },
+        new
+        {
+            Label = "M&A센터"
+        },
+        new
+        {
+            Label = "영업비밀/IP센터"
+        },
+        new
+        {
+            Label = "조세법센터"
+        }
+    };
+}
+
+@section meta {
+    <title>업무분야 - 센터별 | 법무법인 LKB평산</title>
+    <meta name="Title" content="업무분야 - 센터별 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="다양한 법률 문제에 대응하는 LKB평산의 센터별 전문 분야를 확인하세요.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="업무분야 - 센터별">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="다양한 법률 문제에 대응하는 LKB평산의 센터별 전문 분야를 확인하세요.">
+    <meta property="og:url" content="@currentUrl">
+    
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="업무분야 - 센터별">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="다양한 법률 문제에 대응하는 LKB평산의 센터별 전문 분야를 확인하세요.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/pages/practice/index.css" asp-append-version="true">
+}
+
+<main id="main" class="sub_page list_page section" data-page-size="40">
+    <div class="page_heading container-md">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>업무분야</li>
+                <li aria-current="page">센터별</li>
+            </ol>
+        </nav>
+        <h1 class="section_scroll">업무분야</h1>
+        <p class="section_scroll">다양한 법률 문제에 대응하는 LKB평산의 전문 분야를 확인하세요.</p>
+    </div>
+    <form class="list_search" role="search">
+        <label class="search_box">
+            <span class="sr_only">검색어를 입력해 주세요.</span>
+            <input type="search" name="q" placeholder="검색어를 입력해 주세요.">
+            <button type="submit" aria-label="검색">
+                <i class="svg_icon search_icon">
+                    <img src="/images/icon/search_icon.svg" alt="">
+                </i>
+            </button>
+        </label>
+    </form>
+    <section class="container-md listing_section">
+        <nav class="category_tabs" aria-label="분류"><a href="/practice">분야별</a><a href="/centers" class="active" aria-current="page">센터별</a><a href="/regions">지역별</a></nav>
+        <p class="result_count" role="status">Total. <strong>30건</strong></p>
+        <ul class="practice_grid">
+            @for (var i = 0; i < practiceGridItems1.Length; i++)
+            {
+                var item = practiceGridItems1[i];
+
+                <li class="searchable_item">
+                    <a href="/center">
+                        @item.Label
+                        <span aria-hidden="true" class="image_label">
+                            <i class="svg_icon arrow_hover_icon arrow_right_icon external_link_icon">
+                                <img src="/images/icon/external_link_icon.svg" alt="" aria-hidden="true">
+                            </i>
+                        </span>
+                    </a>
+                </li>
+            }
+        </ul>
+        <p class="no_results" role="status" hidden="">검색 결과가 없습니다. 다른 검색어로 다시 검색해 주세요.</p>
+        <partial name="Common/_Pagination" />
+    </section>
+</main>

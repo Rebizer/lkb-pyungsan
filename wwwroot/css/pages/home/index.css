@@ -1,0 +1,988 @@
+/* Home/Index 전용 스타일 */
+
+.m_button {
+    display: none;
+}
+
+/*-- swiper_controls --*/
+.swiper_controls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    z-index: 2;
+    position: relative;
+}
+.swiper_index {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+.swiper_index,
+.swiper_index * {
+    font-size: var(--ft20);
+    font-weight: var(--medium);
+    color: var(--gray-300);
+}
+.swiper_index .swiper-pagination-current {
+    color: var(--gray-400);
+}
+
+.swiper_controls .swiper_btn {
+    width: 24px;
+    height: 24px;
+    opacity: .4;
+    transition: opacity .4s ease;
+}
+.swiper_controls .swiper_btn:hover {
+    opacity: 1;
+}
+.swiper_controls .swiper_btn i {
+    width: 100%;
+    height: 100%;
+}
+
+/*-- autoplay_toggle --*/
+.autoplay_toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    color: inherit;
+}
+.play_state {
+    width: 10px;
+    height: 12px;
+    border-left: 3px solid currentColor;
+    border-right: 3px solid currentColor;
+}
+.autoplay_toggle[aria-pressed="true"] .play_state {
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-left: 10px solid currentColor;
+    border-right: 0;
+}
+
+
+/* ---------------- home_page ---------------- */
+.home_hero {
+    height: 100svh;
+    position: relative;
+    color: var(--white);
+    overflow: hidden;
+}
+
+/*-- hero_image --*/
+.hero_image {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 5;
+}
+.hero_image_slider {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+.hero_background {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+}
+.hero_image_slide {
+    height: 100%;
+    overflow: hidden;
+}
+.hero_image_slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #0003;
+    pointer-events: none;
+}
+.hero_image_slide img {
+    transform: scale(1.06);
+}
+
+/*-- hero_inner --*/
+.hero_inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1;
+}
+.hero_content {
+    position: relative;
+    z-index: 1;
+    margin: auto;
+    padding-top: 240px;
+}
+.hero_content .hero_title {
+    font-size: var(--ft70);
+    font-weight: var(--semi-bold);
+    opacity: 0;
+}
+.hero_content > .hero_text {
+    font-size: var(--ft22);
+    margin-top: 40px;
+    font-weight: var(--medium);
+    opacity: 0;
+}
+.hero_controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 60px;
+}
+.hero_index,
+.hero_index * {
+    color: var(--white-600);
+}
+.hero_index .swiper-pagination-current {
+    color: var(--white);
+}
+
+/*-- hero_notice --*/
+.hero_notice {
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    gap: 20px;
+    background: #0006;
+    font-size: var(--ft16);
+    min-height: 60px;
+}
+.hero_notice > div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.hero_news_item strong {
+    white-space: nowrap;
+    font-weight: var(--medium);
+}
+.hero_news_item:hover span {
+    text-decoration: underline;
+}
+
+.hero_news_slider {
+    min-width: 0;
+    width: 100%;
+    height: 24px;
+}
+.hero_news_item {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+.hero_news_item > span {
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.hero_image_slider.swiper-initialized .swiper-slide-active .hero_background {
+    animation: hero_zoom 6.8s ease-out both;
+}
+
+.hero_text_slider.swiper-initialized .swiper-slide-active .hero_title,
+.hero_text_slider.swiper-initialized .swiper-slide-active .hero_text {
+    animation: slide_reveal .85s both;
+}
+
+.hero_text_slider.swiper-initialized .swiper-slide-active .hero_text {
+    animation-delay: .18s;
+}
+
+.stat_number {
+    font-variant-numeric: tabular-nums;
+}
+
+@keyframes hero_zoom {
+    from { transform: scale(1.06); }
+    to { transform: scale(1); }
+}
+
+@keyframes slide_reveal {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------- home_news ---------------- */
+.home_news {
+    padding: 120px 0;
+    background: linear-gradient(#ffffffb8,#ffffffed),url("/images/home/home_news_bg.png") center top/cover;
+}
+.home_news .english_heading {
+    margin-bottom: 80px;
+}
+
+/* 언론보도 */
+.press_slider .swiper-slide {
+    height: auto;
+    border-top: 1px solid var(--gray-200);
+}
+.press_slider a {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.press_slider .post_date {
+    display: block;
+    padding-top: 50px;
+    color: var(--gray-300);
+    font-size: var(--ft16);
+}
+.press_slider .post_title {
+    margin: 24px 0 30px;
+    font-size: var(--ft20);
+    font-weight: var(--semi-bold);
+}
+.press_slider .press_img {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+.press_slider .press_img img {
+    transition: transform .4s ease;
+}
+.press_slider a:hover .press_img img {
+    transform: scale(1.05);
+}
+
+/* 법인소식 */
+.corporate_heading {
+    margin-top: 130px;
+}
+
+.home_news_tabs {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--gray-200);
+    font-size: var(--ft20);
+    color: var(--gray-300);
+    font-weight: var(--semi-bold);
+}
+.home_news_tabs .active {
+    color: var(--primary);
+}
+
+.home_news_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+}
+.home_news_list[hidden] {
+    display: none;
+}
+.home_news_list li {
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 32px;
+}
+.home_news_list .post_title {
+    font-size: var(--ft20);
+    font-weight: var(--semi-bold);
+}
+.home_news_list a:hover .post_title,
+.press_slider a:hover .post_title {
+    color: var(--primary);
+    text-decoration: underline;
+}
+.home_news_list .post_meta {
+    color: var(--gray-300);
+    margin-top: 20px;
+    font-size: var(--ft16);
+}
+
+
+/* ---------------- home_about ---------------- */
+.home_about {
+    height: 960px;
+    margin: 40px 10px 0;
+    width: calc(100% - 20px);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.home_about_video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transform: scale(1.3);
+}
+.about_inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 66, 127, 0.40) 40%, #00427F 100%);
+    z-index: 1;
+}
+.about_copy {
+    position: absolute;
+    left: 58.5%;
+    top: 220px;
+    max-width: 520px;
+    padding-right: 30px;
+}
+.about_copy h2 {
+    font-size: var(--ft45);
+    font-weight: var(--semi-bold);
+}
+.about_copy p {
+    margin: 32px 0;
+    font-size: var(--ft20);
+    font-weight: var(--normal);
+}
+.about_copy .button {
+    transition: color .4s ease;
+}
+.about_copy .button:hover {
+    color: var(--primary);
+}
+
+/*-- home_stats --*/
+.home_stats {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 50px;
+    padding: 60px max(24px,calc((100vw - 1620px)/2));
+}
+.home_stats dt {
+    font-size: var(--ft20);
+    font-weight: var(--medium);
+}
+/* 통계 항목명 페이지 링크 */
+.home_stats .stat_link {
+    display: inline-flex;
+    color: inherit;
+    font: inherit;
+    text-underline-offset: 5px;
+}
+
+.home_stats .stat_link:hover,
+.home_stats .stat_link:focus-visible {
+    text-decoration: underline;
+}
+
+.home_stats dd {
+    font-size: var(--ft100);
+    font-weight: var(--normal);
+    margin-top: 20px;
+}
+.home_stats > div:first-child dt {
+    font-size: var(--ft18);
+    font-weight: var(--medium);
+}
+
+
+/* ---------------- home_hires ---------------- */
+.home_hires {
+    --hire-gap: 100px;
+    padding: 120px 0;
+    background: linear-gradient(#ffffffaa,var(--primary-100)),url("/images/home/home_new_members_bg.png") center/cover;
+}
+
+.home_hires .english_heading + p {
+    color: var(--gray-400);
+    margin-top: 28px;
+    font-size: var(--ft20);
+    font-weight: var(--normal);
+}
+
+.hire_slider {
+    margin-top: 60px;
+}
+
+/* 사진 확대 효과와 소개 전체의 순차 페이드를 분리합니다. */
+.hire_slider.swiper-initialized .swiper-slide-active .hire_image img {
+    transform-origin: center bottom;
+    animation: hire_portrait_reveal 1.1s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+/* 기존 소개를 먼저 숨긴 뒤 새 소개 전체를 동시에 표시합니다. */
+.hire_slider.swiper-initialized .hire_profile_info {
+    opacity: 0;
+    transition: opacity .15s ease;
+}
+
+.hire_slider.swiper-initialized .swiper-slide-active .hire_profile_info {
+    opacity: 1;
+    transition-duration: .45s;
+    transition-delay: .18s;
+}
+
+@keyframes hire_portrait_reveal {
+    from { transform: scale(.97); }
+    to { transform: scale(1); }
+}
+
+.hire_profile {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--hire-gap);
+    margin-top: 0;
+    align-items: center;
+}
+
+.hire_profile_info {
+    min-width: 0;
+}
+
+.hire_image {
+    min-width: 0;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    background: white;
+    overflow: hidden;
+}
+
+.hire_image img {
+    object-fit: contain;
+    object-position: bottom;
+}
+
+.hire_profile h3 {
+    font-size: var(--ft60);
+
+    font-weight: var(--semi-bold);
+    margin: 12px 0 32px;
+}
+
+.hire_contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--gray-200);
+    font-weight: var(--normal);
+}
+.hire_contact div {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.hire_contact * {
+    font-size: var(--ft18);
+    color: var(--gray-400);
+}
+.hire_contact a {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.hire_contact p {
+    flex-shrink: 0;
+    font-weight: var(--medium);
+}
+.hire_contact a:hover {
+    text-decoration: underline;
+}
+
+.hire_profile ul {
+    margin: 32px 0;
+    color: var(--gray-400);
+}
+
+.hire_profile li {
+    margin: 12px 0;
+    font-size: var(--ft20);
+    font-weight: var(--normal);
+}
+
+.hire_profile > div > p {
+    font-size: var(--ft20);
+    font-weight: var(--medium);
+}
+
+.hire_controls {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    margin-left: calc((100% + var(--hire-gap)) / 2);
+    color: var(--gray-300);
+    font-size: var(--ft20);
+    font-weight: var(--medium);
+
+}
+
+/* 저장된 600 × 600 프로필을 추가 크롭 없이 표시합니다. */
+.hire_image {
+    position: relative;
+    aspect-ratio: 1;
+}
+
+.hire_image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+.home_about .button {
+    color: var(--gray-500);
+}
+
+
+/* ---------------- home_popup ---------------- */
+.home_popup {
+    --popup-bottom: 80px;
+    position: fixed;
+    z-index: 28;
+    left: 40px;
+    bottom: var(--popup-bottom);
+    width: min(300px, calc(100vw - 40px), calc((100svh - var(--popup-bottom) - 70px) * .8));
+    background: var(--gray-500);
+}
+
+.home_popup[hidden] {
+    display: none;
+}
+
+.home_popup_slider {
+    width: 100%;
+}
+
+.home_popup_banner {
+    display: block;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+}
+
+.home_popup_banner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.home_popup_index {
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    right: 12px;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    padding: 6px 12px;
+    background: var(--black-600);
+    color: var(--white);
+    font-size: var(--ft13);
+    line-height: normal;
+    pointer-events: none;
+}
+
+.home_popup_index .swiper-pagination-current {
+    font-weight: var(--semi-bold);
+}
+
+.home_popup_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 50px;
+    padding: 0 20px;
+    font-size: var(--ft14);
+    line-height: normal;
+}
+
+.home_popup_today {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white-500);
+    font-weight: var(--medium);
+    text-align: left;
+}
+
+.home_popup_check {
+    display: inline-flex;
+    flex: 0 0 16px;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--white-200);
+}
+
+/* Figma 체크 SVG의 원본 크기를 유지합니다. */
+.home_popup_check img {
+    width: auto;
+    height: auto;
+}
+
+.home_popup_close {
+    flex-shrink: 0;
+    color: var(--white);
+    font-weight: var(--semi-bold);
+}
+
+.home_popup button:focus-visible,
+.home_popup_banner:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: -3px;
+}
+
+@media (max-width: 1600px) {
+    /*-- home_hero --*/
+    .hero_content .hero_title {
+        font-size: var(--ft56);
+    }
+
+    /*-- home_hires --*/
+    .hire_profile h3 {
+        font-size: var(--ft56);
+    }
+}
+
+@media (max-width: 1400px) {
+    /*-- home_news --*/
+    .press_slider .post_title,
+    .home_news_list .post_title {
+        font-size: var(--ft18);
+    }
+
+    /*-- home_hires --*/
+    .home_hires {
+        --hire-gap: 50px;
+    }
+    .hire_image {
+        height: auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    /*-- home_hero --*/
+    .hero_content {
+        padding-top: 220px;
+    }
+    .hero_content .hero_title {
+        font-size: var(--ft50);
+    }
+
+    /*-- home_about --*/
+    .home_about {
+        height: 760px;
+    }
+    .about_copy {
+        left: 50%;
+        top: 150px;
+        padding-right: 84px;
+    }
+    .about_copy h2 {
+        font-size: var(--ft36);
+    }
+    .home_stats {
+        padding: 40px 84px 40px 40px;
+    }
+    .home_stats dd {
+        font-size: var(--ft80);
+    }
+
+    /*-- home_hires --*/
+    .home_hires {
+        --hire-gap: 32px;
+    }
+    .hire_profile {
+        align-items: start;
+    }
+    .hire_profile_info {
+        padding-top: 20px;
+    }
+    .hire_profile h3 {
+        font-size: var(--ft45);
+    }
+    .hire_contact {
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 20px;
+    }
+    .hire_contact p + p {
+        margin-top: 12px;
+    }
+    .hire_profile li {
+        font-size: var(--ft18);
+    }
+}
+
+@media (max-width: 1024px) {
+    /*-- home_hires: 좁은 태블릿부터 사진 · 소개 · 컨트롤을 세로 배치 --*/
+    .hire_profile {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .hire_image {
+        max-width: 480px;
+        margin-inline: auto;
+    }
+
+    .hire_profile_info {
+        width: 100%;
+        max-width: 640px;
+        margin-inline: auto;
+        padding-top: 0;
+    }
+
+    .hire_controls {
+        width: min(100%, 640px);
+        margin: 28px auto 0;
+    }
+}
+
+@media (max-width: 767px) {
+    /* 하단 고정 퀵메뉴 위에 공지 팝업을 배치합니다. */
+    .home_popup {
+        --popup-bottom: 74px;
+        left: 20px;
+    }
+
+    .home_popup_footer {
+        padding: 0 16px;
+    }
+
+    .pc_button {
+        display: none;
+    }
+    .m_button {
+        width: 100%;
+        display: flex;
+        margin-top: 20px;
+    }
+    .swiper_controls {
+        gap: 10px;
+    }
+    .swiper_index, 
+    .swiper_index * {
+        font-size: var(--ft16);
+    }
+    .swiper_controls .swiper_btn {
+        width: 20px;
+        height: 20px;
+    }
+
+    /*-- home_hero --*/
+    .home_popup {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+    .hero_image {
+        transform: translate(0) !important;
+    }
+    .hero_content {
+        padding-top: 120px;
+    }
+    .hero_controls {
+        margin-top: 32px;
+    }
+
+    .hero_content .hero_title {
+        font-size: var(--ft36);
+    }
+    .hero_content > .hero_text {
+        font-size: var(--ft18);
+        margin-top: 28px;
+    }
+    
+
+    .hero_notice {
+        height: 50px;
+        min-height: 50px;
+        font-size: var(--ft14);
+        gap: 16px;
+    }
+    .hero_news_item {
+        gap: 8px;
+    }
+    .hero_notice span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .scroll_hint {
+        bottom: 50px;
+    }
+    .scroll_hint span {
+        height: 40px;
+    }
+
+    .section_heading .button {
+        width: 100%;
+    }
+
+    /*-- home_news --*/
+    .home_news {
+        padding: 70px 0;
+    }
+    .home_news .english_heading {
+        margin-bottom: 40px;
+    }
+
+    .press_slider .post_date {
+        padding-top: 24px;
+        font-size: var(--ft15);
+    }
+    .press_slider .post_title {
+        font-size: var(--ft17);
+        margin: 14px 0 20px;
+    }
+
+    /* 법인소식 */
+    .corporate_heading {
+        margin-top: 60px;
+    }
+    .home_news_tabs {
+        font-size: var(--ft16);
+        gap: 18px;
+        padding-bottom: 20px;
+    }
+    .home_news_list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 24px;
+    }
+    .home_news_list li {
+        padding-bottom: 20px;
+    }
+    .home_news_list .post_title {
+        font-size: var(--ft17);
+    }
+    .home_news_list .post_meta {
+        font-size: var(--ft15);
+    }
+
+    /*-- home_about --*/
+    .home_about {
+        width: 100%;
+        margin: 0;
+        height: 680px;
+    }
+    .about_copy {
+        top: 80px;
+        left: 20px;
+        padding-right: 20px;
+    }
+    .about_copy h2 {
+        font-size: var(--ft28);
+    }
+    .about_copy p {
+        font-size: var(--ft18);
+        margin: 16px 0 24px;
+    }
+    
+    .home_stats {
+        padding: 32px 20px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 14px;
+    }
+    .home_stats div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--white-200);
+    }
+    .home_stats dd {
+        font-size: var(--ft32);
+        margin-top: 0;
+    }
+
+    /*-- home_hires --*/
+    .home_hires {
+        padding: 70px 0;
+    }
+    .home_hires .english_heading + p {
+        font-size: var(--ft18);
+        margin-top: 16px;
+    }
+    .hire_slider {
+        margin-top: 40px;
+    }
+    .hire_profile {
+        gap: 24px;
+        margin-top: 0;
+    }
+    .hire_image {
+        max-width: 420px;
+        height: auto;
+    }
+    .hire_profile > div > p {
+        font-size: var(--ft18);
+    }
+    .hire_profile h3 {
+        margin: 6px 0 24px;
+        font-size: var(--ft32);
+    }
+    .hire_contact {
+        padding-bottom: 20px;
+    }
+    .hire_contact * {
+        font-size: var(--ft16);
+    }
+    .hire_profile ul {
+        margin: 20px 0;
+    }
+    .hire_profile li {
+        font-size: var(--ft16);
+    }
+    .hire_controls {
+        justify-content: center;
+        margin-top: 28px;
+    }
+    .hire_profile .button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hire_slider.swiper-initialized .hire_profile_info {
+        transition: none;
+    }
+
+    .hero_image_slider.swiper-initialized .swiper-slide-active .hero_background,
+    .hero_text_slider.swiper-initialized .swiper-slide-active .hero_title,
+    .hero_text_slider.swiper-initialized .swiper-slide-active .hero_text,
+    .hire_slider.swiper-initialized .swiper-slide-active .hire_image img {
+        animation: none;
+    }
+}

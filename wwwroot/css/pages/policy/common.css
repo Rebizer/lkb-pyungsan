@@ -1,0 +1,31 @@
+/* 개인정보처리방침 · 이용약관 · 면책공고 공통 */
+.policy_page {
+    min-height: 60svh;
+    padding-top: 180px;
+}
+
+.policy_title {
+    margin-bottom: 50px;
+    padding: 20px;
+    font-size: var(--ft28);
+    font-weight: var(--semi-bold);
+    text-align: center;
+}
+
+.policy_content {
+    color: var(--gray-400);
+    font-size: var(--ft16);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) {
+    .policy_page {
+        padding-top: 115px;
+    }
+
+    .policy_title {
+        margin-bottom: 32px;
+        font-size: var(--ft24);
+    }
+}

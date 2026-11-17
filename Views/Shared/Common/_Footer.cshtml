@@ -1,0 +1,104 @@
+@{
+    // 사무소 기본 정보
+    var offices = new[]
+    {
+        new
+        {
+            Name = "웅진관",
+            Registration = "사업자등록번호　820-85-02995",
+            Phone = "02-582-8500",
+            PhoneUrl = "tel:025828500",
+            Address = "주소　서울 서초구 반포대로30길 81 (웅진타워 4,13,14,16층)",
+            ResponsibleLawyer = "광고책임변호사　정태원"
+        },
+        new
+        {
+            Name = "정곡관",
+            Registration = "사업자등록번호　264-81-01029",
+            Phone = "02-596-7007",
+            PhoneUrl = "tel:025967007",
+            Address = "주소　서울 서초구 법원로 15 (정곡빌딩 서관 지하1층~5층)",
+            ResponsibleLawyer = "광고책임변호사　박경용"
+        }
+    };
+
+    // social_links 반복 콘텐츠
+    var socialLinks = new[]
+    {
+        new
+        {
+            Url = "https://www.youtube.com/channel/UCMibDRInzqMz52iNnwaQrXw",
+            Label = "유튜브",
+            Image = "/images/icon/youtube_icon.svg"
+        },
+        new
+        {
+            Url = "https://blog.naver.com/lkblawfirm",
+            Label = "블로그",
+            Image = "/images/icon/blog_icon.svg"
+        },
+        new
+        {
+            Url = "https://www.instagram.com/lkbpyeongsan/reels/",
+            Label = "인스타그램",
+            Image = "/images/icon/instagram_icon.svg"
+        },
+        new
+        {
+            Url = "https://www.facebook.com/lkbnpartners.lawfirm",
+            Label = "페이스북",
+            Image = "/images/icon/facebook_icon.svg"
+        }
+    };
+}
+
+<footer class="site_footer">
+    <div class="footer_inner">
+        <div class="footer_heading">
+            <a href="/">법무법인(유한) LKB평산</a>
+            <nav aria-label="법적 고지">
+                <a href="/policy/privacy">개인정보 처리방침</a>
+                <a href="/policy/agree">이용약관</a>
+                <a href="/policy/disclaimer">면책공고</a>
+            </nav>
+        </div>
+        <div class="office_grid">
+            @for (var i = 0; i < offices.Length; i++)
+            {
+                var office = offices[i];
+
+                <address>
+                    <h2>@office.Name</h2>
+                    <p><span class="footer_label">사업자등록번호</span> @(office.Registration.Replace("사업자등록번호", "").Trim())</p>
+                    <p><span class="footer_label">대표번호</span> <a href="@office.PhoneUrl">@office.Phone</a></p>
+                    <p><span class="footer_label">주소</span> @(office.Address.Replace("주소", "").Trim())</p>
+                    <p><span class="footer_label">광고책임변호사</span> @(office.ResponsibleLawyer.Replace("광고책임변호사", "").Trim())</p>
+                </address>
+            }
+        </div>
+        <p><span class="footer_label">대표변호사</span> 윤웅걸, 김병현</p>
+        <p class="copyright">COPYRIGHT © L.K.B 평산 LLC. ALL RIGHTS RESERVED. <a href="https://www.bizer.co.kr/" target="_blank">Created by RE:BIZER</a> </p>
+        <div class="footer_bottom">
+            <div class="social_links">
+                @for (var i = 0; i < socialLinks.Length; i++)
+                {
+                    var item = socialLinks[i];
+
+                    <a href="@item.Url" target="_blank" rel="noopener noreferrer" aria-label="@(item.Label) (새 창)">
+                        <i class="svg_icon footer_social_icon">
+                            <img src="@item.Image" alt="">
+                        </i>
+                    </a>
+                }
+            </div>
+            <button type="button" class="outlined" data-dialog="family_dialog">
+                패밀리 사이트
+                <span class="image_label">
+                    <i class="svg_icon add_footer_icon">
+                        <img src="/images/icon/add_footer_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </span>
+            </button>
+        </div>
+    </div>
+</footer>

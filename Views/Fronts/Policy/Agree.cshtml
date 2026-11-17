@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "이용약관";
+    ViewData["Description"] = "법무법인 LKB평산의 이용약관 안내 페이지입니다.";
+    ViewData["SchemaType"] = "WebPage";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+}
+
+@section meta {
+    <title>이용약관 | 법무법인 LKB평산</title>
+    <meta name="Title" content="이용약관 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="법무법인 LKB평산의 이용약관 안내 페이지입니다.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="이용약관">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="법무법인 LKB평산의 이용약관 안내 페이지입니다.">
+    <meta property="og:url" content="@currentUrl">
+
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="이용약관">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="법무법인 LKB평산의 이용약관 안내 페이지입니다.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="/css/editor.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/policy/common.css" asp-append-version="true">
+}
+
+<main id="main" class="sub_page container-md policy_page">
+    <h1 class="policy_title">이용약관</h1>
+    <div class="policy_content ck-content">
+        <p>내용입니다.</p>
+    </div>
+</main>

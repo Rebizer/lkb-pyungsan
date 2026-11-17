@@ -1,0 +1,84 @@
+/* 업무분야 · 지역 상세 배너 및 본문 */
+
+.detail_banner {
+    margin: 40px 10px 0;
+    height: 450px;
+    overflow: hidden;
+}
+
+.detail_banner img {
+    object-fit: cover;
+}
+
+.practice_detail {
+    margin-top: 50px;
+    color: var(--gray-400);
+
+    font-size: var(--ft18);
+    font-weight: var(--normal);
+    line-height: 1.4;
+}
+
+/* Practice/Detail 전용 스타일 */
+
+/* ---------------- details ---------------- */
+.related_cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 60px;
+}
+
+.related_cards a {
+    padding: 40px;
+    border: 1px solid var(--gray-200);
+    transition: border .4s ease;
+}
+.related_cards a:hover {
+    border-color: var(--primary);
+}
+
+.related_cards h3 {
+    color: var(--gray-500);
+    font-size: var(--ft20);
+    font-weight: var(--semi-bold);
+    margin-bottom: 16px;
+}
+.related_cards span {
+    float: right;
+    color: var(--primary);
+}
+.related_cards p {
+    font-size: var(--ft18);
+}
+
+@media (max-width: 767px) {
+    /* 업무분야 · 지역 상세 배너 및 본문 반응형 */
+    .detail_banner {
+        height: 260px;
+        margin-inline: 0;
+    }
+
+    .practice_detail {
+        margin-top: 32px;
+        font-size: var(--ft16);
+        line-height: 1.7;
+
+    }
+
+    /* 공통 기초 및 컴포넌트 */
+    .related_cards {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+    }
+    .related_cards a {
+        padding: 20px;
+    }
+    .related_cards h3 {
+        margin-bottom: 10px;
+        font-size: var(--ft18);
+    }
+    .related_cards p {
+        font-size: var(--ft16);
+    }
+}

@@ -1,0 +1,225 @@
+@{
+    ViewData["Title"] = "오시는길";
+    ViewData["Description"] = "법무법인 LKB평산 웅진관과 정곡관의 주소, 연락처, 대중교통 및 주차 정보를 안내합니다.";
+    ViewData["SchemaType"] = "WebPage";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+}
+
+@section meta {
+    <title>오시는길 | 법무법인 LKB평산</title>
+    <meta name="Title" content="오시는길 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="법무법인 LKB평산 웅진관과 정곡관의 주소, 연락처, 대중교통 및 주차 정보를 안내합니다.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="오시는길">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="법무법인 LKB평산 웅진관과 정곡관의 주소, 연락처, 대중교통 및 주차 정보를 안내합니다.">
+    <meta property="og:url" content="@currentUrl">
+
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="오시는길">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="법무법인 LKB평산 웅진관과 정곡관의 주소, 연락처, 대중교통 및 주차 정보를 안내합니다.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/pages/about/contact.css" asp-append-version="true">
+}
+
+@section scripts {
+    <script src="~/js/pages/about/contact.js" asp-append-version="true"></script>
+}
+
+<main id="main" class="sub_page contact_page section">
+    <div class="page_heading container-md">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li aria-current="page">오시는길</li>
+            </ol>
+        </nav>
+        <h1 class="section_scroll">오시는길</h1>
+    </div>
+    <div class="office_tabs section_scroll" role="tablist" aria-label="사무소">
+        <button type="button" id="office_tab_woongjin" role="tab" aria-selected="true" aria-controls="office_woongjin" class="active">웅진관</button>
+        <button type="button" id="office_tab_jeonggok" role="tab" aria-selected="false" aria-controls="office_jeonggok" tabindex="-1">정곡관</button>
+    </div>
+    <section class="section_scroll" id="office_woongjin" role="tabpanel" aria-labelledby="office_tab_woongjin">
+        <div class="map_banner">
+            <div class="map">
+                <div id="daumRoughmapContainer1794187421271" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+                <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://t1.kakaocdn.net/kakaomapweb/roughmap/loader/prod/roughmapLoader.js"></script>
+
+                <script charset="UTF-8">
+                    new daum.roughmap.Lander({
+                        "timestamp" : "1794187421271",
+                        "key" : "4pidremjt7b",
+                        "mapWidth" : "1900",
+                        "mapHeight" : "450"
+                    }).render();
+                </script>
+            </div>
+        </div>
+        <div class="container-md">
+            <div class="office_title">
+                <h2>서울 서초구 반포대로30길 81 웅진타워
+                    4층, 13층, 14층, 16층</h2>
+                <ul class="office_map">
+                    <li>
+                        <a href="https://naver.me/5T4As2x3" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/icon/map_naver.svg" alt="네이버 지도 바로가기">
+                            <p>네이버 지도</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://kko.to/YjjwcO9esK" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/icon/map_kakao.svg" alt="카카오 지도 바로가기">
+                            <p>카카오 지도</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="office_details">
+                <li>
+                    <span class="contact_label">대표전화</span>
+                    <a href="tel:025828500">02-582-8500</a>
+                </li>
+                <li>
+                    <span class="contact_label">이메일</span>
+                    <a href="mailto:khkim@lkbps.com">khkim@lkbps.com</a>
+                </li>
+                <li>
+                    <span class="contact_label">팩스</span>
+                    <p>02-582-1771</p>
+                </li>
+            </ul>
+            <dl class="transport">
+                <div>
+                    <dt>자가용 이용 시</dt>
+                    <dd>교대역 인근 출구에서 100M
+                        <p class="parking"><span class="parking_l"><img src="/images/icon/parking.svg" alt="주차장">주차장</span> 파스구찌 건물 정문 바로 우측 지하주차장 이용</p>
+                    </dd>
+                </div>
+                <div>
+                    <dt>버스 이용 시</dt>
+                    <dd>서초역, 교대역, 서울지방검찰청 등에서 하차
+                        <strong>광역(빨강)</strong> : M6410, 9100, 9200, 9201, 9300, 9301, M6405, 6501, 3000, 3003, 3200, 3100, 3101
+                        <strong>지선(초록)</strong> : 5413, 서초02, 서초10, 서초11, 서초13, 서초21
+                        <strong>간선(파랑)</strong> : 405, 740, 541
+                        <strong>시외</strong> : 700</dd>
+                </div>
+                <div>
+                    <dt>지하철 이용 시</dt>
+                    <dd>2,3호선 <strong>교대역 8번 출구</strong>에서 도보 1분 소요
+                        <ul class="subway">
+                            <li style="--color: #F77636">
+                                <span>3</span>
+                                <p>교대역</p>
+                            </li>
+                            <li style="--color: #3AB449">
+                                <span>2</span>
+                                <p>교대역</p>
+                            </li>
+                       </ul>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+    <section class="section_scroll" id="office_jeonggok" role="tabpanel" aria-labelledby="office_tab_jeonggok" hidden="">
+        <div class="map_banner">
+            <div class="map">
+                <div id="daumRoughmapContainer1794187564423" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+                <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://t1.kakaocdn.net/kakaomapweb/roughmap/loader/prod/roughmapLoader.js"></script>
+            </div>
+        </div>
+        <div class="container-md">
+            <div class="office_title">
+                <h2>서울 서초구 법원로 15 정곡빌딩 서관
+                    지하1층, 1~5층</h2>
+                <ul class="office_map">
+                    <li>
+                        <a href="https://naver.me/x1V5Jdcj" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/icon/map_naver.svg" alt="네이버 지도 바로가기">
+                            <p>네이버 지도</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://kko.to/0BtuveAj9k" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/icon/map_kakao.svg" alt="카카오 지도 바로가기">
+                            <p>카카오 지도</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="office_details">
+                <li>
+                    <span class="contact_label">대표전화</span>
+                    <a href="tel:025828500">02-596-7007</a>
+                </li>
+                <li>
+                    <span class="contact_label">이메일</span>
+                    <a href="mailto:khkim@lkbps.com">yr.lim@lkbps.com</a>
+                </li>
+            </ul>
+            <dl class="transport">
+                <div>
+                    <dt>자가용 이용 시</dt>
+                    <dd>교대역에서 서초역방면으로 직진 후 법원삼거리에서 우회전 100M앞에서 유턴 후 우측건물
+                        서초역에서 교대역방면으로 직진 후 법원삼거리에서 좌회전 100M앞에서 유턴 후 우측건물
+                        <p class="parking"><span class="parking_l"><img src="/images/icon/parking.svg" alt="주차장">주차장</span> 건물을 끼고 우회전 후 30M (주차장 입구 / 유료, 30분 1,000원, 이후 10분마다 1,000원)</p>
+                    </dd>
+                </div>
+                <div>
+                    <dt>버스 이용 시</dt>
+                    <dd>서초역, 교대역, 서울지방검찰청 등에서 하차
+                        <strong>광역(빨강)</strong> : M6410, 9100, 9200, 9201, 9300, 9301, M6405, 6501, 3000, 3003, 3200, 3100, 3101
+                        <strong>지선(초록)</strong> : 5413, 서초02, 서초10, 서초11, 서초13, 서초21
+                        <strong>간선(파랑)</strong> : 405, 740, 541
+                        <strong>시외</strong> : 700</dd>
+                </div>
+                <div>
+                    <dt>지하철 이용 시</dt>
+                    <dd>2호선 <strong>서초역 8번 출구에서 서울중앙지방검찰청 방면</strong>으로 도보 5분 소요
+                        2,3호선 <strong>교대역 10번 출구에서 서울중앙지방검찰청 방면</strong>으로 도보 5분 소요
+                        <ul class="subway">
+                            <li style="--color: #F77636">
+                                <span>3</span>
+                                <p>교대역</p>
+                            </li>
+                            <li style="--color: #3AB449">
+                                <span>2</span>
+                                <p>교대역</p>
+                            </li>
+                       </ul>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+</main>

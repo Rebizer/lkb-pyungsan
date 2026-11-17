@@ -1,0 +1,284 @@
+/* About/Index 전용 스타일 */
+
+/* ---------------- about_page ---------------- */
+.about_intro {
+    margin-top: 66px;
+}
+.about_intro > img {
+    height: 480px;
+}
+
+.about_scroll {
+    text-align: center;
+    padding: 50px 0 120px;
+    font-size: var(--ft14);
+    color: var(--gray-300);
+    font-weight: var(--medium);
+}
+
+.about_statement {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    height: 960px;
+    color: white;
+}
+.about_statement > img {
+    position: absolute;
+    inset: 0;
+}
+.about_statement::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #0007;
+}
+
+.about_statement > div {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.about_statement h2 {
+    font-size: var(--ft50);
+    font-weight: var(--semi-bold);
+}
+.about_statement p {
+    font-size: var(--ft20);
+    font-weight: var(--medium);
+    margin-top: 50px;
+}
+
+/* ---------------- about_story ---------------- */
+.about_story {
+    padding-top: 120px;
+}
+
+.story_columns {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 100px;
+}
+.story_columns h2 {
+    font-size: var(--ft36);
+    font-weight: var(--semi-bold);
+}
+.story_columns p {
+    margin-bottom: 28px;
+    color: var(--gray-400);
+    font-size: var(--ft20);
+    font-weight: var(--normal);
+}
+.story_columns p strong {
+    font-weight: var(--semi-bold);
+    color: var(--primary);
+}
+
+/*-- directors_photo --*/
+.directors_photo {
+    position: relative;
+    margin: 120px 0 180px;
+}
+.directors_photo figcaption {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    color: white;
+    font-size: var(--ft20);
+    font-weight: var(--semi-bold);
+    line-height: 1.4;
+}
+
+/*-- value_grid --*/
+.value_grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    margin-top: 100px;
+}
+.value_grid > div {
+    border-top: 1px solid var(--gray-200);
+    padding: 40px 0;
+}
+.value_grid h3 {
+    font-size: var(--ft24);
+    font-weight: var(--semi-bold);
+    margin-bottom: 24px;
+}
+.value_grid p {
+    color: var(--gray-400);
+    font-size: var(--ft20);
+    font-weight: var(--normal);
+}
+
+/*-- about_empty --*/
+.about_empty {
+    margin-top: 100px;
+    width: 100%;
+}
+
+/* ---------------- 스크롤 확장 · 문구 등장 ---------------- */
+.about_visual {
+    --about-image-height: 480px;
+    --about-intro-gap: 60px;
+}
+
+.about_visual.motion {
+    height: 100svh;
+    /* 중앙 정렬해도 첫 이미지의 원래 위치와 제목 간격은 유지합니다. */
+    margin-top: calc(var(--about-intro-gap) + (min(var(--about-image-height), 100svh) - 100svh) / 2);
+    position: relative;
+    isolation: isolate;
+}
+
+.about_visual.motion .about_intro {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.about_visual.motion .about_intro > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    object-position: center;
+}
+
+.about_visual.motion .about_scroll {
+    position: absolute;
+    top: calc(50% + min(var(--about-image-height), 100svh) / 2);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 30px 0;
+    z-index: 2;
+}
+
+.about_visual.motion .about_statement {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    pointer-events: none;
+}
+
+.about_visual.motion .about_statement > img {
+    display: none;
+}
+
+.about_visual.motion .about_statement::after {
+    opacity: var(--about-shade, 0);
+}
+
+@media (max-width: 1400px) {
+    .about_statement h2 {
+        font-size: var(--ft45);
+    }
+}
+
+@media (max-width: 1200px) {
+    .about_statement h2 {
+        font-size: var(--ft40);
+    }
+    
+    .story_columns {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .story_columns h2 {
+        font-size: var(--ft32);
+    }
+
+    .directors_photo {
+        margin: 40px 0 100px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* 공통 기초 및 컴포넌트 */
+    .about_intro {
+        margin-top: 40px;
+    }
+
+    .about_intro > img {
+        height: 240px;
+    }
+
+    .about_visual {
+        --about-image-height: 240px;
+        --about-intro-gap: 40px;
+    }
+
+    .about_scroll {
+        padding: 32px 0 60px;
+    }
+
+    .about_statement {
+        margin: 0;
+        width: 100%;
+        height: 560px;
+    }
+
+    .about_statement > div {
+        padding: 30px;
+    }
+
+    .about_statement h2 {
+        font-size: var(--ft26);
+    }
+    .about_statement p {
+        font-size: var(--ft18);
+        margin-top: 24px;
+    }
+
+    .about_story {
+        padding-top: 60px;
+    }
+    .story_columns {
+        gap: 20px;
+    }
+    .story_columns h2 {
+        font-size: var(--ft24);
+    }
+    .story_columns p {
+        font-size: var(--ft18);
+    }
+
+    .directors_photo {
+        margin: 20px 0 60px;
+    }
+    .directors_photo figcaption {
+        right: 12px;
+        bottom: 12px;
+        font-size: var(--ft18);
+    }
+
+    /*-- value_grid --*/
+    .value_grid {
+        grid-template-columns: 1fr;
+        margin-top: 50px;
+        gap: 0;
+    }
+    .value_grid > div {
+        padding: 28px 0;
+    }
+    .value_grid h3 {
+        font-size: var(--ft22);
+        margin-bottom: 16px;
+    }
+    .value_grid p {
+        font-size: var(--ft18);
+    }
+    .about_empty {
+        margin-top: 40px;
+    }
+}

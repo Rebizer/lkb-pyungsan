@@ -1,0 +1,189 @@
+@{
+    ViewData["Title"] = "자료실";
+    ViewData["Description"] = "주요 법률 이슈와 실무에 필요한 브로슈어, 기고와 칼럼을 확인하세요.";
+    ViewData["SchemaType"] = "CollectionPage";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // 자료실 목록 데이터
+    var resourceItems = new[]
+    {
+        new
+        {
+            Title = "금융법센터 브로슈어",
+            Category = "브로슈어",
+            Date = "26-00-00",
+            Image = "/images/resources/finance_brochure_cover.png",
+            ImageAlt = "금융법센터 브로슈어 표지"
+        },
+        new
+        {
+            Title = "마약센터 브로슈어",
+            Category = "브로슈어",
+            Date = "26-00-00",
+            Image = "/images/resources/drug_defense_brochure_cover.png",
+            ImageAlt = "마약센터 브로슈어 표지"
+        },
+        new
+        {
+            Title = "관세통상센터 브로슈어",
+            Category = "브로슈어",
+            Date = "26-00-00",
+            Image = "/images/resources/customs_trade_brochure_cover.png",
+            ImageAlt = "관세통상센터 브로슈어 표지"
+        },
+        new
+        {
+            Title = "국제센터-국제통상센터 브로슈어",
+            Category = "브로슈어",
+            Date = "26-00-00",
+            Image = "/images/resources/international_trade_brochure_cover.png",
+            ImageAlt = "국제센터-국제통상센터 브로슈어 표지"
+        },
+        new
+        {
+            Title = "조세법센터 브로슈어",
+            Category = "브로슈어",
+            Date = "26-00-00",
+            Image = (string)null,
+            ImageAlt = "LKB평산"
+        },
+        new
+        {
+            Title = "헬스바이오센터 브로슈어",
+            Category = "브로슈어",
+            Date = "26-00-00",
+            Image = "/images/resources/health_bio_brochure_cover.png",
+            ImageAlt = "헬스바이오센터 브로슈어 표지"
+        },
+        new
+        {
+            Title = "건설부동산센터 브로슈어",
+            Category = "브로슈어",
+            Date = "26-00-00",
+            Image = (string)null,
+            ImageAlt = "LKB평산"
+        },
+        new
+        {
+            Title = "디지털자산센터 브로슈어",
+            Category = "브로슈어",
+            Date = "26-00-00",
+            Image = "/images/resources/digital_assets_brochure_cover.png",
+            ImageAlt = "디지털자산센터 브로슈어 표지"
+        },
+        new
+        {
+            Title = "[의료정책포럼 기고] 대한민국의 의료상황과 의사노조의 필요성",
+            Category = "기고/칼럼",
+            Date = "26-00-00",
+            Image = "/images/resources/medical_policy_column_cover.png",
+            ImageAlt = "[의료정책포럼 기고] 대한민국의 의료상황과 의사노조의 필요성 표지"
+        }
+    };
+
+}
+
+@section meta {
+    <title>자료실 | 법무법인 LKB평산</title>
+    <meta name="Title" content="자료실 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="주요 법률 이슈와 실무에 필요한 브로슈어, 기고와 칼럼을 확인하세요.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="자료실">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="주요 법률 이슈와 실무에 필요한 브로슈어, 기고와 칼럼을 확인하세요.">
+    <meta property="og:url" content="@currentUrl">
+
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="자료실">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="주요 법률 이슈와 실무에 필요한 브로슈어, 기고와 칼럼을 확인하세요.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/pages/news/index.css" asp-append-version="true">
+}
+
+<main id="main" class="sub_page static_list_page section">
+    <div class="page_heading container-md">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>소식/자료</li>
+                <li aria-current="page">자료실</li>
+            </ol>
+        </nav>
+        <h1 class="section_scroll">자료실</h1>
+        <p class="section_scroll">주요 법률 이슈와 실무에 필요한 정보를 확인하세요.</p>
+    </div>
+    <div class="list_search" role="search">
+        <label class="search_box">
+            <span class="sr_only">게시물을 검색해 주세요.</span>
+            <input type="search" name="q" placeholder="게시물을 검색해 주세요.">
+            <button type="button" aria-label="검색">
+                <i class="svg_icon search_icon">
+                    <img src="/images/icon/search_icon.svg" alt="">
+                </i>
+            </button>
+        </label>
+    </div>
+    <section class="container-md listing_section">
+        <nav class="category_tabs" aria-label="분류">
+            <button type="button" class="active" aria-pressed="true">전체</button>
+            <button type="button" class="" aria-pressed="false">브로슈어</button>
+            <button type="button" class="" aria-pressed="false">기고/칼럼</button>
+        </nav>
+        <p class="result_count" role="status">Total. <strong>9건</strong></p>
+        <ul class="resource_grid">
+            @for (var i = 0; i < resourceItems.Length; i++)
+            {
+                var item = resourceItems[i];
+
+                <li class="resource_card">
+                    <a href="/news/detail" class="resource_cover">
+                        <figure class="resource_img">
+                            <img src="@(string.IsNullOrWhiteSpace(item.Image) ? "/images/common/resource_null.png" : item.Image)" alt="@item.ImageAlt" loading="lazy">
+                        </figure>
+                        <p class="post_title">@item.Title</p>
+                        <div class="post_meta">
+                            <span class="post_category">@item.Category</span>
+                            <time class="post_date">@item.Date</time>
+                        </div>
+                    </a>
+                    <button class="button download_preview" type="button" data-preview="첨부 PDF 원본이 제공되지 않아 다운로드는 연동 전입니다.">
+                        파일 다운로드
+                        <i class="svg_icon post_download_icon">
+                            <img src="/images/icon/post_download_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </button>
+                </li>
+            }
+        </ul>
+        <partial name="Common/_Pagination" />
+    </section>
+</main>

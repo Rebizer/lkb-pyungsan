@@ -1,0 +1,485 @@
+@{
+    ViewData["Title"] = "통합검색";
+    ViewData["Description"] = "LKB평산의 업무분야, 구성원, 업무사례, 소식과 자료를 한 곳에서 검색하세요.";
+    ViewData["SchemaType"] = "CollectionPage";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // practice_grid 반복 콘텐츠
+    var practiceGridItems1 = new[]
+    {
+        new
+        {
+            Label = "성범죄"
+        },
+        new
+        {
+            Label = "형사"
+        },
+        new
+        {
+            Label = "학교폭력"
+        },
+        new
+        {
+            Label = "노사/중대재해"
+        },
+        new
+        {
+            Label = "이혼"
+        },
+        new
+        {
+            Label = "민사"
+        }
+    };
+
+
+    // case_grid 반복 콘텐츠
+    var caseGridItems3 = new[]
+    {
+        new
+        {
+            Category = "성범죄",
+            Text = "성범죄",
+            Text2 = "무죄 및 집행유예",
+            Title = "성폭력처벌법 위반 등 다수 혐의 사건에서 무죄 및 집행유예 선고 사례",
+            Description = "성폭력처벌법 위반 및 위계공무집행방해 등 여러 혐의로 기소된 형사사건에서 피고인을 변호하여, 성적목적다중이용장소침입, 카메라등이용촬영·반포…",
+            Members = new[]
+            {
+                new { Name = "이성복", Image = "/images/members/member_22.png", Url = "/members/detail" },
+                new { Name = "이름 미등록", Image = "/images/members/member_23.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Category = "민사",
+            Text = "민사",
+            Text2 = "승소",
+            Title = "한국미술협회 임원선거 피선거권 존재 확인 및 항소기각 성공",
+            Description = "제25대 임원선거를 앞두고 피고 한국미술협회가 원고들의 입후보를 제한한 사안에서, 원고들의 피선거권이 존재함을 확인받았습니다. 피고가 이에 불복하여 항소하였으나,…",
+            Members = new[]
+            {
+                new { Name = "김희준", Image = "/images/members/member_19.png", Url = "/members/detail" }
+            }
+        },
+        new
+        {
+            Category = "영업비밀/IP",
+            Text = "영업비밀/IP",
+            Text2 = "구속영장 기각",
+            Title = "부정경쟁방지법위반(영업비밀누설등)·업무상배임·업무상횡령 영장 기각 사례",
+            Description = "의뢰인들은 국내 한 반도체 관련 소모품 제조업체의 직원들이었습니다. 해외 경쟁사로 이직한 전 직원의 요청에 따라 회사 자료를 전달한 일 등으로 영업비밀 누설,…",
+            Members = new[]
+            {
+                new { Name = "김강대", Image = "/images/members/member_20.png", Url = "/members/detail" },
+                new { Name = "나민경", Image = "/images/members/member_21.png", Url = "/members/detail" },
+                new { Name = "김희준", Image = "/images/members/member_19.png", Url = "/members/detail" }
+            }
+        }
+    };
+
+    // news_list 반복 콘텐츠
+    var newsListItems4 = new[]
+    {
+        new
+        {
+            Category = "위촉업무",
+            Title = "[송시현변호사] 2026대한변호사협회 ESG특별위원회위원 위촉",
+            Description = "위촉 "
+        },
+        new
+        {
+            Category = "공지사항",
+            Title = "LKB평산 국제센터 윤웅걸, 이예지, 이진서, 강두리 변호사 제24차 2026 세계한상대회 참여",
+            Description = "공지사항 "
+        },
+        new
+        {
+            Category = "공지사항",
+            Title = "[방송출연] 김희준 대표이사 kbc 광주방송 휴먼토크 <호남호남인> 출연",
+            Description = "공지사항 "
+        },
+        new
+        {
+            Category = "공지사항",
+            Title = "[업무협약] 「LKB평산」, 「한국중독예방센터」와 업무협약 체결",
+            Description = "공지사항 "
+        },
+        new
+        {
+            Category = "공지사항",
+            Title = "「보이스 피싱 범죄의 유형 분석과 피해구제 실무」─ 이형구, 박병규 변호사 공저 출간",
+            Description = "공지사항 "
+        }
+    };
+
+    // resource_grid 반복 콘텐츠
+    var resourceGridItems5 = new[]
+    {
+        new
+        {
+            Image = "/images/resources/finance_brochure_cover.png",
+            ImageDescription = "금융법센터 브로슈어 표지",
+            Label = "금융법센터 브로슈어"
+        },
+        new
+        {
+            Image = "/images/resources/drug_defense_brochure_cover.png",
+            ImageDescription = "마약센터 브로슈어 표지",
+            Label = "마약센터 브로슈어"
+        },
+        new
+        {
+            Image = "/images/resources/customs_trade_brochure_cover.png",
+            ImageDescription = "관세통상센터 브로슈어 표지",
+            Label = "관세통상센터 브로슈어"
+        }
+    };
+    // 구성원 카드: 이메일이 없는 경우 해당 연락처 행을 생략합니다.
+    var members = new[]
+    {
+        new
+        {
+            Name = "강광민",
+            Role = "구성원변호사",
+            Email = "kmkang@lkbps.com",
+            Phone = "02-6953-7560",
+            Image = "/images/members/member_1.png"
+        },
+        new
+        {
+            Name = "강동신",
+            Role = "구성원변호사",
+            Email = "dskang@lkbps.com",
+            Phone = "010-6633-6465",
+            Image = "/images/members/member_2.png"
+        },
+        new
+        {
+            Name = "강두리",
+            Role = "구성원변호사",
+            Email = "drkang@lkbps.com",
+            Phone = "02-6956-0561",
+            Image = "/images/members/member_3.png"
+        },
+        new
+        {
+            Name = "강세현",
+            Role = "구성원변호사",
+            Email = "",
+            Phone = "02-6956-0563",
+            Image = "/images/members/member_4.png"
+        }
+    };
+
+    // 더보기 동작 확인용 고정 콘텐츠: 카드 예시를 세 줄 분량으로 반복합니다.
+    var memberResultCount = members.Length * 3;
+    var caseResultCount = caseGridItems3.Length * 3;
+    var resourceResultCount = resourceGridItems5.Length * 3;
+    var totalResultCount = practiceGridItems1.Length + memberResultCount + caseResultCount + newsListItems4.Length + resourceResultCount;
+
+}
+
+@section meta {
+    <title>통합검색 | 법무법인 LKB평산</title>
+    <meta name="Title" content="통합검색 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="LKB평산의 업무분야, 구성원, 업무사례, 소식과 자료를 한 곳에서 검색하세요.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="통합검색">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="LKB평산의 업무분야, 구성원, 업무사례, 소식과 자료를 한 곳에서 검색하세요.">
+    <meta property="og:url" content="@currentUrl">
+    
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="통합검색">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="LKB평산의 업무분야, 구성원, 업무사례, 소식과 자료를 한 곳에서 검색하세요.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/pages/members/index.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/practice/index.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/cases/index.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/news/index.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/search/index.css" asp-append-version="true">
+}
+
+@section scripts {
+    <script src="~/js/pages/search/index.js" asp-append-version="true"></script>
+}
+
+<main id="main" class="sub_page search_page">
+    <div class="page_heading container-md">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li aria-current="page">통합검색</li>
+            </ol>
+        </nav>
+        <h1>통합검색</h1>
+    </div>
+    <div class="container-md">
+        <div class="global_search">
+            <form class="list_search" role="search">
+                <label class="search_box">
+                    <span class="sr_only">검색어를 입력해 주세요.</span>
+                    <input type="search" name="q" placeholder="검색어를 입력해 주세요.">
+                    <button type="submit" aria-label="검색">
+                        <i class="svg_icon search_icon">
+                            <img src="/images/icon/search_icon.svg" alt="">
+                        </i>
+                    </button>
+                </label>
+            </form>
+        </div>
+        <p class="global_result_count"><strong>총 @(totalResultCount)건</strong>의 검색결과가 있습니다.</p>
+        <nav class="category_tabs search_sections" aria-label="검색 결과 분류">
+            <button type="button" class="active" data-search-section="all" aria-pressed="true">전체 (@totalResultCount)</button>
+            <button type="button" data-search-section="search_practice" aria-pressed="false">업무분야 (@practiceGridItems1.Length)</button>
+            <button type="button" data-search-section="search_members" aria-pressed="false">구성원 (@memberResultCount)</button>
+            <button type="button" data-search-section="search_cases" aria-pressed="false">업무사례 (@caseResultCount)</button>
+            <button type="button" data-search-section="search_news" aria-pressed="false">법인소식 (@newsListItems4.Length)</button>
+            <button type="button" data-search-section="search_resources" aria-pressed="false">자료실 (@resourceResultCount)</button>
+        </nav>
+        <section id="search_practice" class="search_group">
+            <div class="section_heading">
+                <h2>업무분야<span class="search_group_count">(@practiceGridItems1.Length)</span></h2>
+                <a class="button" href="/practice">
+                    전체보기
+                    <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                        <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <ul id="search_practice_results" class="practice_grid search_results">
+                @for (var i = 0; i < practiceGridItems1.Length; i++)
+                {
+                    var item = practiceGridItems1[i];
+
+                    <li>
+                        <a href="/practice/detail">
+                            @item.Label
+                            <span class="image_label">
+                                <i class="svg_icon arrow_hover_icon arrow_right_icon">
+                                    <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                                </i>
+                            </span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </section>
+        <section id="search_members" class="search_group">
+            <div class="section_heading">
+                <h2>구성원<span class="search_group_count">(@memberResultCount)</span></h2>
+                <a class="button" href="/members">
+                    전체보기
+                    <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                        <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <ul id="search_members_results" class="member_grid search_results">
+                @for (var i = 0; i < memberResultCount; i++)
+                {
+                    var member = members[i % members.Length];
+
+                    <li class="member_card">
+                        <a href="/members/detail" aria-label="@(member.Name) 카드 — 대표 구성원 상세 미리보기">
+                            <div class="member_info">
+                                <p class="member_name">@member.Name</p>
+                                <p>@member.Role</p>
+                                <dl>
+                                    @if (!string.IsNullOrWhiteSpace(member.Email))
+                                    {
+                                        <div>
+                                            <dt>M.</dt>
+                                            <dd>@member.Email</dd>
+                                        </div>
+                                    }
+                                    <div>
+                                        <dt>T.</dt>
+                                        <dd>@member.Phone</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                            <div class="member_portrait">
+                                <img src="@member.Image" alt="@(member.Name) 변호사" width="600" height="600" loading="lazy">
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <div class="search_more_wrap">
+                <button type="button" class="button search_more" aria-controls="search_members_results" aria-label="구성원 한 줄 더보기">
+                    <span class="search_more_label">더보기</span>
+                    <i class="svg_icon" aria-hidden="true">
+                        <img src="/images/icon/add_icon.svg" alt="">
+                    </i>
+                </button>
+                <p class="sr_only search_more_status" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+        <section id="search_cases" class="search_group">
+            <div class="section_heading">
+                <h2>업무사례<span class="search_group_count">(@caseResultCount)</span></h2>
+                <a class="button" href="/cases">
+                    전체보기
+                    <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                        <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <ul id="search_cases_results" class="case_grid search_results">
+                @for (var i = 0; i < caseResultCount; i++)
+                {
+                    var item = caseGridItems3[i % caseGridItems3.Length];
+
+                    <li class="case_card">
+                        <a class="case_summary_link" href="/cases/detail">
+                            <span class="post_category">@item.Text</span>
+                            <strong>@item.Text2</strong>
+                            <p class="post_title">@item.Title</p>
+                            <p class="post_excerpt ellipsis line2">@item.Description</p>
+                            <time class="post_date">26-00-00</time>
+                        </a>
+                        <ul class="case_people" aria-label="관련 구성원">
+                            @for (var j = 0; j < item.Members.Length; j++)
+                            {
+                                var member = item.Members[j];
+
+                                <li>
+                                    <a class="case_member" href="@member.Url" aria-label="@(member.Name) 구성원 상세보기">
+                                        <span class="case_member_photo">
+                                            <img src="@member.Image" alt="" width="60" height="60" loading="lazy">
+                                            <i class="svg_icon member_more_icon" aria-hidden="true">
+                                                <img src="/images/icon/member_more_icon.svg" alt="">
+                                            </i>
+                                        </span>
+                                        <span class="case_member_name">@member.Name</span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+            <div class="search_more_wrap">
+                <button type="button" class="button search_more" aria-controls="search_cases_results" aria-label="업무사례 한 줄 더보기">
+                    <span class="search_more_label">더보기</span>
+                    <i class="svg_icon" aria-hidden="true">
+                        <img src="/images/icon/add_icon.svg" alt="">
+                    </i>
+                </button>
+                <p class="sr_only search_more_status" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+        <section id="search_news" class="search_group" data-page-size="3">
+            <div class="section_heading">
+                <h2>법인소식<span class="search_group_count">(@newsListItems4.Length)</span></h2>
+                <a class="button" href="/news">
+                    전체보기
+                    <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                        <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <ul id="search_news_results" class="news_list search_results">
+                @for (var i = 0; i < newsListItems4.Length; i++)
+                {
+                    var item = newsListItems4[i];
+
+                    <li class="news_row">
+                        <a href="/news/detail">
+                            <p class="post_title">@item.Title</p>
+                            <div class="post_meta">
+                                <span class="post_category">@item.Description</span>
+                                <time class="post_date">26-00-00</time>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <div class="search_more_wrap">
+                <button type="button" class="button search_more" aria-controls="search_news_results" aria-label="법인소식 3개 더보기">
+                    <span class="search_more_label">더보기</span>
+                    <i class="svg_icon" aria-hidden="true">
+                        <img src="/images/icon/add_icon.svg" alt="">
+                    </i>
+                </button>
+                <p class="sr_only search_more_status" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+        <section id="search_resources" class="search_group">
+            <div class="section_heading">
+                <h2>자료실<span class="search_group_count">(@resourceResultCount)</span></h2>
+                <a class="button" href="/resources">
+                    전체보기
+                    <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                        <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+            <ul id="search_resources_results" class="resource_grid search_results">
+                @for (var i = 0; i < resourceResultCount; i++)
+                {
+                    var item = resourceGridItems5[i % resourceGridItems5.Length];
+
+                    <li class="resource_card">
+                        <a href="/news/detail" class="resource_cover">
+                            <figure class="resource_img">
+                                <img src="@item.Image" alt="@item.ImageDescription" loading="lazy">
+                            </figure>
+                            <p class="post_title">@item.Label</p>
+                            <div class="post_meta">
+                                <span class="post_category">브로슈어</span>
+                                <time class="post_date">26-00-00</time>
+                            </div>
+                        </a>
+                        <button class="button download_preview" type="button" data-preview="첨부 PDF 원본이 제공되지 않아 다운로드는 연동 전입니다.">
+                            파일 다운로드
+                            <i class="svg_icon post_download_icon">
+                                <img src="/images/icon/post_download_icon.svg" alt="" aria-hidden="true">
+                            </i>
+                        </button>
+                    </li>
+                }
+            </ul>
+            <div class="search_more_wrap">
+                <button type="button" class="button search_more" aria-controls="search_resources_results" aria-label="자료실 한 줄 더보기">
+                    <span class="search_more_label">더보기</span>
+                    <i class="svg_icon" aria-hidden="true">
+                        <img src="/images/icon/add_icon.svg" alt="">
+                    </i>
+                </button>
+                <p class="sr_only search_more_status" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+    </div>
+</main>

@@ -1,0 +1,88 @@
+@using System.Text.Json
+@{
+    var root = Context.Request.Scheme + "://" + Context.Request.Host;
+    var current = root + Context.Request.Path;
+    var title = ViewData["Title"]?.ToString() ?? "LKB평산";
+    var description = ViewData["Description"]?.ToString() ?? "";
+    var kind = ViewData["SchemaType"]?.ToString() ?? "WebPage";
+    var organization = new Dictionary<string, object> {
+        ["@type"] = "LegalService",
+        ["@id"] = root + "/#organization",
+        ["name"] = "법무법인(유한) LKB평산",
+        ["url"] = root + "/",
+        ["logo"] = root + "/images/brand/lkb_logo_dark.svg",
+        ["telephone"] = "+82-2-582-8500",
+        ["address"] = new Dictionary<string, object> {
+            ["@type"] = "PostalAddress",
+        ["streetAddress"] = "반포대로30길 81 웅진타워 4층, 13층, 14층, 16층",
+            ["addressLocality"] = "서초구",
+        ["addressRegion"] = "서울",
+        ["addressCountry"] = "KR"
+        }
+    };
+    var webpage = new Dictionary<string, object> {
+        ["@type"] = "WebPage",
+        ["@id"] = current + "#webpage",
+        ["url"] = current,
+        ["name"] = title,
+        ["description"] = description,
+        ["inLanguage"] = "ko-KR",
+        ["isPartOf"] = new Dictionary<string, object> { ["@id"] = root + "/#website" },
+        ["publisher"] = new Dictionary<string, object> { ["@id"] = root + "/#organization" }
+    };
+    var graph = new List<object> {
+        organization,
+        new Dictionary<string, object> { ["@type"] = "WebSite",
+        ["@id"] = root + "/#website",
+        ["url"] = root + "/",
+        ["name"] = "법무법인 LKB평산",
+        ["inLanguage"] = "ko-KR" },
+        webpage,
+        new Dictionary<string, object> {
+            ["@type"] = "BreadcrumbList",
+            ["itemListElement"] = new object[] {
+                new Dictionary<string, object> { ["@type"] = "ListItem",
+        ["position"] = 1,
+        ["name"] = "홈",
+        ["item"] = root + "/" },
+                new Dictionary<string, object> { ["@type"] = "ListItem",
+        ["position"] = 2,
+        ["name"] = title,
+        ["item"] = current }
+            }
+        }
+    };
+    if (kind == "Person")
+    {
+        graph.Add(new Dictionary<string, object> {
+            ["@type"] = "Person",
+        ["@id"] = current + "#person",
+        ["name"] = "김희준",
+        ["jobTitle"] = "대표이사·변호사",
+            ["url"] = current,
+        ["image"] = root + "/images/members/member_19.png",
+            ["email"] = "hjkim@lkbps.com",
+        ["telephone"] = "+82-2-596-2107",
+            ["worksFor"] = new Dictionary<string, object> { ["@id"] = root + "/#organization" }
+        });
+    }
+    else if (kind == "Article")
+    {
+        graph.Add(new Dictionary<string, object> {
+            ["@type"] = "Article",
+        ["@id"] = current + "#article",
+        ["headline"] = title,
+        ["description"] = description,
+            ["inLanguage"] = "ko-KR",
+        ["mainEntityOfPage"] = current,
+            ["publisher"] = new Dictionary<string, object> { ["@id"] = root + "/#organization" }
+        });
+    }
+    else if (kind == "CollectionPage")
+    {
+        webpage["@type"] = "CollectionPage";
+    }
+    var schema = new Dictionary<string, object> { ["@context"] = "https://schema.org",
+        ["@graph"] = graph };
+}
+<script type="application/ld+json">@Html.Raw(JsonSerializer.Serialize(schema))</script>

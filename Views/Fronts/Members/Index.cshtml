@@ -1,0 +1,244 @@
+@{
+    ViewData["Title"] = "구성원 소개";
+    ViewData["Description"] = "변호사, 자문위원, 송무지원팀 등 사건 해결을 함께하는 법률 전문가를 소개합니다.";
+    ViewData["SchemaType"] = "CollectionPage";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // 선택 분야 표시 예시: 목록 필터링 없이 하드코딩으로 출력합니다.
+    var selectedFilters = new[] { "성범죄", "학교폭력" };
+
+
+    // 구성원 카드: 이메일이 없는 경우 해당 연락처 행을 생략합니다.
+    var members = new[]
+    {
+        new
+        {
+            Name = "강광민",
+            Role = "구성원변호사",
+            Email = "kmkang@lkbps.com",
+            Phone = "02-6953-7560",
+            Image = "/images/members/member_1.png"
+        },
+        new
+        {
+            Name = "강동신",
+            Role = "구성원변호사",
+            Email = "dskang@lkbps.com",
+            Phone = "010-6633-6465",
+            Image = "/images/members/member_2.png"
+        },
+        new
+        {
+            Name = "강두리",
+            Role = "구성원변호사",
+            Email = "drkang@lkbps.com",
+            Phone = "02-6956-0561",
+            Image = "/images/members/member_3.png"
+        },
+        new
+        {
+            Name = "강세현",
+            Role = "구성원변호사",
+            Email = "",
+            Phone = "02-6956-0563",
+            Image = "/images/members/member_4.png"
+        },
+        new
+        {
+            Name = "강찬우",
+            Role = "이사(이사회의장)",
+            Email = "cwkang@lkbps.com",
+            Phone = "02-2135-8003",
+            Image = "/images/members/member_5.png"
+        },
+        new
+        {
+            Name = "곽향기",
+            Role = "구성원변호사",
+            Email = "aromaeffort@lkbps.com",
+            Phone = "02-3476-3800",
+            Image = "/images/members/member_6.png"
+        },
+        new
+        {
+            Name = "구희승",
+            Role = "구성원변호사",
+            Email = "hskoo@lkbps.com",
+            Phone = "02-596-7007",
+            Image = "/images/members/member_7.png"
+        },
+        new
+        {
+            Name = "권나은",
+            Role = "구성원변호사",
+            Email = "nekwon@lkbps.com",
+            Phone = "02-596-7007",
+            Image = "/images/members/member_8.png"
+        },
+        new
+        {
+            Name = "권영실",
+            Role = "구성원변호사 (AI컨텐츠센터 센터장)",
+            Email = "kweon.youngsil@lkbps.com",
+            Phone = "02-3476-3800",
+            Image = "/images/members/member_9.png"
+        },
+        new
+        {
+            Name = "권유식",
+            Role = "구성원변호사 (자본시장센터 센터장)",
+            Email = "yskwon@lkbps.com",
+            Phone = "02-585-0023",
+            Image = "/images/members/member_10.png"
+        },
+        new
+        {
+            Name = "권태로",
+            Role = "구성원변호사",
+            Email = "kwontaero@lkbps.com",
+            Phone = "02-6204-0550",
+            Image = "/images/members/member_11.png"
+        },
+        new
+        {
+            Name = "권혁",
+            Role = "구성원변호사 (디지털자산센터 센터장)",
+            Email = "hkwon@lkbps.com",
+            Phone = "02-596-0308",
+            Image = "/images/members/member_12.png"
+        }
+    };
+
+}
+
+@section meta {
+    <title>구성원 소개 | 법무법인 LKB평산</title>
+    <meta name="Title" content="구성원 소개 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="변호사, 자문위원, 송무지원팀 등 사건 해결을 함께하는 법률 전문가를 소개합니다.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="구성원 소개">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="변호사, 자문위원, 송무지원팀 등 사건 해결을 함께하는 법률 전문가를 소개합니다.">
+    <meta property="og:url" content="@currentUrl">
+
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="구성원 소개">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="변호사, 자문위원, 송무지원팀 등 사건 해결을 함께하는 법률 전문가를 소개합니다.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/pages/members/index.css" asp-append-version="true">
+}
+
+<main id="main" class="sub_page static_list_page section">
+    <div class="page_heading container-md">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li aria-current="page">구성원</li>
+            </ol>
+        </nav>
+        <h1 class="section_scroll">구성원</h1>
+        <p class="section_scroll">다양한 분야의 경험과 전문성을 갖춘 LKB평산의 구성원을 소개합니다.</p>
+    </div>
+    <div class="list_search" role="search">
+        <label class="search_box">
+            <span class="sr_only">구성원을 검색해 주세요.</span>
+            <input type="search" name="q" placeholder="구성원을 검색해 주세요.">
+            <button type="button" aria-label="검색">
+                <i class="svg_icon search_icon">
+                    <img src="/images/icon/search_icon.svg" alt="">
+                </i>
+            </button>
+        </label>
+        <button class="button primary" type="button" data-dialog="filter_dialog">
+            분야별 찾기
+            <i class="svg_icon add_icon">
+                <img src="/images/icon/add_icon.svg" alt="" aria-hidden="true">
+            </i>
+        </button>
+    </div>
+    <div class="selected_filters" aria-live="polite">
+        <span>선택 분야 <b>@(selectedFilters.Length)개</b></span>
+        <div class="filter_chips">
+            @for (var i = 0; i < selectedFilters.Length; i++)
+            {
+                <button type="button" aria-label="@(selectedFilters[i]) 선택 해제">
+                    @selectedFilters[i]
+                    <i class="svg_icon chip_close_icon">
+                        <img src="/images/icon/chip_close_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </button>
+            }
+        </div>
+        <button type="button" class="filter_reset">
+            전체 해제
+            <i class="svg_icon reset_icon">
+                <img src="/images/icon/reset_icon.svg" alt="" aria-hidden="true">
+            </i>
+        </button>
+    </div>
+    <section class="container-md listing_section" aria-label="구성원 목록">
+        <p class="result_count" role="status">Total. <strong>12건</strong></p>
+        <ul class="member_grid">
+                @for (var i = 0; i < members.Length; i++)
+                {
+                    var member = members[i];
+
+                    <li class="member_card">
+                        <a href="/members/detail" aria-label="@(member.Name) 카드 — 대표 구성원 상세 미리보기">
+                            <div class="member_info">
+                                <h2>@member.Name</h2>
+                                <p>@member.Role</p>
+                                <dl>
+                                    @if (!string.IsNullOrWhiteSpace(member.Email))
+                                    {
+                                        <div>
+                                            <dt>M.</dt>
+                                            <dd>@member.Email</dd>
+                                        </div>
+                                    }
+                                    <div>
+                                        <dt>T.</dt>
+                                        <dd>@member.Phone</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                            <div class="member_portrait">
+                                <img src="@member.Image" alt="@(member.Name) 변호사" width="335" height="335" loading="lazy">
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        <partial name="Common/_Pagination" />
+    </section>
+</main>
+

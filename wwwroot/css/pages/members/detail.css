@@ -1,0 +1,734 @@
+/* Members/Detail: 프로필 · 목차 · 게시물 · 하단 연락처 */
+.site_header {
+    background: rgba(255, 255, 255, 0);
+}
+
+/*---------------- 스크롤 방향에 따른 헤더 ----------------*/
+.member_profile_page {
+    --profile-header-offset: var(--profile-header-height, 80px);
+}
+.member_profile_page.profile_header_hidden {
+    --profile-header-offset: 0px;
+}
+.member_profile_page .site_header {
+    transition: border .4s ease, background .4s ease, transform .25s ease;
+}
+.member_profile_page.profile_header_hidden .site_header:not(.menu_open):not(:focus-within) {
+    transform: translateY(-100%);
+}
+
+/*---------------- profile_hero ----------------*/
+.profile_hero {
+    height: 720px;
+    background: linear-gradient(#f2f5f9d9, #f2f5f9d9), url("/images/members/member_profile_bg.png") center / cover;
+    overflow: hidden;
+}
+.profile_hero > .container-md {
+    height: 100%;
+}
+.profile_hero .breadcrumb {
+    top: 130px;
+    z-index: 2;
+}
+
+/*-- profile_intro --*/
+.profile_intro {
+    position: relative;
+    z-index: 1;
+    padding-top: 200px;
+}
+
+.profile_intro > p {
+    color: var(--gray-400);
+    font-size: var(--ft20);
+    font-weight: var(--medium);
+}
+.profile_intro h1 {
+    margin: 10px 0 40px;
+    font-size: var(--ft60);
+    font-weight: var(--semi-bold);
+}
+.profile_intro dl {
+    display: grid;
+    gap: 14px;
+    font-size: var(--ft18);
+}
+.profile_intro dl > div {
+    display: flex;
+    gap: 24px;
+}
+.profile_intro dt {
+    width: 38px;
+    font-weight: var(--medium);
+}
+.profile_intro dd {
+    color: var(--gray-400);
+}
+
+.profile_actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 120px;
+}
+.profile_download {
+    min-height: 54px;
+    padding: 16px 20px;
+    gap: 10px;
+    font-size: var(--ft16);
+    font-weight: var(--semi-bold);
+}
+.button .svg_icon.profile_download_icon {
+    width: 15px;
+    height: 15px;
+}
+
+/*-- profile_channels --*/
+.profile_channels {
+    display: flex;
+    gap: 8px;
+}
+
+.profile_channel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+.profile_channel .svg_icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: .5;
+    transition: opacity .4s ease;
+}
+.profile_channel .svg_icon:hover {
+    opacity: 1;
+}
+
+.profile_channel_label {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    color: var(--gray-400);
+    font-size: var(--ft14);
+    font-weight: var(--medium);
+    transition: opacity .2s ease;
+}
+.profile_channel:hover .profile_channel_label,
+.profile_channel:focus-visible .profile_channel_label {
+    opacity: 1;
+}
+
+.profile_portrait {
+    position: absolute;
+    width: 620px;
+    height: 620px;
+    bottom: 0;
+    right: 24px;
+    object-fit: contain;
+    object-position: bottom;
+}
+
+/*---------------- profile_nav: 헤더가 같은 상단 위치에서 목차를 덮습니다. ----------------*/
+.profile_nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 50px;
+    height: 70px;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--gray-200);
+    background: var(--white);
+}
+.profile_nav a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    color: var(--gray-400);
+    font-size: var(--ft16);
+    font-weight: var(--normal);
+}
+.profile_nav a::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 -1px;
+    height: 2px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: transform .2s ease;
+}
+.profile_nav a:hover,
+.profile_nav a.active {
+    color: var(--primary);
+}
+.profile_nav a.active {
+    font-weight: var(--semi-bold);
+}
+.profile_nav a.active::after {
+    transform: scaleX(1);
+}
+
+/*---------------- profile_columns ----------------*/
+.profile_columns {
+    margin-top: 100px;
+    margin-bottom: 160px;
+}
+.profile_columns .article_body > section {
+    scroll-margin-top: 94px;
+    margin-bottom: 80px;
+}
+.profile_columns .article_body > section:last-child {
+    margin-bottom: 0;
+}
+.profile_columns .article_body .profile_greeting {
+    font-size: var(--ft22);
+    font-weight: var(--semi-bold);
+}
+
+/*-- section_heading --*/
+.profile_columns .section_heading {
+    align-items: flex-end;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--gray-200);
+}
+.profile_columns .section_heading.mb0 {
+    margin-bottom: 0;
+}
+.profile_columns .section_heading h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.profile_columns .section_heading .button {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    gap: 8px;
+    color: var(--gray-300);
+    font-size: var(--ft14);
+    font-weight: var(--semi-bold);
+    transition: color .4s ease;
+}
+.profile_columns .section_heading .button:hover {
+    color: var(--primary);
+}
+.profile_columns .section_heading .svg_icon {
+    width: 16px;
+    height: 16px;
+}
+
+/*-- bullet_list--*/
+.profile_columns .bullet_list li {
+    position: relative;
+    margin: 0 0 10px;
+    padding-left: 20px;
+    color: var(--gray-500);
+    font-size: var(--ft18);
+    font-weight: var(--normal);
+}
+.profile_columns .bullet_list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--gray-200);
+}
+
+/* 더보기 */
+.expand_button {
+    justify-content: space-between;
+    width: 120px;
+    min-height: 50px;
+    margin-top: 28px;
+    padding: 11px 11px 11px 20px;
+    color: var(--gray-300);
+    font-size: var(--ft14);
+    font-weight: var(--semi-bold);
+}
+.profile_expand_icon {
+    width: 16px;
+    height: 16px;
+    transition: transform .2s ease;
+}
+.expand_button[aria-expanded="true"] .profile_expand_icon {
+    transform: rotate(45deg);
+}
+.profile_columns .related_practice {
+    top: calc(max(var(--profile-header-offset), 70px) + 28px);
+    transition: top .25s ease;
+}
+
+
+/*---------------- 최근 업무사례 · 소식 · 언론보도 ----------------*/
+
+/* 업무사례 */
+.compact_cases li {
+    border-bottom: 1px solid var(--gray-200);
+}
+.compact_cases li > a {
+    padding: 24px 0;
+}
+.compact_cases li:first-child > a {
+    padding-top: 28px;
+}
+
+.profile_columns .profile_case_meta {
+    display: flex;
+    gap: 6px;
+    margin: 0;
+    color: var(--gray-400);
+    font-size: var(--ft16);
+    font-weight: var(--medium);
+}
+.profile_case_result {
+    color: var(--primary);
+    font-weight: var(--semi-bold);
+}
+.profile_columns .compact_cases .post_title {
+    margin: 18px 0 0;
+    color: var(--gray-500);
+    font-size: var(--ft18);
+    font-weight: var(--semi-bold);
+}
+.profile_columns .compact_cases .post_excerpt {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    margin: 18px 0 0;
+    color: var(--gray-400);
+    font-size: var(--ft16);
+}
+.profile_columns .post_date {
+    display: block;
+    margin-top: 24px;
+    color: var(--gray-300);
+    font-size: var(--ft16);
+    font-weight: var(--normal);
+}
+
+.profile_columns .news_list,
+.profile_columns .media_list {
+    border-top: 0;
+}
+.profile_columns .news_row > a,
+.profile_columns .media_row > a {
+    padding: 24px 0;
+}
+.profile_columns .news_row .post_title,
+.profile_columns .media_row .post_title {
+    margin: 0;
+    color: var(--gray-500);
+    font-size: var(--ft18);
+    font-weight: var(--semi-bold);
+}
+
+.profile_columns .news_row .post_date,
+.profile_columns .media_row .post_date {
+    margin-top: 18px;
+}
+
+.profile_columns .media_row > a {
+    gap: 24px;
+}
+
+.profile_columns .media_img {
+    width: 130px;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+.profile_columns .media_img img {
+    object-fit: cover;
+}
+
+.profile_columns .media_row .post_content {
+    padding-top: 0;
+}
+
+.profile_columns .compact_cases a:hover .post_title,
+.profile_columns .news_row a:hover .post_title,
+.profile_columns .media_row a:hover .post_title {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/*---------------- profile_bar ----------------*/
+.profile_bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 11;
+    background: linear-gradient(#152533d9, #152533d9), url("/images/members/member_profile_bg.png") center / cover;
+    color: var(--white);
+}
+
+.profile_bar_inner {
+    display: flex;
+    align-items: center;
+    max-width: 1568px;
+    min-height: 70px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.profile_bar_identity {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px;
+    height: 70px;
+    padding-right: 40px;
+    border-left: 1px solid var(--white-200);
+    border-right: 1px solid var(--white-200);
+}
+.profile_bar_photo {
+    width: 70px;
+    height: 70px;
+    margin-right: 6px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+.profile_bar_photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom;
+}
+.profile_bar_identity div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.profile_bar_identity strong {
+    font-size: var(--ft18);
+    font-weight: var(--semi-bold);
+}
+.profile_bar_identity span {
+    font-size: var(--ft13);
+    font-weight: var(--medium);
+}
+
+.profile_bar_contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+    margin-left: 40px;
+    font-size: var(--ft16);
+}
+.profile_bar_contact > div {
+    display: flex;
+    gap: 16px;
+}
+.profile_bar_contact dt {
+    font-weight: var(--medium);
+}
+
+.profile_bar_actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 10px;
+    margin-left: auto;
+    padding-left: 24px;
+}
+.profile_bar_download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 40px;
+    padding: 12px 20px;
+    background: var(--white-200);
+    font-size: var(--ft15);
+    font-weight: var(--medium);
+    white-space: nowrap;
+}
+.profile_bar_download .svg_icon {
+    width: 18px;
+    height: 18px;
+}
+
+.profile_bar_share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+}
+.profile_link_dark_icon {
+    width: 18px;
+    height: 18px;
+    padding: 2px;
+}
+
+@media (max-width: 1400px) {
+    /*-- profile_hero --*/
+    .profile_portrait {
+        right: 0;
+        width: 550px;
+    }
+
+    .profile_bar_identity {
+        padding-right: 20px;
+    }
+
+    .profile_bar_contact {
+        margin-left: 20px;
+        gap: 12px 20px;
+        font-size: var(--ft14);
+    }
+}
+
+@media (max-width: 1200px) {
+    /*-- profile_hero --*/
+    .profile_hero {
+        height: 600px;
+    }
+    .profile_intro {
+        padding-top: 140px;
+    }
+    .profile_intro h1 {
+        font-size: var(--ft50);
+    }
+    .profile_actions {
+        margin-top: 80px;
+    }
+    .profile_download {
+        display: none;
+    }
+    .profile_portrait {
+        width: 55%;
+        max-width: 500px;
+    }
+
+    /*-- profile_nav --*/
+    .profile_nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 24px;
+        scrollbar-width: none;
+    }
+    .profile_nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    /*-- profile_bar --*/
+    .profile_bar_contact .profile_bar_fax {
+        display: none;
+    }
+    .profile_bar_identity {
+        border: none;
+    }
+    .profile_bar_photo {
+        display: none;
+    }
+    .profile_bar_contact {
+        display: grid;
+        gap: 4px;
+    }
+}
+
+@media (max-width: 767px) {
+    .member_profile_page {
+        --profile-header-offset: var(--profile-header-height, 72px);
+    }
+
+    .member_profile_page.profile_header_hidden {
+        --profile-header-offset: 0px;
+    }
+
+    /*-- profile_hero --*/
+    .profile_hero {
+        height: auto;
+    }
+    .profile_hero .breadcrumb {
+        top: 70px;
+        left: auto;
+        right: 20px;
+        justify-content: end;
+    }
+    .profile_intro {
+        padding-top: 80px;
+    }
+    .profile_intro > p {
+        font-size: var(--ft16);
+    }
+    .profile_intro h1 {
+        margin-bottom: 18px;
+        font-size: var(--ft40);
+    }
+    .profile_intro dl {
+        gap: 10px;
+        font-size: var(--ft16);
+    }
+    .profile_actions {
+        gap: 10px;
+        margin-top: 16px;
+    }
+
+    .profile_channels {
+        gap: 4px;
+    }
+    .profile_channel {
+        width: 40px;
+        height: 40px;
+    }
+    .profile_channel .svg_icon {
+        width: 36px;
+        height: 36px;
+    }
+    .profile_portrait {
+        width: 100%;
+        max-width: 100%;
+        height: 320px;
+        position: relative;
+    }
+
+    /*-- profile_nav --*/
+    .profile_nav {
+        height: 50px;
+        padding: 0 24px;
+    }
+    .profile_nav a {
+        font-size: var(--ft14);
+    }
+
+    /*-- profile_columns --*/
+    .profile_columns .section_heading {
+        margin-bottom: 18px;
+        padding-bottom: 18px;
+    }
+    .profile_columns {
+        margin-top: 50px;
+        margin-bottom: 70px;
+    }
+    .profile_columns .article_body > section {
+        margin-bottom: 60px;
+    }
+    .profile_columns .bullet_list li {
+        font-size: var(--ft16);
+        padding-left: 10px;
+    }
+    .profile_columns .bullet_list li::before {
+        width: 4px;
+        height: 4px;
+        top: 8px;
+    }
+    .profile_columns .compact_cases .post_title,
+    .profile_columns .compact_cases .post_excerpt {
+        margin: 10px 0;
+    }
+
+    .profile_columns .news_row > a,
+    .profile_columns .media_row > a {
+        padding: 18px 0;
+    }
+    .profile_columns .compact_cases .post_title,
+    .profile_columns .news_row .post_title,
+    .profile_columns .media_row .post_title {
+        font-size: var(--ft16);
+    }
+    .profile_columns .post_date,
+    .profile_columns .news_row .post_date,
+    .profile_columns .media_row .post_date {
+        margin-top: 10px;
+    }
+    .profile_columns .media_row > a {
+        gap: 16px;
+    }
+    .profile_columns .media_img {
+        width: 100px;
+    }
+
+    /* 더보기 */
+    .expand_button {
+        width: 100%;
+        margin-top: 16px;
+    }
+    .expand_button.button .svg_icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    /*-- profile_bar --*/
+    .profile_bar {
+        bottom: 54px;
+    }
+    .profile_bar_inner {
+        min-height: 50px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        padding: 10px 16px;
+        gap: 0 10px;
+    }
+    .profile_bar_identity {
+        height: fit-content;
+        padding: 0;
+        gap: 6px;
+        border: 0;
+    }
+    .profile_bar_identity strong {
+        font-size: var(--ft16);
+    }
+    .profile_bar_identity > span {
+        font-size: var(--ft12);
+    }
+
+    .profile_bar_contact {
+        display: none;
+    }
+    .profile_bar_actions {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 0;
+        gap: 6px;
+    }
+    .profile_bar_download {
+        height: 34px;
+        padding: 8px;
+        font-size: var(--ft12);
+    }
+    .profile_bar_download .svg_icon {
+        width: 12px;
+        height: 12px;
+    }
+    .profile_bar_share {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .member_profile_page .quick_menu .back_top {
+        bottom: 124px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .member_profile_page .site_header,
+    .profile_nav,
+    .profile_nav a::after,
+    .profile_columns .related_practice,
+    .profile_channel_label,
+    .profile_expand_icon {
+        transition: none;
+    }
+}

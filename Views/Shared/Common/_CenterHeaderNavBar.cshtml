@@ -1,0 +1,169 @@
+@{
+    // 센터 전용 메뉴 · 공통 언어 선택
+    var centerNavigation = new[]
+    {
+        new
+        {
+            Name = "구성원",
+            Url = "/members",
+            Children = new[]
+            {
+                new { Name = "구성원", Url = "/members" }
+            }
+        },
+        new
+        {
+            Name = "소식/자료",
+            Url = "/news",
+            Children = new[]
+            {
+                new { Name = "법인소식", Url = "/news" },
+                new { Name = "자료실", Url = "/resources" },
+                new { Name = "미디어", Url = "/media" }
+            }
+        },
+        new
+        {
+            Name = "업무사례",
+            Url = "/cases",
+            Children = new[]
+            {
+                new { Name = "업무사례", Url = "/cases" }
+            }
+        },
+        new
+        {
+            Name = "상담신청",
+            Url = "/consultation",
+            Children = new[]
+            {
+                new { Name = "상담신청", Url = "/consultation" }
+            }
+        }
+    };
+    var languages = new[] { "한국어", "English", "中文", "日本語", "Tiếng Việt" };
+    var quickLinks = new[]
+    {
+        new { Name = "상담신청", Url = "/consultation", Icon = "consultation_icon.svg", External = false },
+        new { Name = "카톡문의", Url = "https://pf.kakao.com/_xgkxfHn/chat", Icon = "kakaotalk_icon.svg", External = true },
+        new { Name = "오시는길", Url = "/contact", Icon = "location_icon.svg", External = false }
+    };
+}
+
+<header class="site_header header_overlay center_header">
+    <a class="brand center_brand" href="/center" aria-label="LKB평산 중대재해센터 홈">
+        <img class="center_brand_logo" src="/images/members/center_logo.svg" alt="법무법인 LKB평산 중대재해센터">
+    </a>
+    <nav class="desktop_nav" aria-label="센터 메뉴">
+        <ul>
+            @for (var i = 0; i < centerNavigation.Length; i++)
+            {
+                var item = centerNavigation[i];
+
+                <li>
+                    <a href="@item.Url">@item.Name</a>
+                    <ul>
+                        @for (var j = 0; j < item.Children.Length; j++)
+                        {
+                            var link = item.Children[j];
+
+                            <li>
+                                <a href="@link.Url">@link.Name</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+    </nav>
+    <div class="header_tools">
+        <a class="center_phone" href="tel:025828500">
+            <span>전화상담</span>
+            <span>02-582-8500</span>
+        </a>
+        <div class="language_wrap">
+            <button type="button" class="outlined language_toggle" aria-expanded="false" aria-controls="language_list">
+                <i class="svg_icon language_icon" aria-hidden="true">
+                    <img src="/images/icon/language_icon.svg" alt="">
+                </i>
+                KO
+            </button>
+            <ul id="language_list" hidden>
+                @for (var i = 0; i < languages.Length; i++)
+                {
+                    <li>
+                        <button type="button" data-preview="@(languages[i]) 번역 페이지는 연동 전입니다.">@languages[i]</button>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    @* 모바일 메뉴는 기본 헤더의 데스크톱 메뉴가 숨겨지는 폭에서만 표시합니다. *@
+    <nav class="center_mobile_nav" aria-label="센터 모바일 메뉴">
+        <ul>
+            @for (var i = 0; i < centerNavigation.Length; i++)
+            {
+                var item = centerNavigation[i];
+
+                <li>
+                    @if (item.Children.Length > 1)
+                    {
+                        <details>
+                            <summary>@item.Name</summary>
+                            <ul>
+                                @for (var j = 0; j < item.Children.Length; j++)
+                                {
+                                    var link = item.Children[j];
+
+                                    <li>
+                                        <a href="@link.Url">@link.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </details>
+                    }
+                    else
+                    {
+                        <a href="@item.Url">@item.Name</a>
+                    }
+                </li>
+            }
+        </ul>
+    </nav>
+</header>
+<aside class="quick_menu center_quick_menu" aria-label="센터 빠른 메뉴">
+    <ul class="quick_list">
+        @for (var i = 0; i < quickLinks.Length; i++)
+        {
+            var item = quickLinks[i];
+
+            <li class="quick_btn">
+                <a href="@item.Url" target="@(item.External ? "_blank" : null)" rel="@(item.External ? "noopener noreferrer" : null)">
+                    <i class="quick_menu_icon">
+                        <i class="svg_icon" aria-hidden="true">
+                            <img src="/images/icon/@item.Icon" alt="">
+                        </i>
+                    </i>
+                    <p class="quick_menu_text">@item.Name</p>
+                </a>
+            </li>
+        }
+        @* 임시 다운로드: PDF 전달 후 href와 download 파일명만 교체합니다. *@
+        <li class="quick_btn">
+            <a href="/images/brand/lkb_logo_dark.svg" download="lkb_logo_dark.svg" aria-label="브로슈어 다운로드 (임시 로고 파일)">
+                <i class="quick_menu_icon">
+                    <i class="svg_icon" aria-hidden="true">
+                        <img src="/images/icon/brochure_icon.svg" alt="">
+                    </i>
+                </i>
+                <p class="quick_menu_text">브로슈어</p>
+            </a>
+        </li>
+    </ul>
+    <button type="button" class="back_top" aria-label="맨 위로">
+        <i class="svg_icon caret_down_icon" aria-hidden="true">
+            <img src="/images/icon/caret_down_icon.svg" alt="">
+        </i>
+    </button>
+</aside>
+@await Html.PartialAsync("~/Views/Shared/Common/_FamilyDialog.cshtml")

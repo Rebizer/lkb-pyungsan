@@ -1,0 +1,648 @@
+@{
+    ViewData["Title"] = "김희준 대표이사";
+    ViewData["Description"] = "김희준 LKB평산 대표이사의 소개, 학력, 경력, 주요 수행사례 및 연락처를 안내합니다.";
+    ViewData["SchemaType"] = "Person";
+    ViewData["BodyClass"] = "member_profile_page";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // dl 반복 콘텐츠
+    var dlItems1 = new[]
+    {
+        new
+        {
+            Label = "Mail.",
+            Url = "mailto:hjkim@lkbps.com",
+            Label2 = "hjkim@lkbps.com"
+        },
+        new
+        {
+            Label = "Tel.",
+            Url = "tel:025962107",
+            Label2 = "02-596-2107"
+        }
+    };
+
+    // 기존 LKB평산 사이트에서 확인한 공식 채널
+    var profileChannels = new[]
+    {
+        new { Name = "블로그", Icon = "profile_blog_icon.svg", Url = "https://blog.naver.com/lkblawfirm" },
+        new { Name = "페이스북", Icon = "profile_facebook_icon.svg", Url = "https://www.facebook.com/lkbnpartners.lawfirm" },
+        new { Name = "인스타그램", Icon = "profile_instagram_icon.svg", Url = "https://www.instagram.com/lkbpyeongsan/reels/" }
+    };
+
+    // profile_nav 반복 콘텐츠
+    var profileNavItems2 = new[]
+    {
+        new
+        {
+            Url = "#intro",
+            Label = "소개"
+        },
+        new
+        {
+            Url = "#education",
+            Label = "학력"
+        },
+        new
+        {
+            Url = "#career",
+            Label = "경력"
+        },
+        new
+        {
+            Url = "#papers",
+            Label = "논문"
+        },
+        new
+        {
+            Url = "#performance",
+            Label = "주요수행사례"
+        },
+        new
+        {
+            Url = "#recent_cases",
+            Label = "최근 업무사례"
+        },
+        new
+        {
+            Url = "#recent_news",
+            Label = "최근 소식"
+        },
+        new
+        {
+            Url = "#recent_media",
+            Label = "언론보도"
+        }
+    };
+
+    // bullet_list 반복 콘텐츠
+    var bulletListItems3 = new[]
+    {
+        new
+        {
+            Text = "1984 광주석산고등학교 졸업"
+        },
+        new
+        {
+            Text = "1988 전남대학교 법학과 졸업"
+        },
+        new
+        {
+            Text = "1995 전남대학교 대학원 법학과 졸업(석사, 형사법전공)"
+        },
+        new
+        {
+            Text = "2001 미국 UC 버클리대 연수(첨단범죄 연구)"
+        },
+        new
+        {
+            Text = "2008 KAIST 경영대학원 AIM(최고경영자 과정 수료)"
+        },
+        new
+        {
+            Text = "2007 연세대학교 언론홍보대학원 최고위 과정 수료"
+        },
+        new
+        {
+            Text = "2009 대한상사중재원 최고위 과정 수료"
+        }
+    };
+
+    // bullet_list 반복 콘텐츠
+    var bulletListItems4 = new[]
+    {
+        new
+        {
+            Text = "1990 사법시험 합격(제32회)"
+        },
+        new
+        {
+            Text = "1993 사법연수원 수료(22기)"
+        },
+        new
+        {
+            Text = "1996 대구지검 경주지청 검사"
+        },
+        new
+        {
+            Text = "1998 광주지검 강력부 검사"
+        },
+        new
+        {
+            Text = "2000 서울지검 강력부 검사"
+        },
+        new
+        {
+            Text = "2003 대검찰청 검찰연구관(범죄정보기획관실 - 특수, 금융, 조직범죄)"
+        },
+        new
+        {
+            Text = "2006 청주지검 부장검사(공안, 기획)"
+        }
+    };
+
+    // bullet_list 반복 콘텐츠
+    var bulletListItems5 = new[]
+    {
+        new
+        {
+            Text = "2007 헌법재판소 연구관(헌법소송)"
+        },
+        new
+        {
+            Text = "2009 법무부 국가송무과장(헌법소송, 국가소송, 행정소송)"
+        },
+        new
+        {
+            Text = "2018. 2. 법무법인 엘케이비앤파트너스 구성원 변호사"
+        },
+        new
+        {
+            Text = "2024. 10. 법무법인(유한) 엘케이비앤파트너스 이사"
+        },
+        new
+        {
+            Text = "2025. 7. 법무법인(유한) 엘케이비평산 대표이사"
+        }
+    };
+
+    // bullet_list 반복 콘텐츠
+    var bulletListItems6 = new[]
+    {
+        new
+        {
+            Text = "기업인 배임죄에 관한 연구(법무연수원)"
+        },
+        new
+        {
+            Text = "배임죄에 있어서 타인의 사무를 처리하는 자(석사학위논문) 변칙담보와 배임죄"
+        },
+        new
+        {
+            Text = "사이버 범죄의 개념과 대응방안(해외연수검사 논문)"
+        },
+        new
+        {
+            Text = "표현의 자유와 사이버모욕죄(공법연구회)"
+        }
+    };
+
+    // bullet_list 반복 콘텐츠
+    var bulletListItems7 = new[]
+    {
+        new
+        {
+            Text = "아파트개발사업 현장의 철거사업권을 주겠다고 거짓말하여 8억원을 편취한 혐의(특경사기)로 기소된 사건에서 고소인 주장의 허구성을 효율적으로 입증하여 1심부터 항소심까지 모두 무죄를 선고받아 확정시킴(2021~2022)"
+        },
+        new
+        {
+            Text = "보이스피싱 범죄로 1심에서 징역 3년 6월 선고받아 구속된 사건의 항소심과 상고심을 변론하여 관여 사실이 없음을 효율적으로 입증해 무죄선고 받음(2021-2022)"
+        },
+        new
+        {
+            Text = "회사자금을 함부로 대여해 약 21억원의 손해를 가한 혐의(특경법상 배임)로 1심에서 징역 3년 선고된 상장사 대표 사건 항소심을 변론하여 경영상 판단이었음을 입증하여 무죄 선고받음(2018)"
+        }
+    };
+
+    // compact_cases 반복 콘텐츠
+    var compactCasesItems8 = new[]
+    {
+        new
+        {
+            Category = "성범죄",
+            Result = "무죄 및 집행유예",
+            Title = "성폭력처벌법 위반 등 다수 혐의 사건에서 무죄 및 집행유예 선고 사례",
+            Description2 = "성폭력처벌법 위반 및 위계공무집행방해 등 여러 혐의로 기소된 형사사건에서 피고인을 변호하여, 성적목적다중이용장소침입, 카메라등이용촬영·반포"
+        },
+        new
+        {
+            Category = "민사",
+            Result = "승소",
+            Title = "한국미술협회 임원선거 피선거권 존재 확인 및 항소기각 성공",
+            Description2 = "제25대 임원선거를 앞두고 피고 한국미술협회가 원고들의 입후보를 제한한 사안에서, 원고들의 피선거권이 존재함을 확인받았습니다. 피고가 이에 불복하여 항소하였으나,"
+        },
+        new
+        {
+            Category = "영업비밀/IP",
+            Result = "구속영장 기각",
+            Title = "부정경쟁방지법위반(영업비밀누설등)·업무상배임·업무상횡령 영장 기각 사례",
+            Description2 = "의뢰인들은 국내 한 반도체 관련 소모품 제조업체의 직원들이었습니다. 해외 경쟁사로 이직한 전 직원의 요청에 따라 회사 자료를 전달한 일 등으로 영업비밀 누설,"
+        }
+    };
+
+    // news_list 반복 콘텐츠
+    var newsListItems9 = new[]
+    {
+        new
+        {
+            Category = "위촉업무",
+            Title = "[송시현변호사] 2026대한변호사협회 ESG특별위원회위원 위촉",
+            Description = "위촉 "
+        },
+        new
+        {
+            Category = "공지사항",
+            Title = "LKB평산 국제센터 윤웅걸, 이예지, 이진서, 강두리 변호사 제24차 2026 세계한상대회 참여",
+            Description = "공지사항 "
+        },
+        new
+        {
+            Category = "공지사항",
+            Title = "[방송출연] 김희준 대표이사 kbc 광주방송 휴먼토크 <호남호남인> 출연",
+            Description = "공지사항 "
+        }
+    };
+
+    // media_list 반복 콘텐츠
+    var mediaListItems10 = new[]
+    {
+        new
+        {
+            Image = "/images/news/drug_crime_prime_minister.png",
+            ImageDescription = "[서울경제] 金총리 “마약 범죄, 청년미래 갉아먹어”…치밀한 단속 주문",
+            Title = "[서울경제] 金총리 “마약 범죄, 청년미래 갉아먹어”…치밀한 단속 주문"
+        },
+        new
+        {
+            Image = "/images/news/drug_investigation_response.png",
+            ImageDescription = "[연합뉴스] 마약 범죄 수사와 대응",
+            Title = "[연합뉴스] 마약 범죄 수사와 대응"
+        },
+        new
+        {
+            Image = "/images/news/firm_criminal_defense_team.png",
+            ImageDescription = "[중앙일보] [로펌] 검찰 요직 출신 대거 영입…형사·기업 수사 대응 고도화",
+            Title = "[중앙일보] [로펌] 검찰 요직 출신 대거 영입…형사·기업 수사 대응 고도화"
+        }
+    };
+}
+
+@section meta {
+    <title>김희준 대표이사 | 법무법인 LKB평산</title>
+    <meta name="Title" content="김희준 대표이사 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="김희준 LKB평산 대표이사의 소개, 학력, 경력, 주요 수행사례 및 연락처를 안내합니다.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="김희준 대표이사">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="김희준 LKB평산 대표이사의 소개, 학력, 경력, 주요 수행사례 및 연락처를 안내합니다.">
+    <meta property="og:url" content="@currentUrl">
+    
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="김희준 대표이사">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="김희준 LKB평산 대표이사의 소개, 학력, 경력, 주요 수행사례 및 연락처를 안내합니다.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="/css/editor.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/news/detail_common.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/news/index.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/pages/members/detail.css" asp-append-version="true">
+}
+
+@section scripts {
+    <script src="~/js/pages/members/detail.js" asp-append-version="true"></script>
+}
+
+<main id="main" class="member_detail_page">
+    <section class="profile_hero">
+        <div class="container-md">
+            <nav class="breadcrumb" aria-label="현재 위치">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/members">구성원</a></li>
+                </ol>
+            </nav>
+            <div class="profile_intro">
+                <p>대표이사</p>
+                <h1>김희준</h1>
+                <dl>
+                    @for (var i = 0; i < dlItems1.Length; i++)
+                    {
+                        var item = dlItems1[i];
+
+                        <div>
+                            <dt>@item.Label</dt>
+                            <dd><a href="@item.Url">@item.Label2</a></dd>
+                        </div>
+                    }
+                    <div>
+                        <dt>Fax.</dt>
+                        <dd>02-596-3319</dd>
+                    </div>
+                </dl>
+                <div class="profile_actions">
+                    <a class="button primary profile_download" href="/downloads/kim-hee-jun.vcf" download>
+                        연락처 저장 (VCF)
+                        <i class="svg_icon profile_download_icon" aria-hidden="true">
+                            <img src="/images/icon/profile_download_icon.svg" alt="">
+                        </i>
+                    </a>
+                    <ul class="profile_channels" aria-label="프로필 공유 및 개인 채널">
+                        <li>
+                            <button type="button" class="share_button profile_channel" aria-label="프로필 주소 공유">
+                                <i class="svg_icon profile_link_icon" aria-hidden="true">
+                                    <img src="/images/icon/profile_link_icon.svg" alt="">
+                                </i>
+                                <span class="profile_channel_label">주소 공유</span>
+                            </button>
+                        </li>
+                        @for (var i = 0; i < profileChannels.Length; i++)
+                        {
+                            var channel = profileChannels[i];
+
+                            <li>
+                                <a class="profile_channel" href="@channel.Url" target="_blank" rel="noopener noreferrer" aria-label="@(channel.Name) (새 창)">
+                                    <i class="svg_icon @(System.IO.Path.GetFileNameWithoutExtension(channel.Icon))" aria-hidden="true">
+                                        <img src="/images/icon/@channel.Icon" alt="">
+                                    </i>
+                                    <span class="profile_channel_label">@channel.Name</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <img class="profile_portrait" src="/images/members/member_19.png" alt="김희준 대표이사" width="620" height="620" fetchpriority="high">
+        </div>
+    </section>
+    <nav class="profile_nav" aria-label="프로필 목차">
+        @for (var i = 0; i < profileNavItems2.Length; i++)
+        {
+            var item = profileNavItems2[i];
+
+            <a class="@(i == 0 ? "active" : "")" href="@item.Url" aria-current="@(i == 0 ? "location" : null)">@item.Label</a>
+        }
+    </nav>
+    <div class="container-md article_columns profile_columns">
+        <article class="article_body">
+            <section id="intro">
+                <h2 class="profile_greeting">안녕하세요 김희준 대표변호사입니다.</h2>
+                <div class="ck-content">
+                    <p>저는 검사와 변호사로서 오랫동안 쌓아 온 풍부한 경험과 노하우로 의뢰인의 권익보호를 위해 최선을 다하겠습니다. 형사, 민사, 행정 등 모든 법률 분야에서 최상의 결과로 보답드리겠습니다.</p>
+                    <p>김희준 변호사는 사법연수원을 22기로 마친 뒤 법무부, 대검찰청, 서울중앙지검, 광주지검 등 검찰의 중요부서에서 약 22년 동안 부장검사, 지청장, 차장검사 등으로 근무하면서 뛰어난 성과를 보여주었습니다.</p>
+                    <p>검사로 재직시 금융, 특수, 조직범죄, 마약수사 분야에서 두각을 나타내 언론의 스포트라이트를 많이 받았습니다. 특히 상장사 관련 각종 금융사건, 연예계 금품수수 비리, 공무원 뇌물사건, 한전입찰비리 등 특수 및 금융사건과 물뽕(GHB) 최초적발, 프로포폴 최초수사, 연예인과 화이트칼라 마약 사범 대거적발 등 마약 사건에서 괄목할만한 성과를 보여주었습니다.</p>
+                    <p>또한 검찰 재직시 헌법재판소 연구관과 법무부 국가송무과장으로도 근무하면서 각종 헌법소송, 국가소송, 행정소송 분야에서도 다양한 경험과 깊이 있는 전문성을 쌓았습니다.</p>
+                    <p>변호사 개업 이후에는 자본시장법 위반, 상장사 경영권 분쟁사건, 각종 재산범죄, 마약사건 등 다양한 분야를 변론하면서 좋은 성과를 이어가고 있습니다. 특히 옵티머스 펀드 사건에서 피해자들을 대리하여 사모펀드 사상 최초로 전액배상 결정을 이끌어 냈습니다.</p>
+                    <p>기업 분쟁 분야에 관심이 높아 '기업인 배임죄에 관한 연구' 등 배임죄 관련 논문을 다수 집필하였고, 각종 법적 이슈와 관련하여 다수의 칼럼과 언론 인터뷰를 하는 등 많은 활약을 하고 있습니다.</p>
+                </div>
+            </section>
+            <section id="education">
+                <div class="section_heading">
+                    <h2>학력</h2>
+                </div>
+                <ul class="bullet_list">
+                    @for (var i = 0; i < bulletListItems3.Length; i++)
+                    {
+                        var item = bulletListItems3[i];
+
+                        <li>@item.Text</li>
+                    }
+                </ul>
+            </section>
+            <section id="career">
+                <div class="section_heading">
+                    <h2>경력</h2>
+                </div>
+                <ul class="bullet_list expandable">
+                    @for (var i = 0; i < bulletListItems4.Length; i++)
+                    {
+                        var item = bulletListItems4[i];
+
+                        <li>@item.Text</li>
+                    }
+                    @for (var i = 0; i < bulletListItems5.Length; i++)
+                    {
+                        var item = bulletListItems5[i];
+
+                        <li class="extra_item" hidden="">@item.Text</li>
+                    }
+                </ul>
+                <button type="button" class="button expand_button" aria-expanded="false">
+                    <span class="expand_label">더보기</span>
+                    <i class="svg_icon profile_expand_icon">
+                        <img src="/images/icon/profile_expand_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </button>
+            </section>
+            <section id="papers">
+                <div class="section_heading">
+                    <h2>논문</h2>
+                </div>
+                <ul class="bullet_list">
+                    @for (var i = 0; i < bulletListItems6.Length; i++)
+                    {
+                        var item = bulletListItems6[i];
+
+                        <li>@item.Text</li>
+                    }
+                </ul>
+            </section>
+            <section id="performance">
+                <div class="section_heading">
+                    <h2>주요수행사례</h2>
+                </div>
+                <ul class="bullet_list expandable">
+                    @for (var i = 0; i < bulletListItems7.Length; i++)
+                    {
+                        var item = bulletListItems7[i];
+
+                        <li>@item.Text</li>
+                    }
+                    <li class="extra_item" hidden="">피고인들은 해외 법인에서 허위 임직원 대출을 받은 후 이를 제3자에게 전달하였다는 등의 이유로 업무상횡령 및 범인도피 혐의로 기소되어 1심에서 유죄 판결을 받았습니다. 이에 항소심에서 임직원 대출금에 관한 업무상횡령죄의 성립 여부를 다투었고, 항소심 법원은 해당 대출금이 피고인들이 보관하던 타인의 재물이라고 보기 어렵다고 판단하여 이 부분 공소사실에 대하여 무죄를 선고하였습니다. 다만 일부 회사자금 지출 관련 업무상횡령 및 범인도피 혐의는 유죄로 인정되었으나, 실형 1년의 원심판결을 파기하고 피고인들에게 각 징역 1년에 집행유예 3년을 선고하였습니다.</li>
+                </ul>
+                <button type="button" class="button expand_button" aria-expanded="false">
+                    <span class="expand_label">더보기</span>
+                    <i class="svg_icon profile_expand_icon">
+                        <img src="/images/icon/profile_expand_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </button>
+            </section>
+            <section id="recent_cases">
+                <div class="section_heading mb0">
+                    <h2>최근 업무사례</h2>
+                    <a class="button" href="/cases">
+                        더보기
+                        <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                            <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </a>
+                </div>
+                <ul class="compact_cases">
+                    @for (var i = 0; i < compactCasesItems8.Length; i++)
+                    {
+                        var item = compactCasesItems8[i];
+
+                        <li>
+                            <a href="/cases/detail">
+                                <p class="profile_case_meta">
+                                    <span>@item.Category</span>
+                                    <span class="profile_case_result">@item.Result</span>
+                                </p>
+                                <p class="post_title">@item.Title</p>
+                                <p class="post_excerpt">@item.Description2</p>
+                                <time class="post_date">26-00-00</time>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </section>
+            <section id="recent_news">
+                <div class="section_heading mb0">
+                    <h2>최근 소식</h2>
+                    <a class="button" href="/news">
+                        더보기
+                        <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                            <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </a>
+                </div>
+                <ul class="news_list">
+                    @for (var i = 0; i < newsListItems9.Length; i++)
+                    {
+                        var item = newsListItems9[i];
+
+                        <li class="news_row">
+                            <a href="/news/detail">
+                                <p class="post_title">@item.Title</p>
+                                <time class="post_date">26-00-00</time>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </section>
+            <section id="recent_media">
+                <div class="section_heading mb0">
+                    <h2>언론보도</h2>
+                    <a class="button" href="/media">
+                        더보기
+                        <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                            <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </a>
+                </div>
+                <ul class="media_list">
+                    @for (var i = 0; i < mediaListItems10.Length; i++)
+                    {
+                        var item = mediaListItems10[i];
+
+                        <li class="media_row">
+                            <a href="/news/detail">
+                                <figure class="media_img">
+                                    <img src="@item.Image" alt="@item.ImageDescription" loading="lazy">
+                                </figure>
+                                <div class="post_content">
+                                    <p class="post_title">@item.Title</p>
+                                    <time class="post_date">26-00-00</time>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </section>
+        </article>
+        <aside class="article_aside">
+            <div class="related_practice">
+                <h2 class="aside_heading">
+                    관련 업무분야
+                    <a href="/practice">
+                        더보기
+                        <i class="svg_icon arrow_hover_icon arrow_more_icon">
+                            <img src="/images/icon/arrow_more_icon.svg" alt="" aria-hidden="true">
+                        </i>
+                    </a>
+                </h2>
+                <dl>
+                    <div>
+                        <dt>분야별
+                            <i class="svg_icon arrow_hover_icon practice_chevron_icon">
+                                <img src="/images/icon/practice_chevron_icon.svg" alt="" aria-hidden="true">
+                            </i>
+                        </dt>
+                        <dd><a href="/practice/detail">형사</a><a href="/practice/detail">노사/중대재해</a><a href="/practice/detail">부동산금융/개발</a></dd>
+                    </div>
+                    <div>
+                        <dt>센터별
+                            <i class="svg_icon arrow_hover_icon practice_chevron_icon">
+                                <img src="/images/icon/practice_chevron_icon.svg" alt="" aria-hidden="true">
+                            </i>
+                        </dt>
+                        <dd><a href="/center">재판소원센터</a><a href="/center">노동센터</a><a href="/center">부동산개발법센터</a><a href="/center">수사대응센터</a></dd>
+                    </div>
+                </dl>
+                <a class="button" href="/consultation">
+                    상담 신청하기
+                    <i class="svg_icon arrow_right_icon">
+                        <img src="/images/icon/arrow_right_icon.svg" alt="" aria-hidden="true">
+                    </i>
+                </a>
+            </div>
+        </aside>
+    </div>
+    <div class="profile_bar" aria-label="변호사 연락처">
+        <div class="profile_bar_inner">
+            <a class="profile_bar_identity" href="#main" aria-label="김희준 대표이사 프로필 상단으로 이동">
+                <figure class="profile_bar_photo">
+                    <img src="/images/members/member_19.png" alt="김희준 대표이사" width="70" height="70">
+                </figure>
+                <div>
+                    <strong>김희준</strong>
+                    <span>대표이사</span>
+                </div>
+            </a>
+            <dl class="profile_bar_contact">
+                @for (var i = 0; i < dlItems1.Length; i++)
+                {
+                    var item = dlItems1[i];
+
+                    <div>
+                        <dt>@item.Label</dt>
+                        <dd><a href="@item.Url">@item.Label2</a></dd>
+                    </div>
+                }
+                <div class="profile_bar_fax">
+                    <dt>Fax.</dt>
+                    <dd>02-596-3319</dd>
+                </div>
+            </dl>
+            <div class="profile_bar_actions">
+                <a class="profile_bar_download" href="/downloads/kim-hee-jun.vcf" download>
+                    연락처(VCF)
+                    <i class="svg_icon profile_download_icon" aria-hidden="true">
+                        <img src="/images/icon/profile_download_icon.svg" alt="">
+                    </i>
+                </a>
+                <button type="button" class="share_button profile_bar_share" aria-label="프로필 주소 공유">
+                    <i class="svg_icon profile_link_dark_icon" aria-hidden="true">
+                        <img src="/images/icon/profile_link_dark_icon.svg" alt="">
+                    </i>
+                </button>
+            </div>
+        </div>
+    </div>
+</main>

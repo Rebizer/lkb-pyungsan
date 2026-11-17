@@ -1,0 +1,170 @@
+@{
+    ViewData["Title"] = "법인소식";
+    ViewData["Description"] = "LKB평산의 새로운 소식과 주요 활동을 전합니다.";
+    ViewData["SchemaType"] = "CollectionPage";
+    ViewData["BodyClass"] = "";
+    var realUrl = Context.Request.Scheme + "://" + Context.Request.Host;
+    var currentUrl = realUrl + Context.Request.Path;
+
+    // 법인소식 목록 데이터
+    var newsItems = new[]
+    {
+        new
+        {
+            Title = "[송시현변호사] 2026대한변호사협회 ESG특별위원회위원 위촉",
+            Category = "위촉",
+            Date = "26-00-00"
+        },
+        new
+        {
+            Title = "LKB평산 국제센터 윤웅걸, 이예지, 이진서, 강두리 변호사 제24차 2026 세계한상대회 참여",
+            Category = "공지사항",
+            Date = "26-00-00"
+        },
+        new
+        {
+            Title = "[방송출연] 김희준 대표이사 kbc 광주방송 휴먼토크 <호남호남인> 출연",
+            Category = "공지사항",
+            Date = "26-00-00"
+        },
+        new
+        {
+            Title = "[업무협약] 「LKB평산」, 「한국중독예방센터」와 업무협약 체결",
+            Category = "공지사항",
+            Date = "26-00-00"
+        },
+        new
+        {
+            Title = "「보이스 피싱 범죄의 유형 분석과 피해구제 실무」─ 이형구, 박병규 변호사 공저 출간",
+            Category = "공지사항",
+            Date = "26-00-00"
+        },
+        new
+        {
+            Title = "[강두리 변호사] 2026금융위원회 법률자문위원 위촉",
+            Category = "위촉",
+            Date = "26-00-00"
+        },
+        new
+        {
+            Title = "[황우진 대표변호사] 한국실업배드민턴연맹 법률고문 위촉",
+            Category = "위촉",
+            Date = "26-00-00"
+        },
+        new
+        {
+            Title = "[이정미 변호사] 2026 국토교통부 도시개발위원회 위원 위촉",
+            Category = "위촉",
+            Date = "26-00-00"
+        },
+        new
+        {
+            Title = "[이정미 변호사] 대한변호사협회 K-기업거버넌스 특별위원회 위원 임명",
+            Category = "위촉",
+            Date = "26-00-00"
+        },
+        new
+        {
+            Title = "[이정미 변호사] 2026 지방시대위원회 권한이양특례 전문위원회 위원 위촉",
+            Category = "위촉",
+            Date = "26-00-00"
+        }
+    };
+
+}
+
+@section meta {
+    <title>법인소식 | 법무법인 LKB평산</title>
+    <meta name="Title" content="법인소식 | 법무법인 LKB평산">
+    <link rel="canonical" href="@currentUrl">
+    <meta name="description" content="LKB평산의 새로운 소식과 주요 활동을 전합니다.">
+    <meta name="application-name" content="법무법인 LKB평산">
+    <meta name="robots" content="index,follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="법무법인 LKB평산">
+    @await Html.PartialAsync("~/Views/Shared/Common/_Schema.cshtml")
+}
+@section ogtags {
+    <meta property="og:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="법인소식">
+    <meta property="og:site_name" content="법무법인 LKB평산">
+    <meta property="og:description" content="LKB평산의 새로운 소식과 주요 활동을 전합니다.">
+    <meta property="og:url" content="@currentUrl">
+
+    <meta name="twitter:image" content="@(realUrl)/images/home/home_hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="법인소식">
+    <meta name="twitter:site" content="법무법인 LKB평산">
+    <meta name="twitter:description" content="LKB평산의 새로운 소식과 주요 활동을 전합니다.">
+    <meta name="twitter:url" content="@currentUrl">
+}
+
+@section headtag {
+    @Html.Raw(ViewBag.companymodel.HeadTag)
+}
+
+@section headtagnext {
+    @Html.Raw(ViewBag.companymodel.HeadNextTag)
+}
+
+@section scripttag {
+    @Html.Raw(ViewBag.companymodel.ScriptTag)
+}
+
+@section css {
+    <link rel="stylesheet" href="~/css/pages/news/index.css" asp-append-version="true">
+}
+
+<main id="main" class="sub_page static_list_page section">
+    <div class="page_heading container-md">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>소식/자료</li>
+                <li aria-current="page">법인소식</li>
+            </ol>
+        </nav>
+        <h1 class="section_scroll">법인소식</h1>
+        <p class="section_scroll">LKB평산의 새로운 소식과 주요 활동을 전합니다.</p>
+    </div>
+    <div class="list_search" role="search">
+        <label class="search_box">
+            <span class="sr_only">게시물을 검색해 주세요.</span>
+            <input type="search" name="q" placeholder="게시물을 검색해 주세요.">
+            <button type="button" aria-label="검색">
+                <i class="svg_icon search_icon">
+                    <img src="/images/icon/search_icon.svg" alt="">
+                </i>
+            </button>
+        </label>
+    </div>
+    <section class="container-md listing_section">
+        <nav class="category_tabs" aria-label="분류">
+            <button type="button" class="active" aria-pressed="true">전체</button>
+            <button type="button" class="" aria-pressed="false">공지사항</button>
+            <button type="button" class="" aria-pressed="false">세미나</button>
+            <button type="button" class="" aria-pressed="false">위촉업무</button>
+        </nav>
+        <p class="result_count" role="status">Total. <strong>10건</strong></p>
+        <ul class="news_list">
+            @for (var i = 0; i < newsItems.Length; i++)
+            {
+                var item = newsItems[i];
+
+                <li class="news_row">
+                    <a href="/news/detail">
+                        <p class="post_title">@if(i < 3){<strong>공지</strong>}@item.Title</p>
+                        <div class="post_meta">
+                            <span class="post_category">@item.Category</span>
+                            <time class="post_date">@item.Date</time>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+        <partial name="Common/_Pagination" />
+    </section>
+</main>
+
