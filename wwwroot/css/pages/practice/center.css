@@ -3,10 +3,6 @@
 }
 
 /*---------------- center_page ----------------*/
-.center_content {
-    max-width: 1568px;
-}
-
 .center_page .section_heading {
     align-items: flex-end;
 }
